@@ -1,0 +1,69 @@
+@use './_vars.scss' as *;
+
+@mixin mediaMobile () {
+  @media screen and (min-width: $mobile) {
+    @content
+  }
+};
+
+@mixin mediaTablet () {
+  @media screen and (min-width: $tablet) {
+    @content
+  }
+};
+@mixin mediaLaptop () {
+  @media screen and (min-width: $laptop) {
+    @content
+  }
+};
+@mixin mediaDesktop () {
+  @media screen and (min-width: $desktop) {
+    @content
+  }
+};
+@mixin mediaDesktopWide () {
+  @media screen and (min-width: $desktopWide) {
+    @content
+  }
+};
+
+// @mixin txt_monrope ($size, $weight, $height, $color) {
+//   font-family: $ff_monrope;
+//   font-size: $size;
+//   font-weight: $weight;
+//   line-height: $height;
+//   color: $color;
+// }
+
+
+// @mixin txt_mulish ($size, $weight, $height, $color) {
+//   font-family: $ff_mulish;
+//   font-size: $size;
+//   font-weight: $weight;
+//   line-height: $height;
+//   color: $color;
+// }
+
+// @mixin txt_europe_ext ($size, $weight, $height, $color) {
+//   font-family: $ff_europe;
+//   font-size: $size;
+//   font-weight: $weight;
+//   line-height: $height;
+//   color: $color;
+// }
+
+// @mixin txt_montserrat ($size, $weight, $height, $color) {
+//   font-family: $ff_montserrat;
+//   font-size: $size;
+//   font-weight: $weight;
+//   line-height: $height;
+//   color: $color;
+// }
+
+// @mixin text_overflow($count) {
+//   display: -webkit-box;
+//   -webkit-box-orient: vertical;
+//   -webkit-line-clamp: $count;
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+// }
