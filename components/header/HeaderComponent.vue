@@ -52,7 +52,7 @@ function handleScroll() {
             src="/header-logo.png"
             alt="Логотип"
           />
-          <span class="header-content__tablet-logo-text">AlfaSMS</span>
+          <span class="header-content__tablet-logo-text">ALFASMS</span>
         </NuxtLink>
         <div class="header-content__tablet-menu">
           <div class="header-content__tablet-menu-list">
@@ -68,24 +68,29 @@ function handleScroll() {
         </div>
         <div class="header-content__tablet-actions"></div>
         <div class="header-content__tablet-btn-group">
-          <BaseButton label="Войти" size="sm" color="gray" />
-          <BaseButton label="Регистрация" size="sm" color="red" />
+          <BaseButton class="header-content__tablet-btn-group-login" label="Войти" size="md" color="gray" />
+          <BaseButton class="header-content__tablet-btn-group-register" label="Регистрация" size="md" color="red" />
         </div>
       </div>
     </div>
   </header>
 </template>
 <style lang="scss" scoped>
-// .header_scrolled .header-content__tablet-menu-list-link {
-//   color: $txt;
-// }
-
 .header_scrolled {
   .header-content__tablet-menu-list-link {
     color: $txt;
+    transition: color $fast_ease;
+
+    &:hover{
+      color: $teal
+    }
   }
   .header-content__tablet-logo-text{
     color: $txt;
+  }
+  .header-content__tablet-btn-group-login{
+    color: $txt;
+    background-color: rgba(0, 0, 0, .06);
   }
 }
 
@@ -143,7 +148,7 @@ function handleScroll() {
         align-items: center;
         gap: 2px;
         &-img {
-          width: 80px;
+          width: 60px;
           height: auto;
           filter: drop-shadow( 0px 4px 4px rgba(0, 0, 0, 0.25));
         }
@@ -164,6 +169,7 @@ function handleScroll() {
             cursor: pointer;
             color: $txt_white;
             transition: all $fast_ease;
+            font-size: 15px;
 
             &:hover {
               opacity: 0.7;
@@ -173,7 +179,14 @@ function handleScroll() {
       }
       &-btn-group {
         display: flex;
+        align-items: center;
         gap: 10px;
+
+        &-login, &-register {
+          font-size: 14px;
+
+        }
+
       }
     }
   }

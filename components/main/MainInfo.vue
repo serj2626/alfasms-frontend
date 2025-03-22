@@ -55,9 +55,9 @@ const acions: IAction[] = [
           </li>
         </ul>
       </div>
-      <div class="main-info__content-products">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque natus
-        libero molestias nemo maiores omnis alias voluptas, porro nobis quisquam
+      <div class="main-info__content-services">
+        <div class="main-info__content-services-bg"></div>
+        <Icon name="heroicons:arrow-right" />
       </div>
     </div>
   </section>
@@ -103,7 +103,16 @@ const acions: IAction[] = [
       }
     }
 
-    &-products {
+    &-services {
+      position: relative;
+      top: -40px;
+
+      padding: 8px;
+      background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.16) 0,
+        rgba(255, 255, 255, 0.08) 100%
+      );
     }
   }
 }

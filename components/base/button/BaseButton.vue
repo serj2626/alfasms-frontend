@@ -20,7 +20,7 @@ const props = defineProps<IButton>();
       { 'base-button-fill_disabled': disabled },
     ]"
   >
-    <NuxtIcon v-if="icon" :name="icon" filled />
+    <Icon v-if="icon" :name="icon" filled />
     <span class="base-button-fill__title">{{ label }}</span>
   </div>
 </template>

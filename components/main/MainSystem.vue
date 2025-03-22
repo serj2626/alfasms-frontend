@@ -1,0 +1,107 @@
+<script lang="ts" setup>
+import { HeroIcons } from "~/assets/icons/types/hero-icons";
+</script>
+<template>
+  <section id="main-system" class="main-system container">
+    <div class="main-system__info">
+      <h2 class="main-system__info-title">
+        Объедините все коммуникации и автоматизируйте прохождение контактов
+        воронкой продаж
+      </h2>
+      <p class="main-system__info-descr">
+        Чтобы сформировать безупречный пользовательский опыт и продать, важно
+        аккумулировать всю информацию о клиенте в одной системе. Это позволяет:
+      </p>
+    </div>
+    <div class="main-system__info-list">
+      <div class="main-system__info-list-item">
+        <div class="main-system__info-list-item-icon">
+          <Icon :name="HeroIcons.CHECK" />
+        </div>
+        <p class="main-system__info-list-item-text">
+          автоматически отправлять персонализированные предложения в наиболее
+          подходящий момент в удобный канал;
+        </p>
+      </div>
+      <div class="main-system__info-list-item">
+        <div class="main-system__info-list-item-icon">
+          <Icon :name="HeroIcons.CHECK" />
+        </div>
+        <p class="main-system__info-list-item-text">
+          быть на связи в любом мессенджере и в онлайн-чате на сайте без
+          переключения между интерфейсами и учетными записями;
+        </p>
+      </div>
+      <div class="main-system__info-list-item">
+        <div class="main-system__info-list-item-icon">
+          <Icon :name="HeroIcons.CHECK" />
+        </div>
+
+        <p class="main-system__info-list-item-text">
+          иметь под рукой историю сделок и взаимодействия с каждым контактом,
+          чтобы формировать персонализированные воронки продаж и повышать
+          конверсии.
+        </p>
+      </div>
+    </div>
+  </section>
+</template>
+<style lang="scss" scoped>
+.main-system {
+  padding-bottom: 140px;
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 60px;
+    max-width: 750px;
+    margin-inline: auto;
+
+    &-title {
+      text-align: center;
+      font-size: 38px;
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 30px;
+    }
+
+    &-descr {
+      font-size: 20px;
+      line-height: 1.5;
+    }
+
+    &-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+
+      &-item {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        &-icon {
+          width: 40px;
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: #def8f8;
+          border-radius: 50%;
+
+          .iconify{
+            width: 20px;
+            height: 20px;
+            color: #31c178;
+          }
+        }
+
+        &-text {
+          font-size: 18px;
+          line-height: 1.6;
+        }
+      }
+    }
+  }
+}
+</style>

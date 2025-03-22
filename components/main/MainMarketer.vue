@@ -157,7 +157,7 @@
 
   &__title {
     font-size: 48px;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.2;
     text-align: center;
     margin-bottom: 80px;
@@ -168,7 +168,6 @@
 
     flex-flow: wrap;
     justify-content: center;
-    align-items: center;
     gap: 60px;
 
     &-item {
@@ -181,6 +180,7 @@
       }
 
       &-rating {
+        flex:1;
         display: flex;
         justify-content: center;
         align-items: center;
