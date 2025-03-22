@@ -5,4 +5,5 @@ export const enum HeroIcons {
   LANGUAGE = "i-heroicons-globe-alt",
   MAIL = "i-heroicons-envelope",
   SEARCH = "i-heroicons-magnifying-glass",
+  BURGER_MENU = "i-heroicons-bars-3",
 }

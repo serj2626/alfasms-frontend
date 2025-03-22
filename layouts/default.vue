@@ -1,7 +1,6 @@
 <template>
-  <UContainer>
+  <HeaderComponent />
         <slot />
-  </UContainer>
 </template>
 
 <script lang="ts" setup>

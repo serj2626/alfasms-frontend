@@ -3,8 +3,7 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
   css: ['@/assets/scss/global.scss'],
-  modules: ['@nuxt/eslint', '@nuxt/icon', '@nuxt/image',
-     '@nuxt/ui', '@pinia/nuxt'],
+  modules: ['@nuxt/eslint', '@nuxt/icon', '@nuxt/image', '@pinia/nuxt', 'nuxt-swiper'],
   pinia: {
     storesDirs: ["./stores/**"]
   },
@@ -18,8 +17,8 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/png', href: '/fav/logo.png', sizes: '96x96' },
         { rel: 'icon', type: 'image/svg+xml', href: '/public/fav/favicon.svg' },
         { rel: 'shortcut icon', href: '/public/fav/favicon.ico' },
-        { rel: 'apple-touch-icon', sizes: '180x180', href: '/public/fav/apple-touch-icon.png' },
-        { rel: 'manifest', href: '/public/fav/site.webmanifest' },
+        // { rel: 'apple-touch-icon', sizes: '180x180', href: '/public/fav/apple-touch-icon.png' },
+        // { rel: 'manifest', href: '/public/fav/site.webmanifest' },
       ],
       meta: [
         { name: "msapplication-TileColor", content: "#da532c"},

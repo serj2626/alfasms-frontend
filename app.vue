@@ -3,6 +3,4 @@
     <NuxtLoadingIndicator />
     <NuxtPage />
   </NuxtLayout>
-  <UModals />
-  <UNotifications />
 </template>
