@@ -9,21 +9,16 @@ interface IButton {
 }
 
 const props = defineProps<IButton>();
-
-
-const classBtn = computed(() => {
-  return {
-    "base-button__red": props.color === "red",
-    "base-button__green": props.color === "green",
-    "base-button__gray": props.color === "gray",
-  };
-})
-
 </script>
 
 <template>
-  <div :class="['base-button', 
-    { 'base-button-fill_disabled': disabled }]"
+  <div
+    :class="[
+      'base-button',
+      `base-button__${color}`,
+      `base-button__${size}`,
+      { 'base-button-fill_disabled': disabled },
+    ]"
   >
     <NuxtIcon v-if="icon" :name="icon" filled />
     <span class="base-button-fill__title">{{ label }}</span>
@@ -40,6 +35,7 @@ const classBtn = computed(() => {
   border-radius: $btn_radius;
   border: 1px solid transparent;
   transition: all $fast_ease;
+  width: fit-content;
 
   cursor: pointer;
 
@@ -56,8 +52,21 @@ const classBtn = computed(() => {
     color: $txt_white;
   }
   &__gray {
-    background-color: $btn_gray;
+    // background-color: $btn_gray;
+    background-color: rgba(255, 255, 255, .12);
     color: $txt_white;
+  }
+
+  &__sm {
+    padding: 6px 12px;
+  }
+
+  &__md {
+    padding: 8px 16px;
+  }
+
+  &__lg {
+    padding: 16px 28px;
   }
 }
 </style>

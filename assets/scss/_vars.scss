@@ -3,7 +3,7 @@ $ff_main: "Onest AlfaSMS", sans-serif;
 $ff_second: "Nunito AlfaSMS", sans-serif;
 
 // Easing
-$default_cubic: 0.7s cubic-bezier(0.3, 0.6, 0.67, 0.83);
+$default_cubic: 0.2s cubic-bezier(0.3, 0.6, 0.67, 0.83);
 $cubic_long: 1.2s cubic-bezier(0.645, 0.045, 0.355, 1);
 $default_ease: 0.6s ease;
 $fast_ease: 0.2s ease;
@@ -26,7 +26,8 @@ $btn_blue: #688fa1;
 $bg_gray: #e6ecec;
 $btn_green: #31b58e;
 
-$bg: linear-gradient(112.45deg, #5d03d0 37.25%, #464ff7 63.35%, #5d03d0 79%);
+$bg_white: #fbfcfc;
+$bg_linear: linear-gradient(112.45deg, #5d03d0 37.25%, #464ff7 63.35%, #5d03d0 79%);
 
 // Brakepoints
 $mobile: 350px;

@@ -4,6 +4,8 @@ body {
   font-family: $ff_main, $ff_second, sans-serif;
   font-size: 16px;
   font-weight: 400;
+  line-height: 125%;
+  background-color: $bg_white;
 }
 
 .container {
@@ -17,7 +19,7 @@ body {
   }
 
   @include mediaDesktop() {
-    padding: 0 90px;
-    max-width: 1600px;
+    padding: 0 100px;
+    max-width: 1480px;
   }
 }

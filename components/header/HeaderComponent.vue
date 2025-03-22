@@ -8,6 +8,19 @@ const links = ref([
   { name: "Партнеры", to: "/contacts" },
   { name: "Запросить демо", to: "/contacts" },
 ]);
+
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
+});
+
+function handleScroll() {
+  let header = document.querySelector(".header");
+  if (window.scrollY > 0) {
+    header?.classList.add("header_scrolled");
+  } else {
+    header?.classList.remove("header_scrolled");
+  }
+}
 </script>
 <template>
   <header class="header">
@@ -33,12 +46,13 @@ const links = ref([
         </button>
       </div> -->
       <div class="header-content__tablet">
-        <NuxtLink to="/">
+        <NuxtLink class="header-content__tablet-logo" to="/">
           <img
-            class="header-content__tablet-logo"
-            src="/fav/logo.png"
+            class="header-content__tablet-logo-img"
+            src="/header-logo.png"
             alt="Логотип"
           />
+          <span class="header-content__tablet-logo-text">AlfaSMS</span>
         </NuxtLink>
         <div class="header-content__tablet-menu">
           <div class="header-content__tablet-menu-list">
@@ -54,23 +68,51 @@ const links = ref([
         </div>
         <div class="header-content__tablet-actions"></div>
         <div class="header-content__tablet-btn-group">
-          <button class="header-content__tablet-btn-login">Войти</button>
-          <button class="header-content__tablet-btn-register">
-            Регистрация
-          </button>
+          <BaseButton label="Войти" size="sm" color="gray" />
+          <BaseButton label="Регистрация" size="sm" color="red" />
         </div>
       </div>
     </div>
   </header>
 </template>
 <style lang="scss" scoped>
+// .header_scrolled .header-content__tablet-menu-list-link {
+//   color: $txt;
+// }
+
+.header_scrolled {
+  .header-content__tablet-menu-list-link {
+    color: $txt;
+  }
+  .header-content__tablet-logo-text{
+    color: $txt;
+  }
+}
+
 .header {
-  padding-top: 4px;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 100;
+
+  &_scrolled {
+    padding-top: 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-color: $txt_white;
+    animation: show-scroll $default_cubic;
+  }
+
+  @keyframes show-scroll {
+    0% {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
   &-content {
     &__mobile {
@@ -96,12 +138,25 @@ const links = ref([
       }
 
       &-logo {
-        width: 80px;
-        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+        &-img {
+          width: 80px;
+          height: auto;
+          filter: drop-shadow( 0px 4px 4px rgba(0, 0, 0, 0.25));
+        }
+        &-text {
+          color: $txt_white;
+          text-transform: uppercase;
+        }
       }
 
       &-menu {
         &-list {
+          padding-left: 5px;
+          flex-grow: 1;
           display: flex;
           gap: 40px;
 
@@ -115,6 +170,10 @@ const links = ref([
             }
           }
         }
+      }
+      &-btn-group {
+        display: flex;
+        gap: 10px;
       }
     }
   }
@@ -136,5 +195,4 @@ const links = ref([
 }
 .header-content__tablet-btn-register {
 }
-
 </style>

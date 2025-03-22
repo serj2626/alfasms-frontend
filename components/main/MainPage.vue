@@ -2,7 +2,8 @@
 <template>
   <div id="main-page" class="main-page">
     <MainInfo />
-    <section id="main-marketer" class="main-page__marketer"></section>
+    <MainMarketer />
+    <MainPartners />
     <section id="main-instruments" class="main-page__instruments"></section>
     <section id="main-platform" class="main-page__platform"></section>
     <section id="main-opportunities" class="main-page__opportunities"></section>

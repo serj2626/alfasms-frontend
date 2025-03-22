@@ -1,4 +1,32 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { HeroIcons } from "~/assets/icons/types/hero-icons";
+interface IAction {
+  icon: string;
+  title: string;
+}
+const acions: IAction[] = [
+  {
+    icon: HeroIcons.MAIL,
+    title: "15 000 электронных писем",
+  },
+  {
+    icon: HeroIcons.MAIL,
+    title: "3 бесплатных чат-бота",
+  },
+  {
+    icon: HeroIcons.MAIL,
+    title: "Бесплатный конструктор лендингов",
+  },
+  {
+    icon: HeroIcons.MAIL,
+    title: "CRM система",
+  },
+  {
+    icon: HeroIcons.MAIL,
+    title: "Без банковской карты",
+  },
+];
+</script>
 <template>
   <section id="main-info" class="main-info">
     <div class="main-info__content container">
@@ -12,13 +40,25 @@
         </p>
         <BaseButton
           class="main-info__content-desc-btn"
-          size="md"
+          size="lg"
           color="red"
           label="Попробовать бесплатно"
         />
-        <div class="main-info__content-desc-actions"></div>
+        <ul class="main-info__content-desc-actions">
+          <li
+            class="main-info__content-desc-actions-item"
+            v-for="(action, index) in acions"
+            :key="index"
+          >
+            <NuxtIcon :name="action.icon" />
+            {{ action.title }}
+          </li>
+        </ul>
       </div>
-      <div class="main-info__content-products"></div>
+      <div class="main-info__content-products">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque natus
+        libero molestias nemo maiores omnis alias voluptas, porro nobis quisquam
+      </div>
     </div>
   </section>
 </template>
@@ -26,18 +66,40 @@
 <style lang="scss" scoped>
 .main-info {
   padding-block: 200px;
-  background: $bg;
+  background: $bg_linear;
 
   &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
     color: $txt_white;
     &-desc {
+      padding-inline: 15px;
       &-title {
         font-size: 48px;
+        font-weight: 700;
         margin-bottom: 30px;
+        line-height: 110%;
       }
       &-text {
         font-size: 18px;
         margin-bottom: 50px;
+      }
+      &-btn {
+        font-size: 18px;
+        margin-bottom: 30px;
+      }
+      &-actions {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 5px;
+
+        &-item {
+          width: 222px;
+          margin-bottom: 10px;
+          display: flex;
+        }
       }
     }
 
