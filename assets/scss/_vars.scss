@@ -31,10 +31,10 @@ $btn_green: #31b58e;
 
 $bg_white: #fbfcfc;
 $bg_linear: linear-gradient(112.45deg, #5d03d0 37.25%, #464ff7 63.35%, #5d03d0 79%);
-$bg_linear_second: linear-gradient(112.45deg, #5d03d0 37.25%, #464ff7 63.35%, #5d03d0 79%);
+$bg_linear_second: linear-gradient(190deg, #0f849eaf, #009ec1c3), url(bg/bg.png);
 
 // Brakepoints
 $mobile: 350px;
 $tablet: 768px;
-$laptop: 1280px;
-$desktop: 1600px;
+$laptop: 1024px;
+$desktop: 1440px;

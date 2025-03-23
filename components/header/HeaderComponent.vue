@@ -1,12 +1,20 @@
 <script lang="ts" setup>
 import { HeroIcons } from "~/assets/icons/types/hero-icons";
-const links = ref([
-  { name: "Возможности", to: "/services" },
-  { name: "Цены", to: "/prices" },
-  { name: "Поддержка", to: "/specialists" },
-  { name: "Ресурсы", to: "/portfolio" },
-  { name: "Партнеры", to: "/contacts" },
-  { name: "Запросить демо", to: "/contacts" },
+
+interface IHeaderLinks {
+  name: string;
+  to: string;
+  icon: boolean;
+  view?: string;
+}
+
+const links = ref<IHeaderLinks[]>([
+  { name: "Возможности", to: "/", icon: true, view: "features" },
+  { name: "Цены", to: "/", icon: false },
+  { name: "Поддержка", to: "/", icon: false },
+  { name: "Ресурсы", to: "/", icon: true, view: "resources" },
+  { name: "Партнеры", to: "/", icon: true, view: "partners" },
+  { name: "Запросить демо", to: "/", icon: false },
 ]);
 
 onMounted(() => {
@@ -21,6 +29,10 @@ function handleScroll() {
     header?.classList.remove("header_scrolled");
   }
 }
+
+const showMessage = () => {
+  alert("Скоро");
+};
 </script>
 <template>
   <header class="header">
@@ -38,7 +50,7 @@ function handleScroll() {
         <button class="header-content__mobile-burger">
           <Icon
             class="header-content__mobile-burger-icon"
-            size="24"
+            size="36"
             :name="HeroIcons.BURGER_MENU"
           />
         </button>
@@ -54,16 +66,37 @@ function handleScroll() {
         </NuxtLink>
         <div class="header-content__tablet-menu">
           <div class="header-content__tablet-menu-list">
-            <NuxtLink
+            <div
+              class="header-content__tablet-menu-list-item"
               v-for="link in links"
               :key="link.name"
-              to="/"
-              class="header-content__tablet-menu-list-link"
+              @mouseenter="link.icon && showMessage()"
             >
-              {{ link.name }}
-            </NuxtLink>
+              <NuxtLink
+                to="/"
+                class="header-content__tablet-menu-list-item-link"
+              >
+                {{ link.name }}
+              </NuxtLink>
+              <Icon
+                class="header-content__tablet-menu-list-item-icon"
+                v-if="link.icon"
+                :name="HeroIcons.DOWN"
+              />
+              <!-- <div style="display: none">adssadsadsadsadasdsad</div> -->
+            </div>
           </div>
         </div>
+        <div class="header-content__tablet-search-language">
+          <button class="btn__search">
+            <Icon :name="HeroIcons.SEARCH" size="20" />
+          </button>
+          <div class="btn__language">
+            <Icon :name="HeroIcons.LANGUAGE" size="20" />
+            <Icon :name="HeroIcons.DOWN" />
+          </div>
+        </div>
+
         <div class="header-content__tablet-actions"></div>
         <div class="header-content__tablet-btn-group">
           <BaseButton
@@ -85,7 +118,15 @@ function handleScroll() {
 </template>
 <style lang="scss" scoped>
 .header_scrolled {
-  .header-content__tablet-menu-list-link {
+  .header-content__tablet-menu-list-item-link {
+    color: $txt;
+    transition: color $fast_ease;
+
+    &:hover {
+      color: $teal;
+    }
+  }
+  .header-content__tablet-menu-list-item {
     color: $txt;
     transition: color $fast_ease;
 
@@ -99,6 +140,22 @@ function handleScroll() {
   .header-content__tablet-btn-group-login {
     color: $txt;
     background-color: rgba(0, 0, 0, 0.06);
+  }
+  .btn__search {
+    transition: color $fast_ease;
+    color: $txt;
+    &:hover {
+      color: $teal;
+    }
+  }
+
+  .btn__language {
+    transition: all $fast_ease;
+    color: $txt;
+    :hover {
+      outline: 11px solid $teal;
+      color: $teal;
+    }
   }
 }
 
@@ -132,7 +189,7 @@ function handleScroll() {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 5px 0;
+      padding: 10px 0;
 
       @include mediaLaptop {
         display: none;
@@ -155,7 +212,6 @@ function handleScroll() {
       }
 
       &-burger {
-
         transition: scale $fast_ease;
 
         &:active {
@@ -167,6 +223,7 @@ function handleScroll() {
         }
       }
     }
+
     &__tablet {
       color: $txt_white;
       font-size: 16px;
@@ -199,20 +256,36 @@ function handleScroll() {
         &-list {
           padding-left: 5px;
           flex-grow: 1;
+
           display: flex;
-          gap: 40px;
+          gap: 20px;
 
-          &-link {
+          @include mediaDesktop {
+            gap: 30px;
+          }
+
+          &-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
             cursor: pointer;
-            color: $txt_white;
-            transition: all $fast_ease;
-            font-size: 15px;
 
-            &:hover {
-              opacity: 0.7;
+            &-link {
+              color: $txt_white;
+              transition: all $fast_ease;
+              font-size: 15px;
+
+              &:hover {
+                opacity: 0.7;
+              }
             }
           }
         }
+      }
+      &-search-language {
+        display: flex;
+        align-items: center;
+        gap: 20px;
       }
       &-btn-group {
         display: flex;
@@ -228,20 +301,11 @@ function handleScroll() {
   }
 }
 
-.header-content__tablet {
-}
-.header-content__tablet-logo {
-}
-.header-content__tablet-menu {
-}
-.header-content__tablet-menu-list {
-}
-.header-content__tablet-menu-list-link {
-}
-.header-content__tablet-btn-group {
-}
-.header-content__tablet-btn-login {
-}
-.header-content__tablet-btn-register {
+.btn__language,
+.btn__search {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
 }
 </style>

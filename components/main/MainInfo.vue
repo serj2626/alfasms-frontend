@@ -70,9 +70,15 @@ const acions: IAction[] = [
 
   &__content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    grid-template-columns: 1fr;
+    gap: 30px;
     color: $txt_white;
+
+    @include mediaTablet {
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
     &-desc {
       padding-inline: 15px;
       &-title {

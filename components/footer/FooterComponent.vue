@@ -47,8 +47,17 @@ import { chatBotLinks } from "~/assets/data/chatbot-links";
 
     &-main {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 30px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+
+      @include mediaTablet {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      @include mediaDesktop{
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+      }
 
       &-services-about,
       &-useful-about {

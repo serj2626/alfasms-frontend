@@ -66,9 +66,21 @@ const instruments: IInstruments = {
   }
   &__list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
     gap: 30px;
 
+    @include mediaTablet {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+    }
+    @include mediaLaptop {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+    @include mediaDesktop {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
     &-item {
       border: 1px solid #f2f5f5;
       border-radius: 16px;

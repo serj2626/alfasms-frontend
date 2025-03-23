@@ -122,8 +122,7 @@
 <style lang="scss" scoped>
 .policy {
   &__header {
-    background: url(bg/bg.png) center top / cover no-repeat,
-      linear-gradient(deepskyblue, #009fc1 50%);
+    background: $bg_linear_second;
 
     &-content {
       padding: 140px 0 100px;
@@ -140,6 +139,9 @@
   }
 
   &__content {
+    width: 65%;
+    margin-inline: auto;
+    margin-top: 50px;
   }
 }
 </style>
