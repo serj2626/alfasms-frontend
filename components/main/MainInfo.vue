@@ -50,7 +50,7 @@ const acions: IAction[] = [
             v-for="(action, index) in acions"
             :key="index"
           >
-            <NuxtIcon :name="action.icon" />
+            <Icon :name="action.icon" />
             {{ action.title }}
           </li>
         </ul>
@@ -93,12 +93,13 @@ const acions: IAction[] = [
         display: flex;
         align-items: center;
         flex-wrap: wrap;
-        gap: 5px;
+        gap: 15px;
 
         &-item {
-          width: 222px;
           margin-bottom: 10px;
           display: flex;
+          gap: 4px;
+          align-items: center;
         }
       }
     }

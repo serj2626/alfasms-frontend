@@ -7,7 +7,8 @@
     <MainInstruments />
     <MainTryFree />
     <MainPlatform />
-   <MainSystem />
+    <MainSystem />
+    <MainCTA />
   </div>
 </template>
 <style lang="scss" scoped></style>

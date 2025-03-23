@@ -1,11 +1,10 @@
-<script lang="ts" setup>
-import { Swiper, SwiperSlide } from "swiper/vue";
-import { Navigation, Pagination } from "swiper/modules";
-
-const swiperRef = ref(null);
-const prevEl = ref(null);
-const nextEl = ref(null);
-const paginationRef = ref(null);
+<script setup lang="ts">
+const containerRef = ref(null);
+const swiper = useSwiper(containerRef, {
+  slidesPerView: 10,
+  spaceBetween: 15,
+  loop: true,
+});
 
 interface IContactsImage {
   path: string;
@@ -14,86 +13,89 @@ interface IContactsImage {
 
 const images: IContactsImage[] = [
   {
-    path: "@/assets/icons/partners/lot.svg",
+    path: "partners:lot",
     alt: "lot",
   },
   {
-    path: "@/assets/icons/partners/pwc.svg",
+    path: "partners:pwc",
     alt: "pwc",
   },
   {
-    path: "@/assets/icons/partners/kaercher.svg",
+    path: "partners:kaercher",
     alt: "kaercher",
   },
   {
-    path: "@/assets/icons/partners/puma.svg",
+    path: "partners:puma",
     alt: "puma",
   },
   {
-    path: "@/assets/icons/partners/viessmann.svg",
+    path: "partners:viessmann",
     alt: "viessmann",
   },
   {
-    path: "@/assets/icons/partners/sumsung.svg",
+    path: "partners:sumsung",
     alt: "sumsung",
   },
   {
-    path: "@/assets/icons/partners/swatch.svg",
+    path: "partners:swatch",
+    alt: "swatch",
+  },
+  {
+    path: "partners:kaercher",
+    alt: "kaercher",
+  },
+  {
+    path: "partners:puma",
+    alt: "puma",
+  },
+  {
+    path: "partners:viessmann",
+    alt: "viessmann",
+  },
+  {
+    path: "partners:sumsung",
+    alt: "sumsung",
+  },
+  {
+    path: "partners:swatch",
     alt: "swatch",
   },
 ];
+
+onMounted(() => {
+  console.log(swiper.instance);
+});
 </script>
+
 <template>
   <div class="main-partners container">
-    <div
-      class="main-partners__content"
-      v-if="Array.isArray(images) && images.length"
-    >
-      <div class="swiper-container">
-        <Swiper
-          ref="swiperRef"
-          :modules="[Pagination, Navigation]"
-          :slides-per-view="'auto'"
-          :space-between="20"
-          :pagination="{
-            el: paginationRef,
-            clickable: true,
-          }"
-          :navigation="{
-            enabled: true,
-            prevEl,
-            nextEl,
-          }"
-          :slidesPerGroup="1"
-          :slidesPerGroupSkip="0"
-        >
-          <SwiperSlide
-            v-for="image in images"
-            :key="image.path"
-            class="swiper-slide"
-          >
-            <NuxtLink>
-              <NuxtIcon
-                class="contacts-images__content-image"
-                :name="image.path"
-                :alt="image.alt"
-                filled
-              />
-            </NuxtLink>
-          </SwiperSlide>
-        </Swiper>
-        <div ref="paginationRef" class="swiper-pagination" />
-      </div>
-    </div>
-
-    <div v-else>
-      <p>Изображения отсутствуют</p>
-    </div>
+    <ClientOnly>
+      <swiper-container ref="containerRef" :init="false">
+        <swiper-slide v-for="(image, idx) in images" :key="idx">
+          <NuxtLink>
+            <Icon
+              class="main-partners__image"
+              :name="image.path"
+              :alt="image.alt"
+            />
+          </NuxtLink>
+        </swiper-slide>
+      </swiper-container>
+    </ClientOnly>
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="css">
 .main-partners {
   padding-block: 48px 140px;
+}
+
+swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 170px;
+  height: 45px;
 }
 </style>

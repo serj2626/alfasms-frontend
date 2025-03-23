@@ -25,26 +25,24 @@ function handleScroll() {
 <template>
   <header class="header">
     <div class="header-content container">
-      <!-- <div class="header-content__mobile">
-        <a href="tel:8 (812) 501-22-14">
-          <NuxtIcon
-            filled
-            name="header/mobile-phone"
-            class="header-content__mobile__phone-icon"
-          />
-        </a>
-        <NuxtLink to="/">
+      <div class="header-content__mobile">
+        <NuxtLink class="header-content__mobile-logo" to="/">
           <img
-            class="header-content__mobile__logo"
-            src="/fav/logo.png"
+            class="header-content__mobile-logo-img"
+            src="/header-logo.png"
             alt="Логотип"
           />
+          <span class="header-content__mobile-logo-text">ALFASMS</span>
         </NuxtLink>
 
-        <button class="header-content__mobile__burger-icon">
-          <NuxtIcon filled :name="HeroIcons.BURGER_MENU" />
+        <button class="header-content__mobile-burger">
+          <Icon
+            class="header-content__mobile-burger-icon"
+            size="24"
+            :name="HeroIcons.BURGER_MENU"
+          />
         </button>
-      </div> -->
+      </div>
       <div class="header-content__tablet">
         <NuxtLink class="header-content__tablet-logo" to="/">
           <img
@@ -68,8 +66,18 @@ function handleScroll() {
         </div>
         <div class="header-content__tablet-actions"></div>
         <div class="header-content__tablet-btn-group">
-          <BaseButton class="header-content__tablet-btn-group-login" label="Войти" size="md" color="gray" />
-          <BaseButton class="header-content__tablet-btn-group-register" label="Регистрация" size="md" color="red" />
+          <BaseButton
+            class="header-content__tablet-btn-group-login"
+            label="Войти"
+            size="md"
+            color="gray"
+          />
+          <BaseButton
+            class="header-content__tablet-btn-group-register"
+            label="Регистрация"
+            size="md"
+            color="red"
+          />
         </div>
       </div>
     </div>
@@ -81,16 +89,16 @@ function handleScroll() {
     color: $txt;
     transition: color $fast_ease;
 
-    &:hover{
-      color: $teal
+    &:hover {
+      color: $teal;
     }
   }
-  .header-content__tablet-logo-text{
+  .header-content__tablet-logo-text {
     color: $txt;
   }
-  .header-content__tablet-btn-group-login{
+  .header-content__tablet-btn-group-login {
     color: $txt;
-    background-color: rgba(0, 0, 0, .06);
+    background-color: rgba(0, 0, 0, 0.06);
   }
 }
 
@@ -124,10 +132,39 @@ function handleScroll() {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 0;
+      padding: 5px 0;
 
       @include mediaLaptop {
         display: none;
+      }
+
+      &-logo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+        &-img {
+          width: 60px;
+          height: auto;
+          filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        }
+        &-text {
+          color: $txt_white;
+          text-transform: uppercase;
+        }
+      }
+
+      &-burger {
+
+        transition: scale $fast_ease;
+
+        &:active {
+          scale: 0.8;
+        }
+
+        &-icon {
+          color: $txt_white;
+        }
       }
     }
     &__tablet {
@@ -150,7 +187,7 @@ function handleScroll() {
         &-img {
           width: 60px;
           height: auto;
-          filter: drop-shadow( 0px 4px 4px rgba(0, 0, 0, 0.25));
+          filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
         }
         &-text {
           color: $txt_white;
@@ -182,11 +219,10 @@ function handleScroll() {
         align-items: center;
         gap: 10px;
 
-        &-login, &-register {
+        &-login,
+        &-register {
           font-size: 14px;
-
         }
-
       }
     }
   }
