@@ -22,7 +22,13 @@ const instruments: IInstruments = {
       результаты
     </p>
     <div class="main-instruments__list">
-      <div class="main-instruments__list-item" v-for="x in 6" :key="x">
+      <div
+        class="main-instruments__list-item"
+        v-for="x in 9"
+        :key="x"
+        data-aos="fade-up"
+        data-aos-duration="{{ x * 100 }}"
+      >
         <img
           class="main-instruments__list-item-img"
           :src="instruments.img"

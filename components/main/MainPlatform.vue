@@ -12,7 +12,7 @@
       </p>
     </div>
     <div class="main-platform__list">
-      <div class="main-platform__list-card">
+      <div class="main-platform__list-card" data-aos="fade-right">
         <img
           src="https://www.spcdn.org/templates/sendpulsev1/img/sp_icons/sp_feature_icons/ic-f-decisions.svg"
           data-src="https://www.spcdn.org/templates/sendpulsev1/img/sp_icons/sp_feature_icons/ic-f-decisions.svg"
@@ -26,7 +26,7 @@
           соглашениями и мгновенно получайте всю информацию о клиенте.
         </p>
       </div>
-      <div class="main-platform__list-card">
+      <div class="main-platform__list-card" data-aos="fade-right">
         <img
           src="https://www.spcdn.org/templates/sendpulsev1/img/sp_icons/sp_feature_icons/ic-index-academy.svg"
           data-src="https://www.spcdn.org/templates/sendpulsev1/img/sp_icons/sp_feature_icons/ic-f-decisions.svg"
@@ -42,7 +42,7 @@
           продажи объединены на одной платформе для вашего комфорта.
         </p>
       </div>
-      <div class="main-platform__list-card">
+      <div class="main-platform__list-card" data-aos="fade-left">
         <img
           src="https://www.spcdn.org/templates/sendpulsev1/img/sp_icons/sp_feature_icons/ic-f-decisions.svg"
           data-src="https://www.spcdn.org/templates/sendpulsev1/img/sp_icons/sp_feature_icons/ic-f-allpage-cup.svg"
@@ -58,7 +58,7 @@
           визуальному конструктору и сотням готовых шаблонов для любой задачи.
         </p>
       </div>
-      <div class="main-platform__list-card">
+      <div class="main-platform__list-card" data-aos="fade-left">
         <img
           src="https://www.spcdn.org/templates/sendpulsev1/img/sp_icons/sp_feature_icons/ic-f-allpage-target.svg"
           data-src="https://www.spcdn.org/templates/sendpulsev1/img/sp_icons/sp_feature_icons/ic-f-decisions.svg"

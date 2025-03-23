@@ -31,12 +31,17 @@ const acions: IAction[] = [
 <template>
   <section class="main-cta">
     <div class="main-cta__content container">
-      <div class="main-cta__content-desc">
+      <div
+        class="main-cta__content-desc"
+        data-aos="fade-up"
+        data-duration="6000"
+      >
         <h1 class="main-cta__content-desc-title">
           Уверенно управляйте всеми коммуникациями и воронками продаж
         </h1>
         <p class="main-cta__content-desc-text">
-          Привлекайте и конвертируйте больше клиентов благодаря удобной платформе автоматизации
+          Привлекайте и конвертируйте больше клиентов благодаря удобной
+          платформе автоматизации
         </p>
         <BaseButton
           class="main-cta__content-desc-btn"

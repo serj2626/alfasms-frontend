@@ -14,7 +14,12 @@ import { HeroIcons } from "~/assets/icons/types/hero-icons";
       </p>
     </div>
     <div class="main-system__info-list">
-      <div class="main-system__info-list-item">
+      <div
+        class="main-system__info-list-item"
+        data-aos="fade-up"
+        data-aos-anchor-placement="top-bottom"
+        data-aos-duration="700"
+      >
         <div class="main-system__info-list-item-icon">
           <Icon :name="HeroIcons.CHECK" />
         </div>
@@ -23,7 +28,12 @@ import { HeroIcons } from "~/assets/icons/types/hero-icons";
           подходящий момент в удобный канал;
         </p>
       </div>
-      <div class="main-system__info-list-item">
+      <div
+        class="main-system__info-list-item"
+        data-aos="fade-up"
+        data-aos-anchor-placement="top-bottom"
+        data-aos-duration="1500"
+      >
         <div class="main-system__info-list-item-icon">
           <Icon :name="HeroIcons.CHECK" />
         </div>
@@ -32,7 +42,12 @@ import { HeroIcons } from "~/assets/icons/types/hero-icons";
           переключения между интерфейсами и учетными записями;
         </p>
       </div>
-      <div class="main-system__info-list-item">
+      <div
+        class="main-system__info-list-item"
+        data-aos="fade-up"
+        data-aos-anchor-placement="top-bottom"
+        data-aos-duration="2300"
+      >
         <div class="main-system__info-list-item-icon">
           <Icon :name="HeroIcons.CHECK" />
         </div>
@@ -68,6 +83,7 @@ import { HeroIcons } from "~/assets/icons/types/hero-icons";
     &-descr {
       font-size: 20px;
       line-height: 1.5;
+      text-align: center;
     }
 
     &-list {
@@ -89,7 +105,7 @@ import { HeroIcons } from "~/assets/icons/types/hero-icons";
           background-color: #def8f8;
           border-radius: 50%;
 
-          .iconify{
+          .iconify {
             width: 20px;
             height: 20px;
             color: #31c178;
