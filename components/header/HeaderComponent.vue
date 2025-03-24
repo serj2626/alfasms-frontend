@@ -17,6 +17,10 @@ const links = ref<IHeaderLinks[]>([
   { name: "Запросить демо", to: "/", icon: false },
 ]);
 
+type HeaderLinkView = "features" | "resources" | "partners";
+
+const showMenu = ref<HeaderLinkView | null>(null);
+
 onMounted(() => {
   window.addEventListener("scroll", handleScroll);
 });
@@ -30,8 +34,8 @@ function handleScroll() {
   }
 }
 
-const showMessage = () => {
-  alert("Скоро");
+const showMessage = (view: HeaderLinkView) => {
+  showMenu.value = view;
 };
 </script>
 <template>
@@ -65,26 +69,37 @@ const showMessage = () => {
           <span class="header-content__tablet-logo-text">ALFASMS</span>
         </NuxtLink>
         <div class="header-content__tablet-menu">
-          <div class="header-content__tablet-menu-list">
-            <div
-              class="header-content__tablet-menu-list-item"
-              v-for="link in links"
-              :key="link.name"
-              @mouseenter="link.icon && showMessage()"
-            >
+          <div
+            class="header-content__tablet-menu-item"
+            v-for="link in links"
+            :key="link.name"
+            @mouseenter="link.icon && showMessage(link.view as HeaderLinkView)"
+          >
+            <div class="header-content__tablet-menu-item-block">
               <NuxtLink
                 to="/"
-                class="header-content__tablet-menu-list-item-link"
+                class="header-content__tablet-menu-item-block-link"
               >
                 {{ link.name }}
               </NuxtLink>
               <Icon
-                class="header-content__tablet-menu-list-item-icon"
+                class="header-content__tablet-menu-item-block-icon"
                 v-if="link.icon"
                 :name="HeroIcons.DOWN"
               />
-              <!-- <div style="display: none">adssadsadsadsadasdsad</div> -->
             </div>
+            <LazyMenuOpportunities
+              v-if="showMenu === 'features'"
+              @close="showMenu = null"
+            />
+            <LazyMenuPartners
+              v-if="showMenu === 'partners'"
+              @close="showMenu = null"
+            />
+            <LazyMenuResources
+              v-if="showMenu === 'resources'"
+              @close="showMenu = null"
+            />
           </div>
         </div>
         <div class="header-content__tablet-search-language">
@@ -96,8 +111,6 @@ const showMessage = () => {
             <Icon :name="HeroIcons.DOWN" />
           </div>
         </div>
-
-        <div class="header-content__tablet-actions"></div>
         <div class="header-content__tablet-btn-group">
           <BaseButton
             class="header-content__tablet-btn-group-login"
@@ -126,10 +139,15 @@ const showMessage = () => {
       color: $teal;
     }
   }
-  .header-content__tablet-menu-list-item {
-    color: $txt;
-    transition: color $fast_ease;
+  .header-content__tablet-menu-item-block {
 
+
+    
+    .header-content__tablet-menu-item-block-link,
+    .header-content__tablet-menu-item-block-icon {
+      color: $txt;
+      transition: color $fast_ease;
+    }
     &:hover {
       color: $teal;
     }
@@ -241,6 +259,7 @@ const showMessage = () => {
         flex-direction: column;
         align-items: center;
         gap: 2px;
+
         &-img {
           width: 60px;
           height: auto;
@@ -253,18 +272,20 @@ const showMessage = () => {
       }
 
       &-menu {
-        &-list {
-          padding-left: 5px;
-          flex-grow: 1;
+        display: flex;
+        align-items: center;
+        gap: 20px;
 
+        @include mediaDesktop {
+          gap: 30px;
+        }
+
+        &-item {
+          position: relative;
           display: flex;
-          gap: 20px;
+          flex-direction: column;
 
-          @include mediaDesktop {
-            gap: 30px;
-          }
-
-          &-item {
+          &-block {
             display: flex;
             align-items: center;
             gap: 5px;
@@ -282,11 +303,13 @@ const showMessage = () => {
           }
         }
       }
+
       &-search-language {
         display: flex;
         align-items: center;
         gap: 20px;
       }
+
       &-btn-group {
         display: flex;
         align-items: center;
