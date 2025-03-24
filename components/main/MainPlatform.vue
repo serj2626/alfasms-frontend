@@ -1,4 +1,48 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import cup from "~/assets/icons/main/platforma/cup.svg";
+import academy from "~/assets/icons/main/platforma/academy.svg";
+import money from "~/assets/icons/main/platforma/money.svg";
+import target from "~/assets/icons/main/platforma/target.svg";
+
+interface IPlatforma {
+  img: string;
+  title: string;
+  desc: string;
+  fade: string;
+  duration: number;
+}
+
+const platforma: IPlatforma[] = [
+  {
+    img: money,
+    title: "Менеджерам по продажам",
+    desc: "CRM – центр вашего бизнеса. Управляйте продажами и каналами связи, автоматизируйте прохождение контактов по воронке продаж, работайте с соглашениями и мгновенно получайте всю информацию о клиенте.",
+    fade: "fade-up-right",
+    duration: 1000,
+  },
+  {
+    img: academy,
+    title: "Онлайн-школам, продюсерам",
+    desc: "Запускайте и продавайте свои курсы или продюссируйте экспертов с помощью украинского сервиса. В SendPulse обучение, продвижение и продажи объединены на одной платформе для вашего комфорта.",
+    fade: "zoom-out-down",
+    duration: 1000,
+  },
+  {
+    img: cup,
+    title: "Экспертам, владельцам бизнеса",
+    desc: "Заявите о себе или своем любимом деле без привлечения посторонних специалистов: все инструменты легко настраиваются благодаря визуальному конструктору и сотням готовых шаблонов для любой задачи.",
+    fade: "zoom-out-down",
+    duration: 1000,
+  },
+  {
+    img: target,
+    title: "Маркетологам",
+    desc: "Объедините все маркетинговые мероприятия на одной платформе и скоординируйте коммуникации в разных каналах. Это увеличит ваши конверсии и рентабельность инвестиций. Никаких интеграций – инструменты уже соединены между собой.",
+    fade: "fade-up-left",
+    duration: 1000,
+  },
+];
+</script>
 <template>
   <section id="main-platform" class="main-platform container">
     <div class="main-platform__content">
@@ -12,65 +56,21 @@
       </p>
     </div>
     <div class="main-platform__list">
-      <div class="main-platform__list-card" data-aos="fade-right">
+      <div
+        v-for="item in platforma"
+        :key="item.title"
+        class="main-platform__list-card"
+        :data-aos="item.fade"
+        :data-aos-duration="item.duration"
+      >
         <img
-          src="https://www.spcdn.org/templates/sendpulsev1/img/sp_icons/sp_feature_icons/ic-f-decisions.svg"
-          data-src="https://www.spcdn.org/templates/sendpulsev1/img/sp_icons/sp_feature_icons/ic-f-decisions.svg"
+          :src="item.img"
           class="main-platform__list-card-img"
-          alt="Менеджерам по продажам"
+          :alt="item.title"
         />
-        <h3 class="main-platform__list-card-title">Менеджерам по продажам</h3>
+        <h3 class="main-platform__list-card-title">{{ item.title }}</h3>
         <p class="main-platform__list-card-text">
-          CRM – центр вашего бизнеса. Управляйте продажами и каналами связи,
-          автоматизируйте прохождение контактов по воронке продаж, работайте с
-          соглашениями и мгновенно получайте всю информацию о клиенте.
-        </p>
-      </div>
-      <div class="main-platform__list-card" data-aos="fade-right">
-        <img
-          src="https://www.spcdn.org/templates/sendpulsev1/img/sp_icons/sp_feature_icons/ic-index-academy.svg"
-          data-src="https://www.spcdn.org/templates/sendpulsev1/img/sp_icons/sp_feature_icons/ic-f-decisions.svg"
-          class="main-platform__list-card-img"
-          alt="Менеджерам по продажам"
-        />
-        <h3 class="main-platform__list-card-title">
-          Онлайн-школам, продюсерам
-        </h3>
-        <p class="main-platform__list-card-text">
-          Запускайте и продавайте свои курсы или продюссируйте экспертов с
-          помощью украинского сервиса. В SendPulse обучение, продвижение и
-          продажи объединены на одной платформе для вашего комфорта.
-        </p>
-      </div>
-      <div class="main-platform__list-card" data-aos="fade-left">
-        <img
-          src="https://www.spcdn.org/templates/sendpulsev1/img/sp_icons/sp_feature_icons/ic-f-decisions.svg"
-          data-src="https://www.spcdn.org/templates/sendpulsev1/img/sp_icons/sp_feature_icons/ic-f-allpage-cup.svg"
-          class="main-platform__list-card-img"
-          alt="Менеджерам по продажам"
-        />
-        <h3 class="main-platform__list-card-title">
-          Экспертам, владельцам бизнеса
-        </h3>
-        <p class="main-platform__list-card-text">
-          Заявите о себе или своем любимом деле без привлечения посторонних
-          специалистов: все инструменты легко настраиваются благодаря
-          визуальному конструктору и сотням готовых шаблонов для любой задачи.
-        </p>
-      </div>
-      <div class="main-platform__list-card" data-aos="fade-left">
-        <img
-          src="https://www.spcdn.org/templates/sendpulsev1/img/sp_icons/sp_feature_icons/ic-f-allpage-target.svg"
-          data-src="https://www.spcdn.org/templates/sendpulsev1/img/sp_icons/sp_feature_icons/ic-f-decisions.svg"
-          class="main-platform__list-card-img"
-          alt="Менеджерам по продажам"
-        />
-        <h3 class="main-platform__list-card-title">Маркетологам</h3>
-        <p class="main-platform__list-card-text">
-          Объедините все маркетинговые мероприятия на одной платформе и
-          скоординируйте коммуникации в разных каналах. Это увеличит ваши
-          конверсии и рентабельность инвестиций. Никаких интеграций –
-          инструменты уже соединены между собой.
+          {{ item.desc }}
         </p>
       </div>
     </div>

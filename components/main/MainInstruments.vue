@@ -1,15 +1,68 @@
 <script lang="ts" setup>
+import one from "~/assets/icons/main/instruments/one.svg";
+import two from "~/assets/icons/main/instruments/two.svg";
+import three from "~/assets/icons/main/instruments/three.svg";
+import four from "~/assets/icons/main/instruments/four.svg";
+import five from "~/assets/icons/main/instruments/five.svg";
+import six from "~/assets/icons/main/instruments/six.svg";
+import seven from "~/assets/icons/main/instruments/seven.svg";
+import eight from "~/assets/icons/main/instruments/eight.svg";
+import nine from "~/assets/icons/main/instruments/nine.svg";
+
 interface IInstruments {
   img: string;
   title: string;
   text: string;
 }
 
-const instruments: IInstruments = {
-  img: "https://www.spcdn.org/images/all-in-one/pic-allpage-stat-sm.svg",
-  title: "15 000 писем в месяц",
-  text: "в формате рассылок и транзакционных сообщений",
-};
+const instruments: IInstruments[] = [
+  {
+    // img: "https://www.spcdn.org/images/all-in-one/pic-allpage-stat-sm.svg",
+    img: one,
+    title: "15 000 писем в месяц",
+    text: "в формате рассылок и транзакционных сообщений",
+  },
+  {
+    img: two,
+    title: "3 чат-бота",
+    text: "с автоответами и поддержкой искусственного интеллекта GPT",
+  },
+  {
+    img: three,
+    title: "Полноценная CRM",
+    text: "интегрированная с другими сервисами SendPulse",
+  },
+  {
+    img: four,
+    title: "1 сайт на конструкторе",
+    text: "для продвижения бренда или эксперта",
+  },
+  {
+    img: five,
+    title: "10 попапов и онлайн-чат",
+    text: "для вовлечения, поддержки и лидогенерации",
+  },
+  {
+    img: six,
+    title: "Формы подписки",
+    text: "для сбора контактов с настройкой условий отображения",
+  },
+  {
+    img: seven,
+    title: "Web push сервис",
+    text: "уведомления прямо на рабочий стол для 10 000 подписчиков",
+  },
+  {
+    img: eight,
+    title: "Автоматизация воронок",
+    text: "для автоматизации процессов работы с контактами",
+  },
+  {
+    img: nine,
+    title: "Платформа для курсов",
+    text: "для создания и продаж онлайн-курсов",
+  },
+];
 </script>
 <template>
   <section id="main-instruments" class="main-instruments container">
@@ -24,22 +77,22 @@ const instruments: IInstruments = {
     <div class="main-instruments__list">
       <div
         class="main-instruments__list-item"
-        v-for="x in 9"
-        :key="x"
+        v-for="(instrument, idx) in instruments"
+        :key="idx"
         data-aos="fade-up"
-        data-aos-duration="{{ x * 100 }}"
+        data-aos-duration="{{ idx + 1 * 2 }}00"
       >
         <img
           class="main-instruments__list-item-img"
-          :src="instruments.img"
-          :alt="instruments.title"
+          :src="instrument.img"
+          :alt="instrument.title"
         />
         <div class="main-instruments__list-item-content">
           <h3 class="main-instruments__list-item-content-title">
-            {{ instruments.title }}
+            {{ instrument.title }}
           </h3>
           <p class="main-instruments__list-item-content-descr mb-0">
-            {{ instruments.text }}
+            {{ instrument.text }}
           </p>
         </div>
       </div>

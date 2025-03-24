@@ -6,15 +6,7 @@ const emit = defineEmits(["close"]);
 </template>
 <style lang="scss" scoped>
 .menu-resources {
-  position: absolute;
-  z-index: 10;
-    top: 550%;
-    left: 0;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 10px;
-    height: 150px;
-    background-color: rosybrown;
+display: none;
 }
 
 @keyframes fade-in {

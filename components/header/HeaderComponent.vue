@@ -75,32 +75,27 @@ const showMessage = (view: HeaderLinkView) => {
             :key="link.name"
             @mouseenter="link.icon && showMessage(link.view as HeaderLinkView)"
           >
-            <div class="header-content__tablet-menu-item-block">
-              <NuxtLink
-                to="/"
-                class="header-content__tablet-menu-item-block-link"
-              >
-                {{ link.name }}
-              </NuxtLink>
-              <Icon
-                class="header-content__tablet-menu-item-block-icon"
-                v-if="link.icon"
-                :name="HeroIcons.DOWN"
-              />
-            </div>
-            <LazyMenuOpportunities
-              v-if="showMenu === 'features'"
-              @close="showMenu = null"
-            />
-            <LazyMenuPartners
-              v-if="showMenu === 'partners'"
-              @close="showMenu = null"
-            />
-            <LazyMenuResources
-              v-if="showMenu === 'resources'"
-              @close="showMenu = null"
+            <NuxtLink to="/" class="header-content__tablet-menu-item-link">
+              {{ link.name }}
+            </NuxtLink>
+            <Icon
+              class="header-content__tablet-menu-item-icon"
+              v-if="link.icon"
+              :name="HeroIcons.DOWN"
             />
           </div>
+          <LazyMenuOpportunities
+            v-if="showMenu === 'features'"
+            @close="showMenu = null"
+          />
+          <LazyMenuPartners
+            v-if="showMenu === 'partners'"
+            @close="showMenu = null"
+          />
+          <LazyMenuResources
+            v-if="showMenu === 'resources'"
+            @close="showMenu = null"
+          />
         </div>
         <div class="header-content__tablet-search-language">
           <button class="btn__search">
@@ -139,12 +134,9 @@ const showMessage = (view: HeaderLinkView) => {
       color: $teal;
     }
   }
-  .header-content__tablet-menu-item-block {
-
-
-    
-    .header-content__tablet-menu-item-block-link,
-    .header-content__tablet-menu-item-block-icon {
+  .header-content__tablet-menu-item {
+    .header-content__tablet-menu-item-link,
+    .header-content__tablet-menu-item-icon {
       color: $txt;
       transition: color $fast_ease;
     }
@@ -283,22 +275,17 @@ const showMessage = (view: HeaderLinkView) => {
         &-item {
           position: relative;
           display: flex;
-          flex-direction: column;
+          align-items: center;
+          gap: 5px;
+          cursor: pointer;
 
-          &-block {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            cursor: pointer;
+          &-link {
+            color: $txt_white;
+            transition: all $fast_ease;
+            font-size: 15px;
 
-            &-link {
-              color: $txt_white;
-              transition: all $fast_ease;
-              font-size: 15px;
-
-              &:hover {
-                opacity: 0.7;
-              }
+            &:hover {
+              opacity: 0.7;
             }
           }
         }
