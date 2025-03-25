@@ -1,13 +1,4 @@
 <script lang="ts" setup>
-import one from "~/assets/icons/main/instruments/one.svg";
-import two from "~/assets/icons/main/instruments/two.svg";
-import three from "~/assets/icons/main/instruments/three.svg";
-import four from "~/assets/icons/main/instruments/four.svg";
-import five from "~/assets/icons/main/instruments/five.svg";
-import six from "~/assets/icons/main/instruments/six.svg";
-import seven from "~/assets/icons/main/instruments/seven.svg";
-import eight from "~/assets/icons/main/instruments/eight.svg";
-import nine from "~/assets/icons/main/instruments/nine.svg";
 
 interface IInstruments {
   img: string;
@@ -17,48 +8,47 @@ interface IInstruments {
 
 const instruments: IInstruments[] = [
   {
-    // img: "https://www.spcdn.org/images/all-in-one/pic-allpage-stat-sm.svg",
-    img: one,
+    img: "instruments/one.svg",
     title: "15 000 писем в месяц",
     text: "в формате рассылок и транзакционных сообщений",
   },
   {
-    img: two,
+    img: "instruments/two.svg",
     title: "3 чат-бота",
     text: "с автоответами и поддержкой искусственного интеллекта GPT",
   },
   {
-    img: three,
+    img: "instruments/three.svg",
     title: "Полноценная CRM",
     text: "интегрированная с другими сервисами SendPulse",
   },
   {
-    img: four,
+    img: "instruments/four.svg",
     title: "1 сайт на конструкторе",
     text: "для продвижения бренда или эксперта",
   },
   {
-    img: five,
+    img: "instruments/five.svg",
     title: "10 попапов и онлайн-чат",
     text: "для вовлечения, поддержки и лидогенерации",
   },
   {
-    img: six,
+    img: "instruments/six.svg",
     title: "Формы подписки",
     text: "для сбора контактов с настройкой условий отображения",
   },
   {
-    img: seven,
+    img: "instruments/seven.svg",
     title: "Web push сервис",
     text: "уведомления прямо на рабочий стол для 10 000 подписчиков",
   },
   {
-    img: eight,
+    img: "instruments/eight.svg",
     title: "Автоматизация воронок",
     text: "для автоматизации процессов работы с контактами",
   },
   {
-    img: nine,
+    img: "instruments/nine.svg",
     title: "Платформа для курсов",
     text: "для создания и продаж онлайн-курсов",
   },
@@ -80,7 +70,7 @@ const instruments: IInstruments[] = [
         v-for="(instrument, idx) in instruments"
         :key="idx"
         data-aos="fade-up"
-        data-aos-duration="{{ idx + 1 * 2 }}00"
+        :data-aos-duration="1000 + idx * 100"
       >
         <img
           class="main-instruments__list-item-img"

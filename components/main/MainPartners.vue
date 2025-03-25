@@ -4,6 +4,9 @@ const swiper = useSwiper(containerRef, {
   slidesPerView: 10,
   spaceBetween: 15,
   loop: true,
+  autoplay: {
+    delay: 1100,
+  }
 });
 
 interface IContactsImage {

@@ -7,20 +7,46 @@ body {
   line-height: 125%;
   background-color: $bg_white;
   color: $txt;
+  overflow-x: hidden;
 }
 
+// .container {
+//   padding: 0 20px;
+//   margin: 0 auto;
+//   width: 100%;
+//   height: 100%;
+
+//   @include mediaLaptop() {
+//     padding: 0 39px;
+//   }
+
+//   @include mediaDesktop() {
+//     padding: 0 100px;
+//     max-width: 1480px;
+//   }
+// }
+
 .container {
-  padding: 0 20px;
+  padding-inline: 10px;
   margin: 0 auto;
   width: 100%;
   height: 100%;
 
-  @include mediaLaptop() {
-    padding: 0 39px;
+  @include mediaSM() {
+    padding-inline: 10px;
+    width: 560px;
   }
-
-  @include mediaDesktop() {
-    padding: 0 100px;
-    max-width: 1480px;
+  @include mediaMD() {
+    padding-inline: 20px;
+    width: 740px;
+  }
+  @include mediaLG() {
+    width: 960px;
+  }
+  @include mediaXL() {
+    width: 1140px;
+  }
+  @include mediaXXL() {
+    width: 	1320px;
   }
 }

@@ -1,9 +1,4 @@
 <script lang="ts" setup>
-import cup from "~/assets/icons/main/platforma/cup.svg";
-import academy from "~/assets/icons/main/platforma/academy.svg";
-import money from "~/assets/icons/main/platforma/money.svg";
-import target from "~/assets/icons/main/platforma/target.svg";
-
 interface IPlatforma {
   img: string;
   title: string;
@@ -14,28 +9,28 @@ interface IPlatforma {
 
 const platforma: IPlatforma[] = [
   {
-    img: money,
+    img: "platforma/cup.svg",
     title: "Менеджерам по продажам",
     desc: "CRM – центр вашего бизнеса. Управляйте продажами и каналами связи, автоматизируйте прохождение контактов по воронке продаж, работайте с соглашениями и мгновенно получайте всю информацию о клиенте.",
     fade: "fade-up-right",
     duration: 1000,
   },
   {
-    img: academy,
+    img: "platforma/academy.svg",
     title: "Онлайн-школам, продюсерам",
     desc: "Запускайте и продавайте свои курсы или продюссируйте экспертов с помощью украинского сервиса. В SendPulse обучение, продвижение и продажи объединены на одной платформе для вашего комфорта.",
-    fade: "zoom-out-down",
+    fade: "zoom-out",
     duration: 1000,
   },
   {
-    img: cup,
+    img: "platforma/cup.svg",
     title: "Экспертам, владельцам бизнеса",
     desc: "Заявите о себе или своем любимом деле без привлечения посторонних специалистов: все инструменты легко настраиваются благодаря визуальному конструктору и сотням готовых шаблонов для любой задачи.",
-    fade: "zoom-out-down",
+    fade: "zoom-out",
     duration: 1000,
   },
   {
-    img: target,
+    img: "platforma/target.svg",
     title: "Маркетологам",
     desc: "Объедините все маркетинговые мероприятия на одной платформе и скоординируйте коммуникации в разных каналах. Это увеличит ваши конверсии и рентабельность инвестиций. Никаких интеграций – инструменты уже соединены между собой.",
     fade: "fade-up-left",

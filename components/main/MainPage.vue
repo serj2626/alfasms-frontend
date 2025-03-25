@@ -8,7 +8,8 @@
     <MainTryFree />
     <MainPlatform />
     <MainSystem />
+    <MainIntegrations />
+    <MainReviews />
     <MainCTA />
   </div>
 </template>
-<style lang="scss" scoped></style>

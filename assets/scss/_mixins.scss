@@ -1,31 +1,78 @@
-@use './_vars.scss' as *;
+@use "./_vars.scss" as *;
 
-@mixin mediaMobile () {
+@mixin mediaMobile() {
   @media screen and (min-width: $mobile) {
-    @content
+    @content;
   }
-};
+}
 
-@mixin mediaTablet () {
+@mixin mediaTablet() {
   @media screen and (min-width: $tablet) {
-    @content
+    @content;
   }
-};
-@mixin mediaLaptop () {
+}
+@mixin mediaLaptop() {
   @media screen and (min-width: $laptop) {
-    @content
+    @content;
   }
-};
-@mixin mediaDesktop () {
+}
+@mixin mediaDesktop() {
   @media screen and (min-width: $desktop) {
-    @content
+    @content;
   }
-};
-@mixin mediaDesktopWide () {
+}
+@mixin mediaDesktopWide() {
   @media screen and (min-width: $desktopWide) {
-    @content
+    @content;
   }
-};
+}
+
+// ##########################################################
+
+@mixin mediaMaxSm() {
+  @media screen and (max-width: $sm) {
+    @content;
+  }
+}
+
+
+@mixin mediaSM() {
+  @media screen and (min-width: $sm) {
+    @content;
+  }
+}
+
+@mixin mediaMD() {
+  @media screen and (min-width: $md) {
+    @content;
+  }
+}
+
+@mixin mediaLG() {
+  @media screen and (min-width: $lg) {
+    @content;
+  }
+}
+
+@mixin mediaXL() {
+  @media screen and (min-width: $xl) {
+    @content;
+  }
+}
+
+@mixin mediaXXL() {
+  @media screen and (min-width: $xxl) {
+    @content;
+  }
+}
+
+
+@mixin txt_title($size, $weight: 400, $height, $color: $txt) {
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $height;
+  color: $color;
+}
 
 // @mixin txt_monrope ($size, $weight, $height, $color) {
 //   font-family: $ff_monrope;
@@ -34,7 +81,6 @@
 //   line-height: $height;
 //   color: $color;
 // }
-
 
 // @mixin txt_mulish ($size, $weight, $height, $color) {
 //   font-family: $ff_mulish;

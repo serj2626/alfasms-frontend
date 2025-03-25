@@ -2,68 +2,74 @@
 import { HeroIcons } from "~/assets/icons/types/hero-icons";
 </script>
 <template>
-  <section id="main-system" class="main-system container">
-    <div class="main-system__info">
-      <h2 class="main-system__info-title">
-        Объедините все коммуникации и автоматизируйте прохождение контактов
-        воронкой продаж
-      </h2>
-      <p class="main-system__info-descr">
-        Чтобы сформировать безупречный пользовательский опыт и продать, важно
-        аккумулировать всю информацию о клиенте в одной системе. Это позволяет:
-      </p>
-    </div>
-    <div class="main-system__info-list">
-      <div
-        class="main-system__info-list-item"
-        data-aos="fade-up"
-        data-aos-anchor-placement="top-bottom"
-        data-aos-duration="700"
-      >
-        <div class="main-system__info-list-item-icon">
-          <Icon :name="HeroIcons.CHECK" />
-        </div>
-        <p class="main-system__info-list-item-text">
-          автоматически отправлять персонализированные предложения в наиболее
-          подходящий момент в удобный канал;
+  <section id="main-system" class="main-system">
+    <div class="container">
+      <div class="main-system__info">
+        <h2 class="main-system__info-title">
+          Объедините все коммуникации и автоматизируйте прохождение контактов
+          воронкой продаж
+        </h2>
+        <p class="main-system__info-descr">
+          Чтобы сформировать безупречный пользовательский опыт и продать, важно
+          аккумулировать всю информацию о клиенте в одной системе. Это
+          позволяет:
         </p>
       </div>
-      <div
-        class="main-system__info-list-item"
-        data-aos="fade-up"
-        data-aos-anchor-placement="top-bottom"
-        data-aos-duration="1500"
-      >
-        <div class="main-system__info-list-item-icon">
-          <Icon :name="HeroIcons.CHECK" />
+      <div class="main-system__info-list">
+        <div
+          class="main-system__info-list-item"
+          data-aos="fade-up"
+          data-aos-anchor-placement="top-bottom"
+          data-aos-duration="700"
+        >
+          <div class="main-system__info-list-item-icon">
+            <Icon :name="HeroIcons.CHECK" />
+          </div>
+          <p class="main-system__info-list-item-text">
+            автоматически отправлять персонализированные предложения в наиболее
+            подходящий момент в удобный канал;
+          </p>
         </div>
-        <p class="main-system__info-list-item-text">
-          быть на связи в любом мессенджере и в онлайн-чате на сайте без
-          переключения между интерфейсами и учетными записями;
-        </p>
-      </div>
-      <div
-        class="main-system__info-list-item"
-        data-aos="fade-up"
-        data-aos-anchor-placement="top-bottom"
-        data-aos-duration="2300"
-      >
-        <div class="main-system__info-list-item-icon">
-          <Icon :name="HeroIcons.CHECK" />
+        <div
+          class="main-system__info-list-item"
+          data-aos="fade-up"
+          data-aos-anchor-placement="top-bottom"
+          data-aos-duration="1500"
+        >
+          <div class="main-system__info-list-item-icon">
+            <Icon :name="HeroIcons.CHECK" />
+          </div>
+          <p class="main-system__info-list-item-text">
+            быть на связи в любом мессенджере и в онлайн-чате на сайте без
+            переключения между интерфейсами и учетными записями;
+          </p>
         </div>
+        <div
+          class="main-system__info-list-item"
+          data-aos="fade-up"
+          data-aos-anchor-placement="top-bottom"
+          data-aos-duration="2300"
+        >
+          <div class="main-system__info-list-item-icon">
+            <Icon :name="HeroIcons.CHECK" />
+          </div>
 
-        <p class="main-system__info-list-item-text">
-          иметь под рукой историю сделок и взаимодействия с каждым контактом,
-          чтобы формировать персонализированные воронки продаж и повышать
-          конверсии.
-        </p>
+          <p class="main-system__info-list-item-text">
+            иметь под рукой историю сделок и взаимодействия с каждым контактом,
+            чтобы формировать персонализированные воронки продаж и повышать
+            конверсии.
+          </p>
+        </div>
       </div>
     </div>
   </section>
 </template>
 <style lang="scss" scoped>
 .main-system {
-  padding-bottom: 140px;
+  padding-bottom: 260px;
+  background-image: url("bg/bg-graph.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
 
   &__info {
     display: flex;
