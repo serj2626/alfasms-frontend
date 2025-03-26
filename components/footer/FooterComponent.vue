@@ -63,7 +63,6 @@ import { chatBotLinks } from "~/assets/data/chatbot-links";
       &-useful-about {
         display: flex;
         flex-direction: column;
-        gap: 35px;
       }
     }
 

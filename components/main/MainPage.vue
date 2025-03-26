@@ -9,6 +9,7 @@
     <MainPlatform />
     <MainSystem />
     <MainIntegrations />
+    <MainHelpers />
     <MainReviews />
     <MainCTA />
   </div>

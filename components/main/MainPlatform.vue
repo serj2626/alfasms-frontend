@@ -12,28 +12,28 @@ const platforma: IPlatforma[] = [
     img: "platforma/cup.svg",
     title: "Менеджерам по продажам",
     desc: "CRM – центр вашего бизнеса. Управляйте продажами и каналами связи, автоматизируйте прохождение контактов по воронке продаж, работайте с соглашениями и мгновенно получайте всю информацию о клиенте.",
-    fade: "fade-up-right",
+    fade: "fade-up",
     duration: 1000,
   },
   {
     img: "platforma/academy.svg",
     title: "Онлайн-школам, продюсерам",
     desc: "Запускайте и продавайте свои курсы или продюссируйте экспертов с помощью украинского сервиса. В SendPulse обучение, продвижение и продажи объединены на одной платформе для вашего комфорта.",
-    fade: "zoom-out",
+    fade: "fade-up",
     duration: 1000,
   },
   {
     img: "platforma/cup.svg",
     title: "Экспертам, владельцам бизнеса",
     desc: "Заявите о себе или своем любимом деле без привлечения посторонних специалистов: все инструменты легко настраиваются благодаря визуальному конструктору и сотням готовых шаблонов для любой задачи.",
-    fade: "zoom-out",
+    fade: "fade-up",
     duration: 1000,
   },
   {
     img: "platforma/target.svg",
     title: "Маркетологам",
     desc: "Объедините все маркетинговые мероприятия на одной платформе и скоординируйте коммуникации в разных каналах. Это увеличит ваши конверсии и рентабельность инвестиций. Никаких интеграций – инструменты уже соединены между собой.",
-    fade: "fade-up-left",
+    fade: "fade-up",
     duration: 1000,
   },
 ];
@@ -76,27 +76,65 @@ const platforma: IPlatforma[] = [
   padding-block: 140px;
 
   &__content {
-    width: 945px;
-    margin-inline: auto;
     margin-bottom: 72px;
 
     &-title {
       text-align: center;
-      font-size: 38px;
+      font-size: 24px;
       font-weight: 600;
       line-height: 1.2;
-      margin-bottom: 30px;
+      margin-bottom: 15px;
+      width: 487px;
+
+      @include mediaMD {
+        font-size: 30px;
+        margin-bottom: 30px;
+        width: 720px;
+        margin-inline: auto;
+      }
+      @include mediaLG{
+        font-size: 34px;
+        width: 616px;
+        margin-inline: auto;
+      }
+      @include mediaXL{
+        font-size: 38px;
+        width: 750px;
+        margin-inline: auto;
+      }
     }
     &-text {
-      font-size: 22px;
+      font-size: 18px;
       line-height: 1.5;
+      text-align: center;
+
+      @include mediaMD {
+        font-size: 20px;
+        margin-bottom: 30px;
+      }
+      @include mediaXL{
+        font-size: 22px;
+      }
+      
     }
   }
 
   &__list {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 1fr;
     gap: 30px;
+
+    @include mediaMD {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mediaLG {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include mediaXL {
+      grid-template-columns: repeat(4, 1fr);
+    }
 
     &-card {
       display: flex;
@@ -110,7 +148,7 @@ const platforma: IPlatforma[] = [
 
       &-title {
         font-size: 28px;
-        font-weight: 700;
+        font-weight: 600;
       }
 
       &-text {

@@ -94,8 +94,15 @@ import { HeroIcons } from "~/assets/icons/types/hero-icons";
 
     &-list {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr;
       gap: 30px;
+
+      @include mediaMD{
+        grid-template-columns: repeat(2, 1fr);
+      }
+      @include mediaLG{
+        grid-template-columns: repeat(3, 1fr);
+      }
 
       &-item {
         display: flex;

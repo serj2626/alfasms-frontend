@@ -34,7 +34,7 @@ const acions: IAction[] = [
       <div
         class="main-cta__content-desc"
         data-aos="fade-up"
-        data-duration="6000"
+        data-duration="8000"
       >
         <h1 class="main-cta__content-desc-title">
           Уверенно управляйте всеми коммуникациями и воронками продаж

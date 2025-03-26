@@ -27,26 +27,44 @@ body {
 // }
 
 .container {
-  padding-inline: 10px;
+  padding: 0 20px;
   margin: 0 auto;
   width: 100%;
   height: 100%;
 
-  @include mediaSM() {
-    padding-inline: 10px;
-    width: 560px;
+  @include mediaLaptop () {
+    padding: 0 39px;
   }
-  @include mediaMD() {
-    padding-inline: 20px;
-    width: 740px;
-  }
-  @include mediaLG() {
-    width: 960px;
-  }
-  @include mediaXL() {
-    width: 1140px;
-  }
-  @include mediaXXL() {
-    width: 	1320px;
+
+  @include mediaDesktop () {
+    padding: 0 76px;
+    max-width: 1600px;
   }
 }
+
+
+// .container {
+//   padding-inline: 10px;
+//   margin: 0 auto;
+//   width: 100%;
+
+
+
+//   @include mediaSM() {
+//     padding-inline: 10px;
+//     max-width: 560px;
+//   }
+//   @include mediaMD() {
+//     padding-inline: 20px;
+//     max-width: 740px;
+//   }
+//   @include mediaLG() {
+//     max-width: 960px;
+//   }
+//   @include mediaXL() {
+//     max-width: 1140px;
+//   }
+//   @include mediaXXL() {
+//     max-width: 	1320px;
+//   }
+// }

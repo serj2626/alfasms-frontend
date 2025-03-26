@@ -56,8 +56,11 @@ const acions: IAction[] = [
         </ul>
       </div>
       <div class="main-info__content-services">
-        <div class="main-info__content-services-bg"></div>
-        <Icon name="heroicons:arrow-right" />
+        <MainServiceInfoItem
+          title="CRM система"
+          icon="main/info/hz"
+          circle
+        />
       </div>
     </div>
   </section>
@@ -65,7 +68,7 @@ const acions: IAction[] = [
 
 <style lang="scss" scoped>
 .main-info {
-  padding-block: 200px;
+  padding-block: 220px;
   background: $bg_linear;
 
   &__content {
@@ -74,22 +77,46 @@ const acions: IAction[] = [
     gap: 30px;
     color: $txt_white;
 
-    @include mediaTablet {
+    @include mediaLG {
       grid-template-columns: 1fr 1fr;
       gap: 20px;
     }
 
     &-desc {
       padding-inline: 15px;
+
       &-title {
-        font-size: 48px;
+        font-size: 32px;
         font-weight: 700;
         margin-bottom: 30px;
         line-height: 110%;
+
+        @include mediaSM{
+          font-size: 40px;
+        }
+        @include mediaMD{
+          font-size: 48px;
+        }
+        @include mediaLG{
+          font-size: 36px;
+        }
+        @include mediaXL{
+          font-size: 48px;
+        }
       }
       &-text {
         font-size: 18px;
-        margin-bottom: 50px;
+        margin-bottom: 30px;
+
+        @include mediaMD{
+          margin-bottom: 40px;
+        }
+        @include mediaLG{
+          margin-bottom: 30px;
+        }
+        @include mediaXL{
+          margin-bottom: 50px;
+        }
       }
       &-btn {
         font-size: 18px;
@@ -120,6 +147,7 @@ const acions: IAction[] = [
         rgba(255, 255, 255, 0.16) 0,
         rgba(255, 255, 255, 0.08) 100%
       );
+
     }
   }
 }

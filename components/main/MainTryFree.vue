@@ -9,15 +9,20 @@
         <p class="main-try-free__content-info-descr">
           Используйте инструменты SendPulse безвозмездно и без ограничений во
           времени, а при необходимости перейдите на
-          <a class="main-try-free__content-info-descr-link" href="/ru/prices"
-            >платный тариф</a
-          >
+          <NuxtLink class="main-try-free__content-info-descr-link"
+            >платный тариф
+          </NuxtLink>
           с расширенными лимитами и дополнительными функциями вроде рассылок
           через SMS и Viber.
         </p>
       </div>
       <div class="main-try-free__content-actions">
-        <BaseButton label="Попробовать бесплатно" size="lg" color="red" />
+        <BaseButton
+          class="main-try-free__content-actions-btn"
+          label="Попробовать бесплатно"
+          size="lg"
+          color="red"
+        />
         <p class="main-try-free__content-actions-descr">Без банковской карты</p>
       </div>
     </div>
@@ -29,31 +34,46 @@
 
   &__content {
     display: flex;
-    gap: 90px;
+    flex-direction: column;
+    gap: 30px;
+    @include mediaLG {
+      gap: 50px;
+    }
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.561);
     padding: 50px;
     border-radius: $card_radius;
-
     box-shadow: -12px 9px 39px -12px rgba(48, 202, 225, 0.6),
       15px 17px 36px -11px rgba(238, 120, 251, 0.6);
+
+    @include mediaLG {
+      flex-direction: row;
+    }
 
     &-info {
       flex: 1;
 
       &-title {
         margin-bottom: 10px;
-        font-weight: 700;
+        font-weight: 600;
         font-size: 20px;
         line-height: 1.3;
+        text-align: center;
+        @include mediaLG {
+          text-align: start;
+        }
       }
 
       &-descr {
         font-size: 18px;
         line-height: 1.5;
-      }
+        text-align: center;
+        @include mediaLG {
+          text-align: start;
+        }
 
-      &-link {
-        color: $teal;
+        &-link {
+          color: $teal;
+        }
       }
     }
     &-actions {
@@ -68,6 +88,11 @@
         line-height: 1.21;
         color: #828282;
         opacity: 1;
+      }
+
+      &-btn {
+        margin-inline: auto;
+        
       }
     }
   }

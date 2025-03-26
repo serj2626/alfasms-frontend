@@ -10,7 +10,7 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
     "nuxt-swiper",
     "nuxt-aos",
-  ],
+    'nuxt-icons'],
   pinia: {
     storesDirs: ["./stores/**"],
   },

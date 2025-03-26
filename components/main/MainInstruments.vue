@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-
 interface IInstruments {
   img: string;
   title: string;
@@ -56,9 +55,11 @@ const instruments: IInstruments[] = [
 </script>
 <template>
   <section id="main-instruments" class="main-instruments container">
-    <h2 class="main-instruments__title">
-      Бесплатные инструменты многоканального маркетинга
-    </h2>
+    <BaseTypography
+      class="main-instruments__title"
+      view="h2"
+      title="Возможности бесплатного тарифа"
+    />
     <p class="main-instruments__text">
       Возможностей бесплатного тарифа достаточно, чтобы настроить все
       инструменты под себя, протестировать базовые гипотезы и получить первые
@@ -78,10 +79,12 @@ const instruments: IInstruments[] = [
           :alt="instrument.title"
         />
         <div class="main-instruments__list-item-content">
-          <h3 class="main-instruments__list-item-content-title">
-            {{ instrument.title }}
-          </h3>
-          <p class="main-instruments__list-item-content-descr mb-0">
+          <BaseTypography
+            class="main-instruments__list-item-content-title"
+            view="h3"
+            :title="instrument.title"
+          />
+          <p class="main-instruments__list-item-content-descr">
             {{ instrument.text }}
           </p>
         </div>
@@ -95,9 +98,6 @@ const instruments: IInstruments[] = [
 
   &__title {
     text-align: center;
-    font-size: 38px;
-    font-weight: 600;
-    line-height: 1.2;
     margin-bottom: 30px;
     text-align: center;
   }
@@ -133,7 +133,7 @@ const instruments: IInstruments[] = [
       cursor: pointer;
 
       &:hover {
-        box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.1);
+        @include card_shadow();
         .main-instruments__list-item-content-title {
           color: $teal;
         }
@@ -144,9 +144,6 @@ const instruments: IInstruments[] = [
         padding: 30px;
 
         &-title {
-          font-weight: 700;
-          font-size: 22px;
-          line-height: 1.3;
           margin-bottom: 10px;
           transition: color $fast_ease;
         }
@@ -154,6 +151,9 @@ const instruments: IInstruments[] = [
           font-size: 18px;
           line-height: 1.5;
           color: $txt;
+          &::first-letter {
+            text-transform: uppercase;
+          }
         }
       }
     }

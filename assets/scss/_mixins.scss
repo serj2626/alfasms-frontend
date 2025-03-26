@@ -35,7 +35,6 @@
   }
 }
 
-
 @mixin mediaSM() {
   @media screen and (min-width: $sm) {
     @content;
@@ -66,50 +65,51 @@
   }
 }
 
+// @mixin txt_title($size, $weight: 400, $height, $color: $txt) {
+//   font-size: $size;
+//   font-weight: $weight;
+//   line-height: $height;
+//   color: $color;
+// }
 
-@mixin txt_title($size, $weight: 400, $height, $color: $txt) {
-  font-size: $size;
-  font-weight: $weight;
-  line-height: $height;
-  color: $color;
+@mixin card_shadow() {
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.1);
 }
 
-// @mixin txt_monrope ($size, $weight, $height, $color) {
-//   font-family: $ff_monrope;
-//   font-size: $size;
-//   font-weight: $weight;
-//   line-height: $height;
-//   color: $color;
-// }
+@mixin txt_title_h2 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.2;
 
-// @mixin txt_mulish ($size, $weight, $height, $color) {
-//   font-family: $ff_mulish;
-//   font-size: $size;
-//   font-weight: $weight;
-//   line-height: $height;
-//   color: $color;
-// }
+  @include mediaTablet() {
+    font-size: 30px;
+  }
+  @include mediaLaptop() {
+    font-size: 34px;
+  }
+  @include mediaDesktop() {
+    font-size: 38px;
+  }
+}
 
-// @mixin txt_europe_ext ($size, $weight, $height, $color) {
-//   font-family: $ff_europe;
-//   font-size: $size;
-//   font-weight: $weight;
-//   line-height: $height;
-//   color: $color;
-// }
+@mixin txt_title_h3() {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: $txt;
 
-// @mixin txt_montserrat ($size, $weight, $height, $color) {
-//   font-family: $ff_montserrat;
-//   font-size: $size;
-//   font-weight: $weight;
-//   line-height: $height;
-//   color: $color;
-// }
+  @include mediaTablet() {
+    font-size: 18px;
+  }
+  @include mediaLaptop() {
+    line-height: 1.5;
+  }
+}
 
-// @mixin text_overflow($count) {
-//   display: -webkit-box;
-//   -webkit-box-orient: vertical;
-//   -webkit-line-clamp: $count;
-//   overflow: hidden;
-//   text-overflow: ellipsis;
-// }
+@mixin text_overflow($count) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $count;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

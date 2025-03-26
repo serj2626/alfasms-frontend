@@ -71,9 +71,14 @@
 %block {
   padding-bottom: 160px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   align-items: start;
-  gap: 30px;
+  gap: 15px;
+
+  @include mediaTablet {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
 }
 
 %title{
