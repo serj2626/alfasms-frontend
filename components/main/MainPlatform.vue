@@ -41,9 +41,11 @@ const platforma: IPlatforma[] = [
 <template>
   <section id="main-platform" class="main-platform container">
     <div class="main-platform__content">
-      <h2 class="main-platform__content-title">
-        Платформа универсальна и будет полезна специалистам из разных сфер
-      </h2>
+      <BaseTypography
+        class="main-platform__content-title"
+        view="h2"
+        title="Платформа универсальна и будет полезна специалистам из разных сфер"
+      />
       <p class="main-platform__content-text">
         Используйте AlfaSMS, если вы самостоятельно развиваете бизнес,
         управляете командой любого размера или планируете заявить о своем
@@ -80,24 +82,21 @@ const platforma: IPlatforma[] = [
 
     &-title {
       text-align: center;
-      font-size: 24px;
-      font-weight: 600;
-      line-height: 1.2;
       margin-bottom: 15px;
       width: 487px;
 
-      @include mediaMD {
+      @include mediaTablet {
         font-size: 30px;
         margin-bottom: 30px;
         width: 720px;
         margin-inline: auto;
       }
-      @include mediaLG{
+      @include mediaLaptop {
         font-size: 34px;
         width: 616px;
         margin-inline: auto;
       }
-      @include mediaXL{
+      @include mediaDesktop {
         font-size: 38px;
         width: 750px;
         margin-inline: auto;
@@ -107,15 +106,16 @@ const platforma: IPlatforma[] = [
       font-size: 18px;
       line-height: 1.5;
       text-align: center;
+      max-width: 940px;
+      margin-inline: auto;
 
-      @include mediaMD {
+      @include mediaTablet {
         font-size: 20px;
         margin-bottom: 30px;
       }
-      @include mediaXL{
+      @include mediaDesktop {
         font-size: 22px;
       }
-      
     }
   }
 
@@ -124,15 +124,15 @@ const platforma: IPlatforma[] = [
     grid-template-columns: 1fr;
     gap: 30px;
 
-    @include mediaMD {
+    @include mediaTablet {
       grid-template-columns: repeat(2, 1fr);
     }
 
-    @include mediaLG {
+    @include mediaLaptop {
       grid-template-columns: repeat(3, 1fr);
     }
 
-    @include mediaXL {
+    @include mediaDesktop {
       grid-template-columns: repeat(4, 1fr);
     }
 

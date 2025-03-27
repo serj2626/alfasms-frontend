@@ -120,10 +120,10 @@ const instruments: IInstruments[] = [
       grid-template-columns: repeat(3, 1fr);
       gap: 30px;
     }
-    @include mediaDesktop {
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
+    // @include mediaDesktop {
+    //   grid-template-columns: repeat(4, 1fr);
+    //   gap: 20px;
+    // }
     &-item {
       border: 1px solid #f2f5f5;
       border-radius: 16px;

@@ -5,10 +5,12 @@ import { HeroIcons } from "~/assets/icons/types/hero-icons";
   <section id="main-system" class="main-system">
     <div class="container">
       <div class="main-system__info">
-        <h2 class="main-system__info-title">
-          Объедините все коммуникации и автоматизируйте прохождение контактов
-          воронкой продаж
-        </h2>
+        <BaseTypography
+          class="main-system__info-title"
+          view="h2"
+          title="Объедините все коммуникации и автоматизируйте прохождение контактов
+          воронкой продаж"
+        />
         <p class="main-system__info-descr">
           Чтобы сформировать безупречный пользовательский опыт и продать, важно
           аккумулировать всю информацию о клиенте в одной системе. Это
@@ -80,9 +82,6 @@ import { HeroIcons } from "~/assets/icons/types/hero-icons";
 
     &-title {
       text-align: center;
-      font-size: 38px;
-      font-weight: 600;
-      line-height: 1.2;
       margin-bottom: 30px;
     }
 
@@ -97,17 +96,17 @@ import { HeroIcons } from "~/assets/icons/types/hero-icons";
       grid-template-columns: 1fr;
       gap: 30px;
 
-      @include mediaMD{
+      @include mediaMD {
         grid-template-columns: repeat(2, 1fr);
       }
-      @include mediaLG{
+      @include mediaLG {
         grid-template-columns: repeat(3, 1fr);
       }
 
       &-item {
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 20px;
 
         &-icon {
           width: 40px;

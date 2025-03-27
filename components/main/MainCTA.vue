@@ -36,9 +36,11 @@ const acions: IAction[] = [
         data-aos="fade-up"
         data-duration="8000"
       >
-        <h1 class="main-cta__content-desc-title">
-          Уверенно управляйте всеми коммуникациями и воронками продаж
-        </h1>
+        <BaseTypography
+          class="main-cta__content-desc-title"
+          view="h2"
+          title="Уверенно управляйте всеми коммуникациями и воронками продаж"
+        />
         <p class="main-cta__content-desc-text">
           Привлекайте и конвертируйте больше клиентов благодаря удобной
           платформе автоматизации
@@ -80,9 +82,6 @@ const acions: IAction[] = [
       margin-inline: auto;
 
       &-title {
-        font-size: 38px;
-        font-weight: 700;
-        line-height: 1.2;
         text-align: center;
         margin-bottom: 20px;
       }

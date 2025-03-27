@@ -4,9 +4,11 @@
     <div class="container">
       <div class="main-helpers__content">
         <div class="main-helpers__content-info" data-aos="fade-right">
-          <h2 class="main-helpers__content-info-title">
-            Поможем автоматизировать маркетинг и продажи новичку и профессионалу
-          </h2>
+          <BaseTypography
+            class="main-helpers__content-info-title"
+            view="h2"
+            title="Поможем автоматизировать маркетинг и продажи новичку и профессионалу"
+          />
           <p class="main-helpers__content-info-text">
             Мы всегда на связи. Если у вас возникнут вопросы, обращайтесь в
             поддержку или смотрите бесплатные обучающие ресурсы.
@@ -75,9 +77,11 @@
             data-aos="fade-up-left"
             data-aos-duration="1500"
           >
-            <h3 class="main-helpers__content-data-title">
-              Некогда разбираться в функционале SendPulse самостоятельно?
-            </h3>
+            <BaseTypography
+              class="main-helpers__content-data-title"
+              view="h3"
+              title="Некогда разбираться в функционале SendPulse самостоятельно?"
+            />
             <p class="main-helpers__content-data-desc">
               Запишитесь на бесплатное 20-минутное демо. Подскажем, как внедрить
               и настроить профессиональную платформу автоматизации маркетинга и
@@ -103,9 +107,9 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 30px;
-    
-    @include mediaMD{
-      grid-template-columns: repeat(2, 1fr);
+
+    @include mediaLaptop {
+      grid-template-columns: 1fr 2fr;
     }
 
     &-info {
@@ -114,9 +118,6 @@
       gap: 30px;
 
       &-title {
-        font-size: 28px;
-        font-weight: 600;
-        line-height: 1.2;
         margin-bottom: 30px;
       }
 
@@ -130,7 +131,7 @@
       grid-template-columns: 1fr;
       gap: 30px;
 
-      @include mediaMD{
+      @include mediaMD {
         grid-template-columns: repeat(2, 1fr);
       }
 
@@ -166,10 +167,11 @@
       padding: 48px 15px 0;
 
       &-title {
-        font-size: 28px;
-        font-weight: 600;
-        line-height: 1.2;
         margin-bottom: 20px;
+        @include mediaDesktop{
+        font-size: 28px;
+        }
+    
       }
       &-desc {
         font-size: 18px;

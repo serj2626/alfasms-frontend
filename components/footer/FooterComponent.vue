@@ -18,19 +18,19 @@ import { chatBotLinks } from "~/assets/data/chatbot-links";
           <FooterLinks title="О компании" :links="aboutLinks" />
         </div>
 
-        <div class="footer-component__main-useful-about">
+        <div class="footer-component__main-useful-programm">
           <FooterLinks title="Полезное" :links="usefulLinks" />
           <FooterLinks title="Партнерские программы" :links="programmLinks" />
         </div>
       </div>
-      <!-- <div class="footer-component__content-btns">
+      <div class="footer-component__content-btns">
         <NuxtLink class="footer-component__content-btns-appstore" to="/">
-          <Icon size="30" name="social:appstore" />
+          <Icon name="social:appstore" />
         </NuxtLink>
         <NuxtLink class="footer-component__content-btns-googleplay" to="/">
-          <Icon size="30" name="social:googleplay" />
+          <Icon name="social:googleplay" />
         </NuxtLink>
-      </div> -->
+      </div>
     </div>
 
     <FooterInfo />
@@ -44,7 +44,6 @@ import { chatBotLinks } from "~/assets/data/chatbot-links";
   &__content {
     position: relative;
 
-
     &-main {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -54,29 +53,39 @@ import { chatBotLinks } from "~/assets/data/chatbot-links";
         grid-template-columns: repeat(3, 1fr);
         gap: 20px;
       }
-      @include mediaDesktop{
+      @include mediaDesktop {
         grid-template-columns: repeat(4, 1fr);
         gap: 30px;
       }
-
-      &-services-about,
-      &-useful-about {
-        display: flex;
-        flex-direction: column;
-      }
     }
 
-    // &-btns {
-    //   position: absolute;
-    //   bottom: 20px;
+    &-btns {
+      position: absolute;
+      bottom: 0;
 
-    //   display: flex;
-    //   gap: 15px;
-
-    //   &-appstore,
-    //   &-googleplay {
-    //   }
-    // }
+      display: flex;
+      gap: 15px;
+    }
   }
+}
+.iconify {
+  width: 146px;
+  height: 47px;
+  transition: opacity $fast_ease;
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.footer-component__main-services-about {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.footer-component__main-useful-programm {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 </style>

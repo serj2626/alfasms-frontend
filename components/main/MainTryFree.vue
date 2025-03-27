@@ -3,9 +3,11 @@
   <div class="main-try-free container">
     <div class="main-try-free__content">
       <div class="main-try-free__content-info">
-        <h3 class="main-try-free__content-info-title">
-          Наполнение тарифного плана растет вместе с вашим бизнесом
-        </h3>
+        <BaseTypography
+          class="main-try-free__content-info-title"
+          view="h3"
+          title="Наполнение тарифного плана растет вместе с вашим бизнесом"
+        />
         <p class="main-try-free__content-info-descr">
           Используйте инструменты SendPulse безвозмездно и без ограничений во
           времени, а при необходимости перейдите на
@@ -36,7 +38,7 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
-    @include mediaLG {
+    @include mediaLaptop {
       gap: 50px;
     }
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.561);
@@ -45,7 +47,7 @@
     box-shadow: -12px 9px 39px -12px rgba(48, 202, 225, 0.6),
       15px 17px 36px -11px rgba(238, 120, 251, 0.6);
 
-    @include mediaLG {
+    @include mediaLaptop {
       flex-direction: row;
     }
 
@@ -54,11 +56,8 @@
 
       &-title {
         margin-bottom: 10px;
-        font-weight: 600;
-        font-size: 20px;
-        line-height: 1.3;
         text-align: center;
-        @include mediaLG {
+        @include mediaLaptop {
           text-align: start;
         }
       }
@@ -67,7 +66,7 @@
         font-size: 18px;
         line-height: 1.5;
         text-align: center;
-        @include mediaLG {
+        @include mediaLaptop {
           text-align: start;
         }
 
@@ -92,7 +91,6 @@
 
       &-btn {
         margin-inline: auto;
-        
       }
     }
   }

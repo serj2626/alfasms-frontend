@@ -1,7 +1,7 @@
 <script lang="ts" setup></script>
 <template>
   <section id="main-marketer" class="main-marketer container">
-    <h2 class="main-marketer__title">Нам доверяют сотни тысяч маркетологов</h2>
+    <BaseTypography class="main-marketer__title" title="Нам доверяют сотни тысяч маркетологов" view="h2" />
     <div class="main-marketer__achievements">
       <NuxtLink
         href="https://www.capterra.com/p/146369/SendPulse/reviews/#reviews"
@@ -156,9 +156,6 @@
   margin-bottom: 16px;
 
   &__title {
-    font-size: 48px;
-    font-weight: 600;
-    line-height: 1.2;
     text-align: center;
     margin-bottom: 80px;
   }

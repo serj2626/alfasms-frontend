@@ -19,7 +19,8 @@ const links = ref<IHeaderLinks[]>([
 
 type HeaderLinkView = "features" | "resources" | "partners";
 
-const showMenu = ref<HeaderLinkView | null>(null);
+// const showMenu = ref<HeaderLinkView | null>(null);
+const showMenu = ref<true | null>(null);
 
 onMounted(() => {
   window.addEventListener("scroll", handleScroll);
@@ -34,9 +35,9 @@ function handleScroll() {
   }
 }
 
-const showMessage = (view: HeaderLinkView) => {
-  showMenu.value = view;
-};
+// const showMessage = (view: HeaderLinkView) => {
+//   showMenu.value = view;
+// };
 </script>
 <template>
   <header class="header">
@@ -73,7 +74,7 @@ const showMessage = (view: HeaderLinkView) => {
             class="header-content__tablet-menu-item"
             v-for="link in links"
             :key="link.name"
-            @mouseenter="link.icon && showMessage(link.view as HeaderLinkView)"
+            @mouseenter="link.icon && (showMenu = true)"
           >
             <NuxtLink to="/" class="header-content__tablet-menu-item-link">
               {{ link.name }}
@@ -84,16 +85,8 @@ const showMessage = (view: HeaderLinkView) => {
               :name="HeroIcons.DOWN"
             />
           </div>
-          <LazyMenuOpportunities
-            v-if="showMenu === 'features'"
-            @close="showMenu = null"
-          />
-          <LazyMenuPartners
-            v-if="showMenu === 'partners'"
-            @close="showMenu = null"
-          />
-          <LazyMenuResources
-            v-if="showMenu === 'resources'"
+          <LazyMenuSubLinks
+            v-if="showMenu"
             @close="showMenu = null"
           />
         </div>
