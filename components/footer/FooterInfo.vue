@@ -26,7 +26,7 @@ const links: ILinks[] = [
         </div>
 
         <p class="footer-info__content-data-copyright">
-          © 2015 - 2025. AlafaSMS. Все права защищены
+          © 2015 - 2025. AlfaSMS. Все права защищены
         </p>
       </div>
       <div class="footer-info__content-social">

@@ -78,7 +78,6 @@ const acions: IAction[] = [
       align-items: center;
       padding-inline: 15px;
       color: $txt_white;
-      width: 750px;
       margin-inline: auto;
 
       &-title {
@@ -101,7 +100,7 @@ const acions: IAction[] = [
         justify-content: center;
         flex-wrap: wrap;
         gap: 8px;
-        width: 555px;
+        max-width: 555px;
         margin-inline: auto;
 
         &-item {

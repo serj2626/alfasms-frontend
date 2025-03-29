@@ -42,6 +42,10 @@ import { chatBotLinks } from "~/assets/data/chatbot-links";
           :links="programmLinks"
         />
       </div>
+      <div class="footer-component__content-social">
+        <Icon size="30" name="social:appstore" />
+        <Icon size="30" name="social:googleplay" />
+      </div>
     </div>
 
     <FooterInfo />
@@ -54,6 +58,15 @@ import { chatBotLinks } from "~/assets/data/chatbot-links";
 
   &__content {
     position: relative;
+
+    &-social {
+      position: absolute;
+      bottom: 0;
+      left: 15px;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
 
     &-main {
       display: grid;
@@ -68,40 +81,84 @@ import { chatBotLinks } from "~/assets/data/chatbot-links";
         "useful"
         "programm";
 
-
       @include mediaMobile {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
         grid-template-areas:
           "email chatbot"
           "services useful"
-          "about programm"
+          "about programm";
       }
 
       @include mediaLaptop {
         grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
         grid-template-areas:
           "email chatbot services useful"
-          "email chatbot about programm"
+          "email chatbot about programm";
       }
 
       &-email {
         grid-area: email;
+        @include mediaMobile {
+          grid-column: 1/2;
+          grid-row: 1/2;
+        }
+        @include mediaLaptop {
+          grid-column: 1/2;
+          grid-row: 1/4;
+        }
       }
       &-chatbot {
         grid-area: chatbot;
+        @include mediaMobile {
+          grid-column: 2/3;
+          grid-row: 1/2;
+        }
+        @include mediaLaptop {
+          grid-column: 2/3;
+          grid-row: 1/4;
+        }
       }
       &-services {
         grid-area: services;
+        @include mediaMobile {
+          grid-column: 1/2;
+          grid-row: 2/4;
+        }
+        @include mediaLaptop {
+          grid-column: 3/4;
+          grid-row: 1/3;
+        }
       }
       &-useful {
         grid-area: useful;
+        @include mediaMobile {
+        }
+        @include mediaLaptop {
+          grid-column: 4/5;
+          grid-row: 1/2;
+        }
       }
       &-about {
         grid-area: about;
+        @include mediaMobile {
+          grid-column: 1/2;
+          grid-row: 4/5;
+        }
+        @include mediaLaptop {
+          grid-column: 3/4;
+          grid-row: 3/4;
+        }
       }
       &-programm {
         grid-area: programm;
+        @include mediaMobile {
+        }
+        @include mediaLaptop {
+          grid-column: 4/5;
+          grid-row: 2/3;
+        }
       }
     }
   }
@@ -110,6 +167,7 @@ import { chatBotLinks } from "~/assets/data/chatbot-links";
   width: 146px;
   height: 47px;
   transition: opacity $fast_ease;
+  cursor: pointer;
   &:hover {
     opacity: 0.7;
   }

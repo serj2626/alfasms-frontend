@@ -1,27 +1,31 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { BaseTypography } from "#components";
+</script>
 <template>
   <section id="main-integrations" class="main-integrations container">
     <div class="main-integrations__time">
       <div class="main-integrations__time-content">
-        <h2 class="main-integrations__time-content-title">
+        <!-- <h2 class="main-integrations__time-content-title">
           Экономьте время благодаря бесплатным интеграциям
-        </h2>
+        </h2> -->
+        <BaseTypography
+          class="main-integrations__time-content-title"
+          view="h2"
+          title="Экономьте время благодаря бесплатным интеграциям"
+        />
         <p class="main-integrations__time-content-descr">
           Суета с программным обеспечением позади: все инструменты уже соединены
           между собой. К примеру, благодаря интеграции CRM с сервисом чат-ботов
           и email рассылок, вы сможете общаться с клиентами прямо с карточки
-          контакта. <br> Также вам доступны 40+ интеграций со сторонними CRM, SMS и
+          контакта. <br />
+          Также вам доступны 40+ интеграций со сторонними CRM, SMS и
           ecommerce-системами.
         </p>
       </div>
-      <div class="main-integrations__time-image">
-        
-      </div>
+      <div class="main-integrations__time-image"></div>
     </div>
     <div class="main-integrations__work">
-      <div class="main-integrations__work-image">
-
-      </div>
+      <div class="main-integrations__work-image"></div>
       <div class="main-integrations__work-content">
         <h2 class="main-integrations__work-content-title">
           Настройте слаженную командную работу
@@ -44,14 +48,10 @@
           и его индивидуальную информацию типа имени, данных заказа и т.д.
         </p>
       </div>
-      <div class="main-integrations__audience-image">
-
-      </div>
+      <div class="main-integrations__audience-image"></div>
     </div>
     <div class="main-integrations__marketing">
-      <div class="main-integrations__marketing-image">
-
-      </div>
+      <div class="main-integrations__marketing-image"></div>
       <div class="main-integrations__marketing-content">
         <h2 class="main-integrations__marketing-content-title">
           Измеряйте и анализируйте свой маркетинг благодаря мощным встроенным
@@ -81,11 +81,11 @@
   }
 }
 
-%title{
+%title {
+  padding-top: 20px;
   font-size: 34px;
   font-weight: 700;
   line-height: 1.2;
-  padding-top: 20px;
 }
 
 %display_flex {
@@ -105,7 +105,7 @@
       line-height: 1.6;
       @extend %display_flex;
       &-title {
-        @extend %title;
+        padding-top: 20px;
       }
     }
     &-image {
@@ -122,6 +122,9 @@
       @extend %display_flex;
       &-title {
         @extend %title;
+        font-size: 34px;
+        font-weight: 700;
+        line-height: 1.2;
       }
     }
     &-image {

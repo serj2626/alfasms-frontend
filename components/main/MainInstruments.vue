@@ -7,47 +7,47 @@ interface IInstruments {
 
 const instruments: IInstruments[] = [
   {
-    img: "instruments/one.svg",
+    img: "https://www.spcdn.org/images/all-in-one/pic-allpage-stat-sm.svg",
     title: "15 000 писем в месяц",
     text: "в формате рассылок и транзакционных сообщений",
   },
   {
-    img: "instruments/two.svg",
+    img: "https://www.spcdn.org/images/all-in-one/pic-allpage-bots-sm.svg",
     title: "3 чат-бота",
     text: "с автоответами и поддержкой искусственного интеллекта GPT",
   },
   {
-    img: "instruments/three.svg",
+    img: "https://www.spcdn.org/images/all-in-one/pic-allpage-crm-sm.svg",
     title: "Полноценная CRM",
     text: "интегрированная с другими сервисами SendPulse",
   },
   {
-    img: "instruments/four.svg",
+    img: "https://www.spcdn.org/images/all-in-one/pic-allpage-site-sm.svg",
     title: "1 сайт на конструкторе",
     text: "для продвижения бренда или эксперта",
   },
   {
-    img: "instruments/five.svg",
+    img: "https://www.spcdn.org/images/all-in-one/pic-allpage-popups-sm.svg",
     title: "10 попапов и онлайн-чат",
     text: "для вовлечения, поддержки и лидогенерации",
   },
   {
-    img: "instruments/six.svg",
+    img: "https://www.spcdn.org/images/all-in-one/pic-allpage-forms-sm.svg",
     title: "Формы подписки",
     text: "для сбора контактов с настройкой условий отображения",
   },
   {
-    img: "instruments/seven.svg",
+    img: "https://www.spcdn.org/images/all-in-one/pic-allpage-push-sm.svg",
     title: "Web push сервис",
     text: "уведомления прямо на рабочий стол для 10 000 подписчиков",
   },
   {
-    img: "instruments/eight.svg",
+    img: "https://www.spcdn.org/images/all-in-one/pic-allpage-a360-sm.svg",
     title: "Автоматизация воронок",
     text: "для автоматизации процессов работы с контактами",
   },
   {
-    img: "instruments/nine.svg",
+    img: "https://www.spcdn.org/images/all-in-one/pic-allpage-edu-sm.svg",
     title: "Платформа для курсов",
     text: "для создания и продаж онлайн-курсов",
   },

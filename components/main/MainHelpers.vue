@@ -149,9 +149,14 @@
         }
 
         &-img {
-          width: 50px;
+          width: 40px;
           aspect-ratio: 1/1;
           margin-bottom: 16px;
+
+          @include mediaLaptop{
+            width: 50px;
+          }
+          
         }
         &-title {
           font-size: 18px;
