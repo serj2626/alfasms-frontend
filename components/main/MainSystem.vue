@@ -96,10 +96,10 @@ import { HeroIcons } from "~/assets/icons/types/hero-icons";
       grid-template-columns: 1fr;
       gap: 30px;
 
-      @include mediaMD {
+      @include mediaTablet {
         grid-template-columns: repeat(2, 1fr);
       }
-      @include mediaLG {
+      @include mediaLaptop {
         grid-template-columns: repeat(3, 1fr);
       }
 

@@ -57,17 +57,23 @@ const acions: IAction[] = [
           </li>
         </ul>
       </div>
-      <div class="main-info__content-services">
-        <MainServiceInfoItem title="CRM система" icon="main/info/hz" circle />
-      </div>
+      <img
+        class="main-info__content-services"
+        src="/main-info.svg"
+        alt="Services"
+      />
     </div>
   </section>
 </template>
 
 <style lang="scss" scoped>
 .main-info {
-  padding-block: 220px;
+  padding: 120px 60px;
   background: $bg_linear;
+
+  @include mediaLaptop{
+  padding-block: 220px;
+  }
 
   &__content {
     display: grid;
@@ -90,13 +96,13 @@ const acions: IAction[] = [
         font-size: 18px;
         margin-bottom: 30px;
 
-        @include mediaMD {
+        @include mediaTablet {
           margin-bottom: 40px;
         }
-        @include mediaLG {
+        @include mediaLaptop {
           margin-bottom: 30px;
         }
-        @include mediaXL {
+        @include mediaDesktop {
           margin-bottom: 50px;
         }
       }
@@ -121,14 +127,7 @@ const acions: IAction[] = [
 
     &-services {
       position: relative;
-      top: -40px;
-
-      padding: 8px;
-      background: linear-gradient(
-        180deg,
-        rgba(255, 255, 255, 0.16) 0,
-        rgba(255, 255, 255, 0.08) 100%
-      );
+      top: -20px;
     }
   }
 }

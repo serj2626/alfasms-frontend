@@ -20,7 +20,7 @@ const links = ref<IHeaderLinks[]>([
 type HeaderLinkView = "features" | "resources" | "partners";
 
 // const showMenu = ref<HeaderLinkView | null>(null);
-const showMenu = ref<false | null>(null);
+const showMenu = ref<boolean | null>(null);
 
 onMounted(() => {
   window.addEventListener("scroll", handleScroll);
@@ -42,9 +42,9 @@ function handleScroll() {
 </script>
 <template>
   <header class="header">
-    <LazyHeaderCatalogMenu v-show="showMenu" />
+    <LazyHeaderCatalogMenu v-show="showMenu" @close="showMenu = null" />
     <div class="header-content container">
-      <div class="header-content__mobile">
+      <div class="header-content__mobile container">
         <NuxtLink class="header-content__mobile-logo" to="/">
           <img
             class="header-content__mobile-logo-img"
@@ -63,7 +63,7 @@ function handleScroll() {
           />
         </button>
       </div>
-      <div class="header-content__tablet">
+      <div class="header-content__tablet container">
         <NuxtLink class="header-content__tablet-logo" to="/">
           <img
             class="header-content__tablet-logo-img"
@@ -207,6 +207,7 @@ function handleScroll() {
         flex-direction: column;
         align-items: center;
         gap: 2px;
+
         &-img {
           width: 60px;
           height: auto;
@@ -235,6 +236,7 @@ function handleScroll() {
       color: $txt_white;
       font-size: 16px;
       display: none;
+      padding-inline: 15px;
 
       @include mediaLaptop {
         display: flex;

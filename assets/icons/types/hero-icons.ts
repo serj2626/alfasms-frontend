@@ -6,6 +6,7 @@ export const enum HeroIcons {
   MAIL = "i-heroicons-envelope",
   SEARCH = "i-heroicons-magnifying-glass",
   BURGER_MENU = "i-heroicons-bars-3",
+  CLOSE = "i-heroicons-x-mark",
   DOWN = "i-heroicons-chevron-down",
   UP = "i-heroicons-chevron-chevron-up",
 }

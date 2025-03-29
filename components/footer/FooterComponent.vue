@@ -48,6 +48,7 @@ import { chatBotLinks } from "~/assets/data/chatbot-links";
       </div>
     </div>
 
+
     <FooterInfo />
   </div>
 </template>
@@ -60,12 +61,16 @@ import { chatBotLinks } from "~/assets/data/chatbot-links";
     position: relative;
 
     &-social {
-      position: absolute;
-      bottom: 0;
+      // position: absolute;
+      // bottom: 0;
       left: 15px;
       display: flex;
-      gap: 20px;
+      gap: 12px;
       align-items: center;
+      margin-top: 20px;
+      @include mediaLaptop{
+        margin-top: -50px;
+      }
     }
 
     &-main {
@@ -149,6 +154,9 @@ import { chatBotLinks } from "~/assets/data/chatbot-links";
         @include mediaLaptop {
           grid-column: 3/4;
           grid-row: 3/4;
+        }
+        @include mediaLaptop() {
+
         }
       }
       &-programm {

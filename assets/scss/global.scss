@@ -10,22 +10,6 @@ body {
   overflow-x: hidden;
 }
 
-// .container {
-//   padding: 0 20px;
-//   margin: 0 auto;
-//   width: 100%;
-//   height: 100%;
-
-//   @include mediaLaptop() {
-//     padding: 0 39px;
-//   }
-
-//   @include mediaDesktop() {
-//     padding: 0 100px;
-//     max-width: 1480px;
-//   }
-// }
-
 .container {
   padding: 0 15px;
   margin: 0 auto;
@@ -47,27 +31,4 @@ body {
   @include mediaDesktop() {
     width: 1200px;
   }
-  // 1322  1600
 }
-
-// .container {
-//   padding: 0 15px;
-//   margin: 0 auto;
-//   width: 100%;
-//   height: 100%;
-
-//   @include mediaMobile(){
-//     max-width: 560px;
-//   }
-
-//   @include mediaTablet() {
-//     width: 760px;
-//   }
-//   @include mediaLaptop() {
-//     width: 970px;
-//   }
-//   @include mediaDesktop() {
-//     width: 1170px;
-//     padding: 0 15px;
-//   }
-// }

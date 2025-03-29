@@ -94,10 +94,18 @@ const instruments: IInstruments[] = [
 </template>
 <style lang="scss" scoped>
 .main-instruments {
-  padding-block: 140px 30px;
+  padding-top: 60px;
+
+  @include mediaTablet{
+    padding-top: 100px;
+  }
+  @include mediaLaptop{
+    padding-top: 140px;
+  }
+
 
   &__title {
-    text-align: center;
+    text-align: start;
     margin-bottom: 30px;
     text-align: center;
   }
@@ -112,7 +120,7 @@ const instruments: IInstruments[] = [
     grid-template-columns: 1fr;
     gap: 30px;
 
-    @include mediaTablet {
+    @include mediaMobile {
       grid-template-columns: repeat(2, 1fr);
       gap: 40px;
     }

@@ -45,6 +45,7 @@ const links: ILinks[] = [
 </template>
 <style lang="scss" scoped>
 .footer-info {
+  position: relative;
   margin-top: 20px;
   border-top: 1px solid #ebebeb;
   padding-block: 35px;
@@ -53,8 +54,14 @@ const links: ILinks[] = [
 
   &__content {
     display: flex;
-    justify-content: space-between;
-    align-items: end;
+    flex-direction: column;
+    gap: 10px;
+
+    @include mediaMobile{
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: end;
+    }
     @include mediaLaptop {
       align-items: center;
     }
@@ -99,7 +106,7 @@ const links: ILinks[] = [
     &-social {
       display: flex;
       gap: 10px;
-
+      
       &-link {
         transition: all $fast_ease;
 

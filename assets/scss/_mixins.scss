@@ -27,50 +27,7 @@
     @content;
   }
 }
-// ##########################################################
 
-@mixin mediaMaxSm() {
-  @media screen and (max-width: $sm) {
-    @content;
-  }
-}
-
-@mixin mediaSM() {
-  @media screen and (min-width: $sm) {
-    @content;
-  }
-}
-
-@mixin mediaMD() {
-  @media screen and (min-width: $md) {
-    @content;
-  }
-}
-
-@mixin mediaLG() {
-  @media screen and (min-width: $lg) {
-    @content;
-  }
-}
-
-@mixin mediaXL() {
-  @media screen and (min-width: $xl) {
-    @content;
-  }
-}
-
-@mixin mediaXXL() {
-  @media screen and (min-width: $xxl) {
-    @content;
-  }
-}
-
-// @mixin txt_title($size, $weight: 400, $height, $color: $txt) {
-//   font-size: $size;
-//   font-weight: $weight;
-//   line-height: $height;
-//   color: $color;
-// }
 
 @mixin txt_property($size: 16px, $weight: 400, $height: 1.42857, $color: $txt) {
   font-size: $size;

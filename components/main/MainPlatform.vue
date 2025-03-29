@@ -140,8 +140,12 @@ const platforma: IPlatforma[] = [
       gap: 10px;
 
       &-img {
-        width: 50px;
-        height: 50px;
+        width: 40px;
+        aspect-ratio: 1/1;
+
+        @include mediaLaptop{
+          width: 50px;
+        }
       }
 
       &-title {

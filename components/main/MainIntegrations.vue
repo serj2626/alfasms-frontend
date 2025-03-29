@@ -5,9 +5,6 @@ import { BaseTypography } from "#components";
   <section id="main-integrations" class="main-integrations container">
     <div class="main-integrations__time">
       <div class="main-integrations__time-content">
-        <!-- <h2 class="main-integrations__time-content-title">
-          Экономьте время благодаря бесплатным интеграциям
-        </h2> -->
         <BaseTypography
           class="main-integrations__time-content-title"
           view="h2"

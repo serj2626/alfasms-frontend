@@ -152,8 +152,15 @@
 </template>
 <style lang="scss" scoped>
 .main-marketer {
-  padding-top: 140px;
+  padding-top: 60px;
   margin-bottom: 16px;
+
+  @include mediaTablet{
+    padding-top: 100px;
+  }
+  @include mediaLaptop{
+    padding-top: 140px;
+  }
 
   &__title {
     text-align: center;
