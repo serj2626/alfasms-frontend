@@ -9,29 +9,6 @@ import { chatBotLinks } from "~/assets/data/chatbot-links";
 <template>
   <div class="footer-component">
     <div class="footer-component__content container">
-      <!-- <div class="footer-component__content-main">
-        <FooterLinks title="email" :links="emailLinks" />
-        <FooterLinks title="Чат-боты" :links="chatBotLinks" />
-
-        <div class="footer-component__main-services-about">
-          <FooterLinks title="Сервисы" :links="servicesLinks" />
-          <FooterLinks title="О компании" :links="aboutLinks" />
-        </div>
-
-        <div class="footer-component__main-useful-programm">
-          <FooterLinks title="Полезное" :links="usefulLinks" />
-          <FooterLinks title="Партнерские программы" :links="programmLinks" />
-        </div>
-      </div>
-      <div class="footer-component__content-btns">
-        <NuxtLink class="footer-component__content-btns-appstore" to="/">
-          <Icon name="social:appstore" />
-        </NuxtLink>
-        <NuxtLink class="footer-component__content-btns-googleplay" to="/">
-          <Icon name="social:googleplay" />
-        </NuxtLink>
-      </div> -->
-
       <div class="footer-component__content-main">
         <FooterLinks
           class="footer-component__content-main-email"
@@ -82,61 +59,51 @@ import { chatBotLinks } from "~/assets/data/chatbot-links";
       display: grid;
       grid-template-columns: 1fr;
       gap: 30px;
-      @include mediaTablet{
+
+      grid-template-areas:
+        "email"
+        "chatbot"
+        "services"
+        "about"
+        "useful"
+        "programm";
+
+
+      @include mediaMobile {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
+        grid-template-areas:
+          "email chatbot"
+          "services useful"
+          "about programm"
       }
-      @include mediaLaptop{
+
+      @include mediaLaptop {
         grid-template-columns: repeat(4, 1fr);
+        grid-template-areas:
+          "email chatbot services useful"
+          "email chatbot about programm"
       }
 
       &-email {
-        display: flex;
+        grid-area: email;
       }
       &-chatbot {
-        display: flex;
-        flex-wrap: wrap;
+        grid-area: chatbot;
       }
       &-services {
-        display: flex;
-        flex-wrap: wrap;
+        grid-area: services;
       }
       &-useful {
-        display: flex;
-        flex-wrap: wrap;
+        grid-area: useful;
       }
       &-about {
-        display: flex;
-        flex-wrap: wrap;
+        grid-area: about;
       }
       &-programm {
-        display: flex;
-        flex-wrap: wrap;
+        grid-area: programm;
       }
     }
-
-    // &-main {
-    //   display: grid;
-    //   grid-template-columns: repeat(2, 1fr);
-    //   gap: 10px;
-
-    //   @include mediaTablet {
-    //     grid-template-columns: repeat(3, 1fr);
-    //     gap: 20px;
-    //   }
-    //   @include mediaDesktop {
-    //     grid-template-columns: repeat(4, 1fr);
-    //     gap: 30px;
-    //   }
-    // }
-
-    // &-btns {
-    //   position: absolute;
-    //   bottom: 0;
-
-    //   display: flex;
-    //   gap: 15px;
-    // }
   }
 }
 .iconify {
@@ -147,16 +114,4 @@ import { chatBotLinks } from "~/assets/data/chatbot-links";
     opacity: 0.7;
   }
 }
-
-// .footer-component__main-services-about {
-//   display: flex;
-//   flex-direction: column;
-//   gap: 30px;
-// }
-
-// .footer-component__main-useful-programm {
-//   display: flex;
-//   flex-direction: column;
-//   gap: 30px;
-// }
 </style>

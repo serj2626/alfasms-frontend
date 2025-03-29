@@ -54,7 +54,10 @@ const links: ILinks[] = [
   &__content {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: end;
+    @include mediaLaptop {
+      align-items: center;
+    }
 
     &-data {
       padding-top: 8px;
@@ -87,7 +90,9 @@ const links: ILinks[] = [
       &-copyright {
         font-size: 14px;
         color: $bg_footer;
-        margin-bottom: 16px;
+        @include mediaLaptop {
+          margin-bottom: 16px;
+        }
       }
     }
 
@@ -95,10 +100,10 @@ const links: ILinks[] = [
       display: flex;
       gap: 10px;
 
-      &-link{
+      &-link {
         transition: all $fast_ease;
 
-        &:hover{
+        &:hover {
           transform: scale(1.2);
         }
       }
