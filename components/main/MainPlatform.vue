@@ -83,7 +83,6 @@ const platforma: IPlatforma[] = [
     &-title {
       text-align: center;
       margin-bottom: 15px;
-      width: 487px;
 
       @include mediaTablet {
         font-size: 30px;
@@ -106,7 +105,6 @@ const platforma: IPlatforma[] = [
       font-size: 18px;
       line-height: 1.5;
       text-align: center;
-      max-width: 940px;
       margin-inline: auto;
 
       @include mediaTablet {

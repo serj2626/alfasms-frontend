@@ -1,7 +1,11 @@
 <script lang="ts" setup></script>
 <template>
   <div class="main-try-free container">
-    <div class="main-try-free__content">
+    <div
+      class="main-try-free__content"
+      data-aos="fade-up"
+      data-aos-duration="2000"
+    >
       <div class="main-try-free__content-info">
         <BaseTypography
           class="main-try-free__content-info-title"

@@ -7,9 +7,9 @@ import { servicesLinks } from "~/assets/data/services-links";
 import { chatBotLinks } from "~/assets/data/chatbot-links";
 </script>
 <template>
-  <div class="footer-component container">
-    <div class="footer-component__content">
-      <div class="footer-component__content-main">
+  <div class="footer-component">
+    <div class="footer-component__content container">
+      <!-- <div class="footer-component__content-main">
         <FooterLinks title="email" :links="emailLinks" />
         <FooterLinks title="Чат-боты" :links="chatBotLinks" />
 
@@ -30,6 +30,40 @@ import { chatBotLinks } from "~/assets/data/chatbot-links";
         <NuxtLink class="footer-component__content-btns-googleplay" to="/">
           <Icon name="social:googleplay" />
         </NuxtLink>
+      </div> -->
+
+      <div class="footer-component__content-main">
+        <FooterLinks
+          class="footer-component__content-main-email"
+          title="email"
+          :links="emailLinks"
+        />
+        <FooterLinks
+          class="footer-component__content-main-chatbot"
+          title="Чат-боты"
+          :links="chatBotLinks"
+        />
+        <FooterLinks
+          class="footer-component__content-main-services"
+          title="Сервисы"
+          :links="servicesLinks"
+        />
+        <FooterLinks
+          class="footer-component__content-main-useful"
+          title="Полезное"
+          :links="usefulLinks"
+        />
+        <FooterLinks
+          class="footer-component__content-main-about"
+          x
+          title="О компании"
+          :links="aboutLinks"
+        />
+        <FooterLinks
+          class="footer-component__content-main-programm"
+          title="Партнерские программы"
+          :links="programmLinks"
+        />
       </div>
     </div>
 
@@ -46,26 +80,63 @@ import { chatBotLinks } from "~/assets/data/chatbot-links";
 
     &-main {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-
-      @include mediaTablet {
-        grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr;
+      gap: 30px;
+      @include mediaTablet{
+        grid-template-columns: repeat(2, 1fr);
         gap: 20px;
       }
-      @include mediaDesktop {
+      @include mediaLaptop{
         grid-template-columns: repeat(4, 1fr);
-        gap: 30px;
+      }
+
+      &-email {
+        display: flex;
+      }
+      &-chatbot {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      &-services {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      &-useful {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      &-about {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      &-programm {
+        display: flex;
+        flex-wrap: wrap;
       }
     }
 
-    &-btns {
-      position: absolute;
-      bottom: 0;
+    // &-main {
+    //   display: grid;
+    //   grid-template-columns: repeat(2, 1fr);
+    //   gap: 10px;
 
-      display: flex;
-      gap: 15px;
-    }
+    //   @include mediaTablet {
+    //     grid-template-columns: repeat(3, 1fr);
+    //     gap: 20px;
+    //   }
+    //   @include mediaDesktop {
+    //     grid-template-columns: repeat(4, 1fr);
+    //     gap: 30px;
+    //   }
+    // }
+
+    // &-btns {
+    //   position: absolute;
+    //   bottom: 0;
+
+    //   display: flex;
+    //   gap: 15px;
+    // }
   }
 }
 .iconify {
@@ -77,15 +148,15 @@ import { chatBotLinks } from "~/assets/data/chatbot-links";
   }
 }
 
-.footer-component__main-services-about {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
+// .footer-component__main-services-about {
+//   display: flex;
+//   flex-direction: column;
+//   gap: 30px;
+// }
 
-.footer-component__main-useful-programm {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
+// .footer-component__main-useful-programm {
+//   display: flex;
+//   flex-direction: column;
+//   gap: 30px;
+// }
 </style>

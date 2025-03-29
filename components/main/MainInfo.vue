@@ -31,9 +31,11 @@ const acions: IAction[] = [
   <section id="main-info" class="main-info">
     <div class="main-info__content container">
       <div class="main-info__content-desc">
-        <h1 class="main-info__content-desc-title">
-          Онлайн-платформа со всеми необходимыми инструментами для маркетологов
-        </h1>
+        <BaseTypography
+          class="main-info__content-desc-title"
+          view="h1"
+          title="Онлайн-платформа со всеми необходимыми инструментами для маркетологов"
+        />
         <p class="main-info__content-desc-text">
           Все для привлечения аудитории, коммуникаций и лидогенерации внутри
           единой платформы с большим бесплатным тарифом
@@ -56,11 +58,7 @@ const acions: IAction[] = [
         </ul>
       </div>
       <div class="main-info__content-services">
-        <MainServiceInfoItem
-          title="CRM система"
-          icon="main/info/hz"
-          circle
-        />
+        <MainServiceInfoItem title="CRM система" icon="main/info/hz" circle />
       </div>
     </div>
   </section>
@@ -77,7 +75,7 @@ const acions: IAction[] = [
     gap: 30px;
     color: $txt_white;
 
-    @include mediaLG {
+    @include mediaLaptop {
       grid-template-columns: 1fr 1fr;
       gap: 20px;
     }
@@ -86,35 +84,19 @@ const acions: IAction[] = [
       padding-inline: 15px;
 
       &-title {
-        font-size: 32px;
-        font-weight: 700;
         margin-bottom: 30px;
-        line-height: 110%;
-
-        @include mediaSM{
-          font-size: 40px;
-        }
-        @include mediaMD{
-          font-size: 48px;
-        }
-        @include mediaLG{
-          font-size: 36px;
-        }
-        @include mediaXL{
-          font-size: 48px;
-        }
       }
       &-text {
         font-size: 18px;
         margin-bottom: 30px;
 
-        @include mediaMD{
+        @include mediaMD {
           margin-bottom: 40px;
         }
-        @include mediaLG{
+        @include mediaLG {
           margin-bottom: 30px;
         }
-        @include mediaXL{
+        @include mediaXL {
           margin-bottom: 50px;
         }
       }
@@ -147,7 +129,6 @@ const acions: IAction[] = [
         rgba(255, 255, 255, 0.16) 0,
         rgba(255, 255, 255, 0.08) 100%
       );
-
     }
   }
 }

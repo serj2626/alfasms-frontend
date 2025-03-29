@@ -12,7 +12,7 @@ const links: ILinks[] = [
 </script>
 <template>
   <div class="footer-info">
-    <div class="footer-info__content">
+    <div class="footer-info__content container">
       <div class="footer-info__content-data">
         <div class="footer-info__content-data-links">
           <NuxtLink
@@ -26,7 +26,7 @@ const links: ILinks[] = [
         </div>
 
         <p class="footer-info__content-data-copyright">
-          © 2015 - 2025. SendPulse Inc. Все права защищены
+          © 2015 - 2025. AlafaSMS. Все права защищены
         </p>
       </div>
       <div class="footer-info__content-social">
@@ -60,12 +60,18 @@ const links: ILinks[] = [
       padding-top: 8px;
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 10px;
 
       &-links {
         display: flex;
-        gap: 30px;
-        align-items: center;
+        flex-direction: column;
+        gap: 5px;
+        align-items: start;
+
+        @include mediaLaptop {
+          flex-direction: row;
+          gap: 30px;
+        }
 
         &-item {
           font-size: 14px;

@@ -34,10 +34,18 @@ $bg_linear: linear-gradient(112.45deg, #5d03d0 37.25%, #464ff7 63.35%, #5d03d0 7
 $bg_linear_second: linear-gradient(190deg, #0f849eaf, #009ec1c3), url(bg/bg.png);
 
 // Brakepoints
-$mobile: 350px;
+// $mobile: 350px;
+// $tablet: 768px;
+// $laptop: 1024px;
+// $desktop: 1440px;
+// $desktopWide: 1920px;
+
+
+$mobile: 576px;
 $tablet: 768px;
-$laptop: 1024px;
-$desktop: 1440px;
+$laptop: 992px;
+$desktop: 1200px;
+$desctop_wide: 1400px;
 
 $sm : 576px;
 $md : 768px;

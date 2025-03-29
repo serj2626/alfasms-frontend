@@ -1,11 +1,28 @@
 <script setup lang="ts">
 const containerRef = ref(null);
 const swiper = useSwiper(containerRef, {
-  slidesPerView: 10,
+  slidesPerView: 1,
   spaceBetween: 15,
   loop: true,
   autoplay: {
-    delay: 1100,
+    delay: 1500,
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+      spaceBetween: 40
+    },
+    768: {
+      slidesPerView: 4,
+      spaceBetween: 30
+    },
+    1024: {
+      slidesPerView: 6,
+      spaceBetween: 20
+    },
+    1200: {
+      slidesPerView: 8,
+    },
   }
 });
 

@@ -41,9 +41,13 @@ defineProps<{
     }
   }
   &__list {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 12px;
+
+    @include mediaMobile {
+      grid-template-columns: 1fr;
+    }
 
     &-item {
       cursor: pointer;

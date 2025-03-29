@@ -21,6 +21,12 @@
     @content;
   }
 }
+
+@mixin mediaDesktopWide() {
+  @media screen and (min-width: $desctop_wide) {
+    @content;
+  }
+}
 // ##########################################################
 
 @mixin mediaMaxSm() {
@@ -66,8 +72,31 @@
 //   color: $color;
 // }
 
+@mixin txt_property($size: 16px, $weight: 400, $height: 1.42857, $color: $txt) {
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $height;
+  color: $color;
+}
+
 @mixin card_shadow() {
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.1);
+}
+
+@mixin txt_title_h1 {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.1;
+
+  @include mediaTablet() {
+    font-size: 48px;
+  }
+  @include mediaLaptop() {
+    font-size: 36px;
+  }
+  @include mediaDesktop() {
+    font-size: 48px;
+  }
 }
 
 @mixin txt_title_h2 {

@@ -20,7 +20,7 @@ const links = ref<IHeaderLinks[]>([
 type HeaderLinkView = "features" | "resources" | "partners";
 
 // const showMenu = ref<HeaderLinkView | null>(null);
-const showMenu = ref<true | null>(null);
+const showMenu = ref<false | null>(null);
 
 onMounted(() => {
   window.addEventListener("scroll", handleScroll);
@@ -38,9 +38,11 @@ function handleScroll() {
 // const showMessage = (view: HeaderLinkView) => {
 //   showMenu.value = view;
 // };
+
 </script>
 <template>
   <header class="header">
+    <LazyHeaderCatalogMenu v-show="showMenu" />
     <div class="header-content container">
       <div class="header-content__mobile">
         <NuxtLink class="header-content__mobile-logo" to="/">
@@ -57,6 +59,7 @@ function handleScroll() {
             class="header-content__mobile-burger-icon"
             size="36"
             :name="HeroIcons.BURGER_MENU"
+            @click="showMenu = true"
           />
         </button>
       </div>
@@ -74,7 +77,7 @@ function handleScroll() {
             class="header-content__tablet-menu-item"
             v-for="link in links"
             :key="link.name"
-            @mouseenter="link.icon && (showMenu = true)"
+      
           >
             <NuxtLink to="/" class="header-content__tablet-menu-item-link">
               {{ link.name }}
@@ -85,10 +88,7 @@ function handleScroll() {
               :name="HeroIcons.DOWN"
             />
           </div>
-          <LazyMenuSubLinks
-            v-if="showMenu"
-            @close="showMenu = null"
-          />
+
         </div>
         <div class="header-content__tablet-search-language">
           <button class="btn__search">
@@ -159,6 +159,10 @@ function handleScroll() {
       outline: 11px solid $teal;
       color: $teal;
     }
+  }
+  .header-content__mobile-burger-icon,
+  .header-content__mobile-logo-text {
+    color: $txt;
   }
 }
 
