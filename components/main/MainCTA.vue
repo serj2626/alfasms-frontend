@@ -70,7 +70,13 @@ const acions: IAction[] = [
 .main-cta {
   background: $bg_linear;
   &__content {
-    padding-block: 140px;
+    padding-block: 60px;
+    @include mediaTablet {
+      padding-block: 100px;
+    }
+    @include mediaLaptop {
+      padding-block: 140px;
+    }
 
     &-desc {
       display: flex;

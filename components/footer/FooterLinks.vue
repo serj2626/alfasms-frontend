@@ -52,12 +52,7 @@ defineProps<{
     &-item {
       cursor: pointer;
       font-size: 14px;
-      color: $txt_footer_link;
-      transition: color $fast_ease;
-
-      &:hover {
-        color: $teal;
-      }
+      @include link;
     }
   }
 }

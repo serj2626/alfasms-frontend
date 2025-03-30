@@ -68,7 +68,15 @@ const acions: IAction[] = [
 
 <style lang="scss" scoped>
 .main-info {
-  padding: 120px 60px;
+  padding-top: 100px;
+  margin-bottom: 16px;
+
+  @include mediaTablet {
+    padding-top: 100px;
+  }
+  @include mediaLaptop {
+    padding-top: 140px;
+  }
   background: $bg_linear;
 
   @include mediaLaptop{

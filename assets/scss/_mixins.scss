@@ -40,6 +40,16 @@
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.1);
 }
 
+@mixin link(){
+  color: $txt_footer_link;
+  transition: color $fast_ease;
+
+  &:hover{
+    color: $teal;
+  }
+}
+
+
 @mixin txt_title_h1 {
   font-size: 32px;
   font-weight: 600;

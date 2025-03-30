@@ -1,5 +1,6 @@
 <script setup lang="ts">
 
+
 interface IVideoComponentProps {
   video: IBaseMediaProperty | any;
 }

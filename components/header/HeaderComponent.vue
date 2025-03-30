@@ -44,7 +44,7 @@ function handleScroll() {
   <header class="header">
     <LazyHeaderCatalogMenu v-show="showMenu" @close="showMenu = null" />
     <div class="header-content container">
-      <div class="header-content__mobile container">
+      <!-- <div class="header-content__mobile container">
         <NuxtLink class="header-content__mobile-logo" to="/">
           <img
             class="header-content__mobile-logo-img"
@@ -62,7 +62,7 @@ function handleScroll() {
             @click="showMenu = true"
           />
         </button>
-      </div>
+      </div> -->
       <div class="header-content__tablet container">
         <NuxtLink class="header-content__tablet-logo" to="/">
           <img

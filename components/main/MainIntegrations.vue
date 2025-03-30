@@ -66,7 +66,7 @@ import { BaseTypography } from "#components";
 </template>
 <style lang="scss" scoped>
 %block {
-  padding-bottom: 160px;
+  padding-bottom: 60px;
   display: grid;
   grid-template-columns: 1fr;
   align-items: start;
@@ -74,7 +74,7 @@ import { BaseTypography } from "#components";
 
   @include mediaTablet {
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+    gap: 10px;
   }
 }
 
