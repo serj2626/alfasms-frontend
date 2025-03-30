@@ -41,13 +41,8 @@ defineProps<{
     &-item {
       line-height: 1.42;
       font-size: 15px;
-      color: #435158;
       padding: 6px 15px 6px 18px;
-      transition: color $fast_ease;
-
-      &:hover {
-        color: $teal;
-      }
+      @include link;
     }
   }
 }

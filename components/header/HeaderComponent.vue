@@ -28,12 +28,21 @@ onMounted(() => {
 
 function handleScroll() {
   let header = document.querySelector(".header");
-  if (window.scrollY > 0) {
+  let headerCatalogMenu = document.querySelector(".header-catalog-menu");
+  if (window.scrollY > 0 && !headerCatalogMenu?.classList.contains("header-catalog-menu_close")) {
     header?.classList.add("header_scrolled");
   } else {
     header?.classList.remove("header_scrolled");
   }
 }
+// function handleScroll() {
+//   let header = document.querySelector(".header");
+//   if (window.scrollY > 0) {
+//     header?.classList.add("header_scrolled");
+//   } else {
+//     header?.classList.remove("header_scrolled");
+//   }
+// }
 
 // const showMessage = (view: HeaderLinkView) => {
 //   showMenu.value = view;
@@ -44,7 +53,7 @@ function handleScroll() {
   <header class="header">
     <LazyHeaderCatalogMenu v-show="showMenu" @close="showMenu = null" />
     <div class="header-content container">
-      <!-- <div class="header-content__mobile container">
+      <div class="header-content__mobile">
         <NuxtLink class="header-content__mobile-logo" to="/">
           <img
             class="header-content__mobile-logo-img"
@@ -62,8 +71,8 @@ function handleScroll() {
             @click="showMenu = true"
           />
         </button>
-      </div> -->
-      <div class="header-content__tablet container">
+      </div>
+      <div class="header-content__tablet">
         <NuxtLink class="header-content__tablet-logo" to="/">
           <img
             class="header-content__tablet-logo-img"
@@ -79,7 +88,7 @@ function handleScroll() {
             :key="link.name"
       
           >
-            <NuxtLink to="/" class="header-content__tablet-menu-item-link">
+          <NuxtLink to="/" class="header-content__tablet-menu-item-link">
               {{ link.name }}
             </NuxtLink>
             <Icon
@@ -172,6 +181,7 @@ function handleScroll() {
   left: 0;
   width: 100%;
   z-index: 100;
+  animation: opacity .6s ease-in-out;
 
   &_scrolled {
     padding-top: 0;
@@ -191,12 +201,25 @@ function handleScroll() {
     }
   }
 
+  @keyframes opacity {
+    0% {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+  }
+
   &-content {
     &__mobile {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 10px 0;
+      padding-inline: 15px;
 
       @include mediaLaptop {
         display: none;

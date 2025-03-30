@@ -99,6 +99,10 @@ const acions: IAction[] = [
       &-btn {
         font-size: 18px;
         margin-bottom: 30px;
+        width: 100%;
+        @include mediaTablet{
+          width: auto;
+        }
       }
       &-actions {
         display: flex;

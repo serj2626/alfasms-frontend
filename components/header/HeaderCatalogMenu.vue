@@ -223,8 +223,14 @@ const platformItems = {
 
       &-list {
         display: flex;
+        flex-direction: column;
         align-items: center;
-        gap: 14px;
+        gap: 5px;
+
+        @include mediaTablet{
+          flex-direction: row;
+          gap: 5px;
+        }
 
         &-item {
           line-height: 1;

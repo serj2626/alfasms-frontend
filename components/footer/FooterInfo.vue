@@ -70,7 +70,7 @@ const links: ILinks[] = [
       padding-top: 8px;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 20px;
 
       &-links {
         display: flex;

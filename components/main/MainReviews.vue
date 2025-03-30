@@ -27,7 +27,15 @@
 
 <style scoped lang="scss">
 .main-reviews {
-  padding-bottom: 140px;
+  padding-block: 60px;
+
+  @include mediaTablet {
+    padding-block: 100px;
+  }
+  @include mediaLaptop {
+    padding-block: 140px;
+  }
+
 
   &__content {
     &-title {
