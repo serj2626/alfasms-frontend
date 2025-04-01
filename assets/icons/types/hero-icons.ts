@@ -8,5 +8,5 @@ export const enum HeroIcons {
   BURGER_MENU = "i-heroicons-bars-3",
   CLOSE = "i-heroicons-x-mark",
   DOWN = "i-heroicons-chevron-down",
-  UP = "i-heroicons-chevron-chevron-up",
+  UP = "i-heroicons-chevron-up",
 }
