@@ -36,6 +36,7 @@
 </template>
 <style lang="scss" scoped>
 .main-try-free {
+  padding-top: 60px;
   background: linear-gradient(to bottom, #fbfcfc 50%, #fff 50%);
 
   &__content {

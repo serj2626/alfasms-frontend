@@ -29,12 +29,12 @@
 .main-reviews {
   padding-block: 60px;
 
-  @include mediaTablet {
-    padding-block: 100px;
-  }
-  @include mediaLaptop {
-    padding-block: 140px;
-  }
+  // @include mediaTablet {
+  //   padding-block: 100px;
+  // }
+  // @include mediaLaptop {
+  //   padding-block: 140px;
+  // }
 
 
   &__content {

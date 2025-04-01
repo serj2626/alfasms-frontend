@@ -19,10 +19,18 @@ import { BaseTypography } from "#components";
           ecommerce-системами.
         </p>
       </div>
-      <div class="main-integrations__time-image"></div>
+      <img
+        src="https://www.spcdn.org/images/all-in-one/all-in-one-ru/pic-allpage-integration-ru.svg"
+        alt=""
+        class="main-integrations__time-image"
+      />
     </div>
     <div class="main-integrations__work">
-      <div class="main-integrations__work-image"></div>
+      <img
+        src="https://www.spcdn.org/images/all-in-one/all-in-one-ru/pic-allpage-team-ru.svg"
+        alt=""
+        class="main-integrations__work-image"
+      />
       <div class="main-integrations__work-content">
         <h2 class="main-integrations__work-content-title">
           Настройте слаженную командную работу
@@ -45,10 +53,18 @@ import { BaseTypography } from "#components";
           и его индивидуальную информацию типа имени, данных заказа и т.д.
         </p>
       </div>
-      <div class="main-integrations__audience-image"></div>
+      <img
+        src="https://www.spcdn.org/images/all-in-one/all-in-one-ru/pic-allpage-segment-01-ru.svg"
+        alt=""
+        class="main-integrations__audience-image"
+      />
     </div>
     <div class="main-integrations__marketing">
-      <div class="main-integrations__marketing-image"></div>
+      <img
+        src="https://www.spcdn.org/images/all-in-one/all-in-one-ru/pic-allpage-stat-01-ru.svg"
+        alt=""
+        class="main-integrations__marketing-image"
+      />
       <div class="main-integrations__marketing-content">
         <h2 class="main-integrations__marketing-content-title">
           Измеряйте и анализируйте свой маркетинг благодаря мощным встроенным
@@ -74,7 +90,7 @@ import { BaseTypography } from "#components";
 
   @include mediaTablet {
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    gap: 60px;
   }
 }
 
@@ -93,6 +109,9 @@ import { BaseTypography } from "#components";
 
 .main-integrations {
   padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 
   &__time {
     @extend %block;
@@ -106,10 +125,7 @@ import { BaseTypography } from "#components";
       }
     }
     &-image {
-      height: 520px;
-      background-image: url("integrations/time.png");
-      background-size: contain;
-      background-repeat: no-repeat;
+
     }
   }
 
@@ -125,10 +141,7 @@ import { BaseTypography } from "#components";
       }
     }
     &-image {
-      height: 490px;
-      background-image: url("integrations/work.png");
-      background-size: contain;
-      background-repeat: no-repeat;
+
     }
   }
 
@@ -141,10 +154,7 @@ import { BaseTypography } from "#components";
       }
     }
     &-image {
-      height: 490px;
-      background-image: url("integrations/audience.png");
-      background-size: contain;
-      background-repeat: no-repeat;
+
     }
   }
 
@@ -157,10 +167,7 @@ import { BaseTypography } from "#components";
       }
     }
     &-image {
-      height: 490px;
-      background-image: url("integrations/marketing.png");
-      background-size: contain;
-      background-repeat: no-repeat;
+
     }
   }
 }
