@@ -97,11 +97,15 @@ const acions: IAction[] = [
         text-align: center;
       }
       &-btn {
-        font-size: 18px;
+        font-size: 14px;
         margin-bottom: 30px;
         width: 100%;
-        @include mediaTablet{
+        @include mediaMobile{
           width: auto;
+          font-size: 16px;
+        }
+        @include mediaLaptop{
+          font-size: 18px;
         }
       }
       &-actions {

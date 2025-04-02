@@ -79,8 +79,8 @@ const acions: IAction[] = [
   }
   background: $bg_linear;
 
-  @include mediaLaptop{
-  padding-block: 220px;
+  @include mediaLaptop {
+    padding-block: 220px;
   }
 
   &__content {
@@ -136,6 +136,9 @@ const acions: IAction[] = [
     &-services {
       position: relative;
       top: -20px;
+      @include mediaLaptop {
+        right: -50px;
+      }
     }
   }
 }

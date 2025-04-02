@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 interface IButton {
-  size: "sm" | "md" | "lg";
+  size: 'xs' |"sm" | "md" | "lg";
   color?: "red" | "green" | "gray";
   view?: "outline" | "fill";
   label: string;
@@ -55,6 +55,10 @@ const props = defineProps<IButton>();
     // background-color: $btn_gray;
     background-color: rgba(255, 255, 255, .12);
     color: $txt_white;
+  }
+
+  &__xs {
+    padding: 6px 9px;
   }
 
   &__sm {

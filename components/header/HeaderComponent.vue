@@ -1,129 +1,129 @@
 <script lang="ts" setup>
-import { HeroIcons } from "~/assets/icons/types/hero-icons";
+import { HeroIcons } from '~/assets/icons/types/hero-icons';
 
 const showMenu = ref<boolean | null>(null);
 
 const items = ref([
   {
-    label: "Возможности",
+    label: 'Возможности',
     icon: HeroIcons.DOWN,
-    to: "/getting-started",
+    to: '/',
     children: [
       {
-        label: "Introduction",
-        description: "Fully styled and customizable components for Nuxt.",
-        icon: "i-lucide-house",
+        label: 'Introduction',
+        description: 'Fully styled and customizable components for Nuxt.',
+        icon: 'i-lucide-house',
       },
       {
-        label: "Installation",
+        label: 'Installation',
         description:
-          "Learn how to install and configure Nuxt UI in your application.",
-        icon: "i-lucide-cloud-download",
+          'Learn how to install and configure Nuxt UI in your application.',
+        icon: 'i-lucide-cloud-download',
       },
       {
-        label: "Icons",
-        icon: "i-lucide-smile",
+        label: 'Icons',
+        icon: 'i-lucide-smile',
         description:
-          "You have nothing to do, @nuxt/icon will handle it automatically.",
+          'You have nothing to do, @nuxt/icon will handle it automatically.',
       },
       {
-        label: "Colors",
-        icon: "i-lucide-swatch-book",
+        label: 'Colors',
+        icon: 'i-lucide-swatch-book',
         description:
-          "Choose a primary and a neutral color from your Tailwind CSS theme.",
+          'Choose a primary and a neutral color from your Tailwind CSS theme.',
       },
       {
-        label: "Theme",
-        icon: "i-lucide-cog",
+        label: 'Theme',
+        icon: 'i-lucide-cog',
         description:
-          "You can customize components by using the `class` / `ui` props or in your app.config.ts.",
+          'You can customize components by using the `class` / `ui` props or in your app.config.ts.',
       },
     ],
   },
   {
-    label: "Цены",
+    label: 'Цены',
     icon: HeroIcons.DOWN,
-    to: "/composables",
+    to: '/composables',
     children: [
       {
-        label: "defineShortcuts",
-        icon: "i-lucide-file-text",
-        description: "Define shortcuts for your application.",
-        to: "/composables/define-shortcuts",
+        label: 'defineShortcuts',
+        icon: 'i-lucide-file-text',
+        description: 'Define shortcuts for your application.',
+        to: '/composables/define-shortcuts',
       },
       {
-        label: "useOverlay",
-        icon: "i-lucide-file-text",
-        description: "Display a modal/slideover within your application.",
-        to: "/composables/use-overlay",
+        label: 'useOverlay',
+        icon: 'i-lucide-file-text',
+        description: 'Display a modal/slideover within your application.',
+        to: '/composables/use-overlay',
       },
       {
-        label: "useToast",
-        icon: "i-lucide-file-text",
-        description: "Display a toast within your application.",
-        to: "/composables/use-toast",
+        label: 'useToast',
+        icon: 'i-lucide-file-text',
+        description: 'Display a toast within your application.',
+        to: '/composables/use-toast',
       },
     ],
   },
   {
-    label: "Поддержка",
+    label: 'Поддержка',
     icon: HeroIcons.DOWN,
-    to: "/components",
-    active: true,
+    to: '/components',
+    class: 'header-tablet__list-item-link-helps',
     children: [
       {
-        label: "Link",
-        icon: "i-lucide-file-text",
-        description: "Use NuxtLink with superpowers.",
-        to: "/components/link",
+        label: 'Link',
+        icon: 'i-lucide-file-text',
+        description: 'Use NuxtLink with superpowers.',
+        to: '/components/link',
       },
       {
-        label: "Modal",
-        icon: "i-lucide-file-text",
-        description: "Display a modal within your application.",
-        to: "/components/modal",
+        label: 'Modal',
+        icon: 'i-lucide-file-text',
+        description: 'Display a modal within your application.',
+        to: '/components/modal',
       },
       {
-        label: "NavigationMenu",
-        icon: "i-lucide-file-text",
-        description: "Display a list of links.",
-        to: "/components/navigation-menu",
+        label: 'NavigationMenu',
+        icon: 'i-lucide-file-text',
+        description: 'Display a list of links.',
+        to: '/components/navigation-menu',
       },
       {
-        label: "Pagination",
-        icon: "i-lucide-file-text",
-        description: "Display a list of pages.",
-        to: "/components/pagination",
+        label: 'Pagination',
+        icon: 'i-lucide-file-text',
+        description: 'Display a list of pages.',
+        to: '/components/pagination',
       },
       {
-        label: "Popover",
-        icon: "i-lucide-file-text",
+        label: 'Popover',
+        icon: 'i-lucide-file-text',
         description:
-          "Display a non-modal dialog that floats around a trigger element.",
-        to: "/components/popover",
+          'Display a non-modal dialog that floats around a trigger element.',
+        to: '/components/popover',
       },
       {
-        label: "Progress",
-        icon: "i-lucide-file-text",
-        description: "Show a horizontal bar to indicate task progression.",
-        to: "/components/progress",
+        label: 'Progress',
+        icon: 'i-lucide-file-text',
+        description: 'Show a horizontal bar to indicate task progression.',
+        to: '/components/progress',
       },
     ],
   },
   {
-    label: "Ресурсы",
+    label: 'Ресурсы',
     icon: HeroIcons.DOWN,
-    badge: "3.8k",
-    to: "/",
-    target: "_blank",
+    badge: '3.8k',
+    to: '/',
+    target: '_blank',
   },
   {
-    label: "Партнеры",
+    label: 'Партнеры',
     icon: HeroIcons.DOWN,
     disabled: true,
   },
   {
-    label: "Запросить демо",
+    label: 'Запросить демо',
     icon: HeroIcons.DOWN,
     disabled: true,
   },
@@ -137,15 +137,15 @@ function handleScroll() {
 onMounted(() => {
   if (elHeader.value) {
     document.documentElement.style.setProperty(
-      "--header-height",
-      elHeader.value.scrollHeight + 20 + "px"
+      '--header-height',
+      elHeader.value.scrollHeight + 20 + 'px'
     );
   }
   handleScroll();
-  window.addEventListener("scroll", handleScroll);
+  window.addEventListener('scroll', handleScroll);
 });
 onBeforeUnmount(() => {
-  window.removeEventListener("scroll", handleScroll);
+  window.removeEventListener('scroll', handleScroll);
 });
 </script>
 <template>
@@ -158,7 +158,7 @@ onBeforeUnmount(() => {
     <nav class="header-tablet container" ref="elHeader">
       <div class="header-tablet__logo">
         <NuxtLink to="/">
-              <img src="/header-logo.png" class="header-tablet__logo-img" alt="" />
+          <img src="/header-logo.png" class="header-tablet__logo-img" alt="" />
         </NuxtLink>
         <p class="header-tablet__logo-text">ALFASMS</p>
       </div>
@@ -179,7 +179,7 @@ onBeforeUnmount(() => {
               size="16"
             />
           </NuxtLink>
-          <ul v-if="item.children" class="header-tablet__list-children">
+          <!-- <ul v-if="item.children" class="header-tablet__list-children">
             <NuxtLink
               class="header-tablet__list-children-link"
               v-for="child in item.children"
@@ -188,13 +188,18 @@ onBeforeUnmount(() => {
               <Icon
                 class="header-tablet__list-children-link-icon"
                 :name="child.icon"
-                size="20"
+                size="16"
               />
               <span class="header-tablet__list-children-link-text">
                 {{ child.label }}
               </span>
             </NuxtLink>
-          </ul>
+          </ul> -->
+          <MenuNavigation
+            v-if="item.children"
+            :childrens="item.children"
+            view="resources"
+          />
         </li>
       </ul>
       <div class="header-tablet__actions">
@@ -220,6 +225,46 @@ onBeforeUnmount(() => {
           label="Регистрация"
           size="sm"
           color="red"
+        />
+      </div>
+    </nav>
+    <nav class="header-mobile container">
+      <div class="header-mobile__logo-auth">
+        <div class="header-mobile__logo">
+          <NuxtLink to="/">
+            <img
+              src="/header-logo.png"
+              class="header-mobile__logo-img"
+              alt=""
+            />
+          </NuxtLink>
+          <p class="header-mobile__logo-text">ALFASMS</p>
+        </div>
+        <div class="header-mobile__auth">
+          <BaseButton
+            class="header-mobile__auth-register"
+            label="Регистрация"
+            size="xs"
+            color="red"
+          />
+          <BaseButton
+            class="header-mobile__auth-login"
+            label="Войти"
+            size="xs"
+            color="gray"
+          />
+        </div>
+      </div>
+
+      <div class="header-mobile__lang-burger">
+        <div class="header-mobile__lang">
+          <Icon :name="HeroIcons.LANGUAGE" size="18" />
+          <Icon :name="HeroIcons.DOWN" size="16" />
+        </div>
+        <Icon
+          :name="HeroIcons.BURGER_MENU"
+          size="30"
+          class="header-mobile__burger"
         />
       </div>
     </nav>
@@ -249,6 +294,28 @@ onBeforeUnmount(() => {
   .header-tablet__actions-lang {
     color: $txt;
     @include link;
+    transition: all $default_ease;
+
+    &:hover {
+      border-color: $teal;
+    }
+  }
+  .header-mobile__burger {
+    color: $txt;
+  }
+  .header-mobile__lang {
+    color: $txt;
+  }
+  .header-mobile__auth-login {
+    color: $txt;
+    background-color: rgba(0, 0, 0, 0.06);
+    transition: background-color $default_ease;
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  }
+  .header-mobile__logo-text {
+    color: $txt;
   }
 }
 
@@ -267,10 +334,13 @@ onBeforeUnmount(() => {
   }
 
   &-tablet {
+    display: none;
     color: white;
-    display: flex;
     align-items: center;
     justify-content: space-between;
+    @include mediaLaptop {
+      display: flex;
+    }
 
     &__actions {
       display: flex;
@@ -288,6 +358,9 @@ onBeforeUnmount(() => {
         gap: 3px;
         align-items: center;
         @include header_link;
+        border: 1px solid transparent;
+        padding: 5px;
+        border-radius: 10px;
       }
     }
 
@@ -305,7 +378,7 @@ onBeforeUnmount(() => {
       cursor: pointer;
 
       &-img {
-        width: 70px;
+        width: 60px;
         height: auto;
       }
       &-text {
@@ -327,11 +400,99 @@ onBeforeUnmount(() => {
           align-items: center;
           gap: 3px;
           color: $txt_white;
-          padding: 25px 17px;
+          padding: 30px 17px;
           color: $txt_white;
-
           @include header_link;
+
+          &-helps {
+            position: relative;
+            &::after{
+              content: "24/7";
+              position: absolute;
+              display: block;
+              color: $txt_white;
+            }
+          }
         }
+      }
+    }
+  }
+  &-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 12px;
+
+    @include mediaLaptop {
+      display: none;
+    }
+
+    &__logo-auth {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      @include mediaMobile {
+        gap: 15px;
+      }
+    }
+
+    &__logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+
+      &-img {
+        width: 50px;
+        height: auto;
+      }
+      &-text {
+        font-size: 12px;
+        color: $txt_white;
+        text-transform: uppercase;
+      }
+    }
+    &__auth {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      &-login {
+        font-size: 12px;
+        @include mediaMobile {
+          font-size: 14px;
+        }
+      }
+      &-register {
+        font-size: 12px;
+        @include mediaMobile {
+          font-size: 14px;
+        }
+      }
+    }
+    &__lang-burger {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      @include mediaMobile {
+        gap: 15px;
+      }
+    }
+
+    &__lang {
+      padding-top: 5px;
+      color: $txt_white;
+      opacity: 0.7;
+      cursor: pointer;
+    }
+    &__burger {
+      color: $txt_white;
+      cursor: pointer;
+      transition: all $default_cubic;
+
+      &:active {
+        scale: 0.8;
       }
     }
   }
@@ -348,65 +509,64 @@ onBeforeUnmount(() => {
   }
 }
 
-.header-tablet__list-children {
-  position: absolute;
-  width: 400px;
-  left: 50%;
-  // top: 60px;
-  transform: translateX(-50%);
-  background-color: $txt_white;
-  padding: 20px 30px;
-  border-radius: 5px;
-  display: none;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  box-shadow: 0 0 20px rgb(121, 134, 135);
+// .header-tablet__list-children {
+//   position: absolute;
+//   width: 400px;
+//   left: 50%;
+//   // top: 60px;
+//   transform: translateX(-50%);
+//   background-color: $txt_white;
+//   padding: 30px;
+//   border-radius: 5px;
+//   display: none;
+//   grid-template-columns: repeat(2, 1fr);
+//   gap: 20px;
+//   box-shadow: 0 0 20px rgb(121, 134, 135);
 
-  &::before {
-    content: "";
-    position: absolute;
-    top: -2px;
-    left: 50%;
-    transform: translateX(-50%) rotate(45deg);
-    width: 20px;
-    height: 20px;
-    background-color: $txt_white;
-    box-shadow: 0 0 20px rgb(240, 241, 241);
-  }
+//   &::before {
+//     content: '';
+//     position: absolute;
+//     top: -2px;
+//     left: 50%;
+//     transform: translateX(-50%) rotate(45deg);
+//     width: 20px;
+//     height: 20px;
+//     background-color: $txt_white;
+//     box-shadow: 0 0 20px rgb(240, 241, 241);
+//   }
 
-  &-link {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    position: relative;
-    color: $txt;
-    font-size: 15px;
+//   &-link {
+//     display: flex;
+//     align-items: center;
+//     gap: 5px;
+//     position: relative;
+//     color: $txt;
+//     font-size: 15px;
 
-    &:hover {
-      @include link;
-    }
+//     &:hover {
+//       @include link;
+//     }
 
-    &::before {
-      content: "";
-      position: absolute;
-      bottom: -5px;
-      width: max-content;
-      height: 2px;
-      background-color: teal;
-    }
-  }
-}
+//     &::before {
+//       content: '';
+//       position: absolute;
+//       bottom: -5px;
+//       width: max-content;
+//       height: 2px;
+//       background-color: teal;
+//     }
+//   }
+// }
 
-.header-tablet__list-item:hover{
-  .header-tablet__list-children{
+.header-tablet__list-item:hover {
+  .header-tablet__list-children {
     display: grid;
-    animation: show-menu 0.4s ease;
+    animation: show-menu $default_cubic;
   }
-  .header-tablet__list-item-link-icon{
-    transition: all .2s ease-in;
+  .header-tablet__list-item-link-icon {
+    transition: all 0.2s ease-in;
     transform: rotate(180deg);
   }
-
 }
 
 @keyframes show-menu {

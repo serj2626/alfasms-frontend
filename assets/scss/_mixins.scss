@@ -28,6 +28,12 @@
   }
 }
 
+@mixin mediaCustom($width) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}
+
 @mixin txt_property($size: 16px, $weight: 400, $height: 1.42857, $color: $txt) {
   font-size: $size;
   font-weight: $weight;
