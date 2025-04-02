@@ -89,12 +89,18 @@ const acions: IAction[] = [
       &-title {
         text-align: center;
         margin-bottom: 20px;
+        @include mediaDesktop{
+          width: 720px;
+        }
       }
       &-text {
         margin-bottom: 50px;
         font-size: 20px;
         line-height: 1.5;
         text-align: center;
+        @include mediaDesktop{
+          width: 720px;
+        }
       }
       &-btn {
         font-size: 14px;
