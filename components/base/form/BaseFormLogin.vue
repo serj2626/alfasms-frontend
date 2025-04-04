@@ -17,7 +17,7 @@ onMounted(() => {
 });
 </script>
 <template>
-  <div @click.prevent.stop class="base-form-login">
+  <div class="base-form-login">
     <div class="base-form-login__wraper">
       <div class="base-form-login__wraper-top">
         <form class="base-form-login__wraper-top-form">
@@ -30,6 +30,7 @@ onMounted(() => {
             label="Войти"
           />
           <span>Запомнить меня</span>
+          <BaseInputCheckbox  label="Запомнить меня" />
         </form>
       </div>
       <p class="base-form-login__wraper-or">
@@ -111,7 +112,7 @@ onMounted(() => {
       }
     }
     &-or {
-      margin-block: 20px;
+      margin-block: 25px;
       position: relative;
       width: 100%;
       border-bottom: 1px solid #ddd;
@@ -131,7 +132,7 @@ onMounted(() => {
     &-bottom{
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      gap: 8px;
       &-btn{
         width: 100%;
       }

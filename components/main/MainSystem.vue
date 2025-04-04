@@ -69,7 +69,7 @@ import { HeroIcons } from "~/assets/icons/types/hero-icons";
 <style lang="scss" scoped>
 .main-system {
   padding-bottom: 260px;
-  background-image: url("bg/bg-graph.svg");
+  background-image: url("/bg/bg-graph.svg");
   background-size: cover;
   background-repeat: no-repeat;
 

@@ -1,135 +1,12 @@
 <script lang="ts" setup>
 import { HeroIcons } from '~/assets/icons/types/hero-icons';
 import HeaderCatalogMenu from './HeaderCatalogMenu.vue';
+import { headerLinks } from '~/assets/data/header-links';
 
 const showMenu = ref<boolean | null>(null);
 const showFormLogin = ref(false);
 
-const items = ref([
-  {
-    label: 'Возможности',
-    icon: HeroIcons.DOWN,
-    to: '/',
-    children: [
-      {
-        label: 'Introduction',
-        description: 'Fully styled and customizable components for Nuxt.',
-        icon: 'i-lucide-house',
-      },
-      {
-        label: 'Installation',
-        description:
-          'Learn how to install and configure Nuxt UI in your application.',
-        icon: 'i-lucide-cloud-download',
-      },
-      {
-        label: 'Icons',
-        icon: 'i-lucide-smile',
-        description:
-          'You have nothing to do, @nuxt/icon will handle it automatically.',
-      },
-      {
-        label: 'Colors',
-        icon: 'i-lucide-swatch-book',
-        description:
-          'Choose a primary and a neutral color from your Tailwind CSS theme.',
-      },
-      {
-        label: 'Theme',
-        icon: 'i-lucide-cog',
-        description:
-          'You can customize components by using the `class` / `ui` props or in your app.config.ts.',
-      },
-    ],
-  },
-  {
-    label: 'Цены',
-    icon: HeroIcons.DOWN,
-    to: '/composables',
-    children: [
-      {
-        label: 'defineShortcuts',
-        icon: 'i-lucide-file-text',
-        description: 'Define shortcuts for your application.',
-        to: '/composables/define-shortcuts',
-      },
-      {
-        label: 'useOverlay',
-        icon: 'i-lucide-file-text',
-        description: 'Display a modal/slideover within your application.',
-        to: '/composables/use-overlay',
-      },
-      {
-        label: 'useToast',
-        icon: 'i-lucide-file-text',
-        description: 'Display a toast within your application.',
-        to: '/composables/use-toast',
-      },
-    ],
-  },
-  {
-    label: 'Поддержка',
-    icon: HeroIcons.DOWN,
-    to: '/components',
-    class: 'header-tablet__list-item-link-helps',
-    children: [
-      {
-        label: 'Link',
-        icon: 'i-lucide-file-text',
-        description: 'Use NuxtLink with superpowers.',
-        to: '/components/link',
-      },
-      {
-        label: 'Modal',
-        icon: 'i-lucide-file-text',
-        description: 'Display a modal within your application.',
-        to: '/components/modal',
-      },
-      {
-        label: 'NavigationMenu',
-        icon: 'i-lucide-file-text',
-        description: 'Display a list of links.',
-        to: '/components/navigation-menu',
-      },
-      {
-        label: 'Pagination',
-        icon: 'i-lucide-file-text',
-        description: 'Display a list of pages.',
-        to: '/components/pagination',
-      },
-      {
-        label: 'Popover',
-        icon: 'i-lucide-file-text',
-        description:
-          'Display a non-modal dialog that floats around a trigger element.',
-        to: '/components/popover',
-      },
-      {
-        label: 'Progress',
-        icon: 'i-lucide-file-text',
-        description: 'Show a horizontal bar to indicate task progression.',
-        to: '/components/progress',
-      },
-    ],
-  },
-  {
-    label: 'Ресурсы',
-    icon: HeroIcons.DOWN,
-    badge: '3.8k',
-    to: '/',
-    target: '_blank',
-  },
-  {
-    label: 'Партнеры',
-    icon: HeroIcons.DOWN,
-    disabled: true,
-  },
-  {
-    label: 'Запросить демо',
-    icon: HeroIcons.DOWN,
-    disabled: true,
-  },
-]);
+
 const elHeader = ref<HTMLElement>();
 const scroll = ref<number>(0);
 
@@ -139,11 +16,11 @@ function handleScroll() {
 function togleMenuLogin() {
   showFormLogin.value = false;
 }
-function handleClickOutside() {
-  if (showFormLogin.value) {
-    showFormLogin.value = false;
-  }
-  console.log('showFormLogin', showFormLogin.value);
+function handleClickOutside(e) {
+  // if (showFormLogin.value) {
+  //   showFormLogin.value = false;
+  // }
+  console.log('showFormLogin',e);
 }
 
 onMounted(() => {
@@ -155,7 +32,7 @@ onMounted(() => {
   }
   handleScroll();
   window.addEventListener('scroll', handleScroll);
-  // document.addEventListener('click', handleClickOutside);
+  document.addEventListener('click', handleClickOutside);
 });
 onBeforeUnmount(() => {
   window.removeEventListener('scroll', handleScroll);
@@ -180,7 +57,7 @@ onBeforeUnmount(() => {
       <ul class="header-tablet__list">
         <li
           class="header-tablet__list-item"
-          v-for="item in items"
+          v-for="item in headerLinks"
           :key="item.label"
         >
           <NuxtLink class="header-tablet__list-item-link" :to="item.to">
