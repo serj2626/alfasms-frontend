@@ -32,7 +32,6 @@ import { chatBotLinks } from '~/assets/data/chatbot-links';
         />
         <FooterLinks
           class="footer-component__content-main-about"
-          x
           title="О компании"
           :links="aboutLinks"
         />
@@ -45,13 +44,6 @@ import { chatBotLinks } from '~/assets/data/chatbot-links';
       <div class="footer-component__content-social">
         <Icon size="30" name="social:appstore" />
         <Icon size="30" name="social:googleplay" />
-        <NuxtImg
-        style="margin-left: 50px;"
-          src="bs_new.png"
-          height="40"
-          alt="logo"
-          class="footer-info__logo"
-        />
       </div>
     </div>
 

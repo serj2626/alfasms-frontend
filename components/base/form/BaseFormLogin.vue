@@ -1,19 +1,29 @@
 <script lang="ts" setup>
-import { HeroIcons } from '~/assets/icons/types/hero-icons';
+import { HeroIcons } from "~/assets/icons/types/hero-icons";
 
-const emit = defineEmits(['close']);
+const emit = defineEmits(["close"]);
 
 function closeFormLogin() {
-  const form = document.querySelector('.base-form-login');
-  form?.classList.add('base-form-login_close');
+  const form = document.querySelector(".base-form-login");
+  form?.classList.add("base-form-login_close");
   setTimeout(() => {
-    emit('close');
+    emit("close");
   }, 100);
 }
 
+function handleKeydown(e: KeyboardEvent) {
+  if (e.key === "Escape") {
+    closeFormLogin();
+  }
+}
 onMounted(() => {
-  const form = document.querySelector('.base-form-login');
-  form?.classList.add('base-form-login_open');
+  const form = document.querySelector(".base-form-login");
+  form?.classList.add("base-form-login_open");
+  document.addEventListener("keydown", handleKeydown);
+});
+onBeforeUnmount(() => {
+  document.removeEventListener("keydown", handleKeydown);
+
 });
 </script>
 <template>
@@ -29,15 +39,13 @@ onMounted(() => {
             color="red"
             label="Войти"
           />
-          <span>Запомнить меня</span>
-          <BaseInputCheckbox  label="Запомнить меня" />
+          <BaseInputCheckbox label="Запомнить меня" />
         </form>
       </div>
       <p class="base-form-login__wraper-or">
         <span class="base-form-login__wraper-or-text">или</span>
       </p>
       <div class="base-form-login__wraper-bottom">
-
         <BaseButton
           class="base-form-login__wraper-bottom-btn"
           size="md"
@@ -55,7 +63,7 @@ onMounted(() => {
         <Icon
           class="base-form-login__close-icon"
           :name="HeroIcons.CLOSE"
-          size="22"
+          size="26"
         />
       </button>
     </div>
@@ -67,7 +75,6 @@ onMounted(() => {
   top: 80px;
   left: 50%;
   transform: translateX(-50%);
-
   border-radius: 10px;
   box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.158);
   min-width: 330px;
@@ -84,11 +91,11 @@ onMounted(() => {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 25px;
+    padding: 50px 25px 25px;
     color: $txt;
 
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       top: -2px;
       left: 50%;
@@ -129,11 +136,11 @@ onMounted(() => {
         padding: 0 10px;
       }
     }
-    &-bottom{
+    &-bottom {
       display: flex;
       flex-direction: column;
       gap: 8px;
-      &-btn{
+      &-btn {
         width: 100%;
       }
     }
@@ -142,8 +149,8 @@ onMounted(() => {
 
 .base-form-login__close {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 10px;
+  right: 10px;
   width: 30px;
   height: 30px;
   border-radius: 50%;

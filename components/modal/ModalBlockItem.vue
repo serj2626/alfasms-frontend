@@ -19,10 +19,6 @@
 
   &__wraper {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 25px;
     color: $txt;
 
     &::before {

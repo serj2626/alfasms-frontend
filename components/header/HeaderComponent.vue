@@ -10,19 +10,13 @@ const showFormLogin = ref(false);
 const elHeader = ref<HTMLElement>();
 const scroll = ref<number>(0);
 
+const toggleShowFormLogin = () => {
+  showFormLogin.value = !showFormLogin.value;
+};
+
 function handleScroll() {
   scroll.value = window.scrollY;
 }
-function togleMenuLogin() {
-  showFormLogin.value = false;
-}
-function handleClickOutside(e) {
-  // if (showFormLogin.value) {
-  //   showFormLogin.value = false;
-  // }
-  console.log('showFormLogin',e);
-}
-
 onMounted(() => {
   if (elHeader.value) {
     document.documentElement.style.setProperty(
@@ -32,11 +26,9 @@ onMounted(() => {
   }
   handleScroll();
   window.addEventListener('scroll', handleScroll);
-  document.addEventListener('click', handleClickOutside);
 });
 onBeforeUnmount(() => {
   window.removeEventListener('scroll', handleScroll);
-  // document.removeEventListener('click',handleClickOutside);
 });
 </script>
 <template>
@@ -97,7 +89,7 @@ onBeforeUnmount(() => {
             label="Войти"
             size="sm"
             color="gray"
-            @click="showFormLogin = true"
+            @click="toggleShowFormLogin"
           />
           <LazyBaseFormLogin
             v-if="showFormLogin"
