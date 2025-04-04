@@ -9,4 +9,5 @@ export const enum HeroIcons {
   CLOSE = "i-heroicons-x-mark",
   DOWN = "i-heroicons-chevron-down",
   UP = "i-heroicons-chevron-up",
+  PASSWORD = "i-heroicons-lock-closed",
 }

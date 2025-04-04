@@ -33,7 +33,8 @@ defineProps<{
 <style lang="scss" scoped>
 .header-tablet__list-children {
   position: absolute;
-  width: 400px;
+  max-width: 400px;
+  top: 80px;
   left: 50%;
   transform: translateX(-50%);
   background-color: $txt_white;

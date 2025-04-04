@@ -4,10 +4,10 @@ interface ILinks {
   title: string;
 }
 const links: ILinks[] = [
-  { link: "/", title: "Правила использования" },
-  { link: "/", title: "Безопасность" },
-  { link: "/", title: "Политика Cookies" },
-  { link: "/policy", title: "Политика конфиденциальности" },
+  { link: '/', title: 'Правила использования' },
+  { link: '/', title: 'Безопасность' },
+  { link: '/', title: 'Политика Cookies' },
+  { link: '/policy', title: 'Политика конфиденциальности' },
 ];
 </script>
 <template>
@@ -57,7 +57,7 @@ const links: ILinks[] = [
     flex-direction: column;
     gap: 10px;
 
-    @include mediaMobile{
+    @include mediaMobile {
       flex-direction: row;
       justify-content: space-between;
       align-items: end;
@@ -106,7 +106,7 @@ const links: ILinks[] = [
     &-social {
       display: flex;
       gap: 10px;
-      
+
       &-link {
         transition: all $fast_ease;
 

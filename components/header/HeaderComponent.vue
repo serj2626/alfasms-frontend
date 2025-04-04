@@ -1,7 +1,9 @@
 <script lang="ts" setup>
 import { HeroIcons } from '~/assets/icons/types/hero-icons';
+import HeaderCatalogMenu from './HeaderCatalogMenu.vue';
 
 const showMenu = ref<boolean | null>(null);
+const showFormLogin = ref(false);
 
 const items = ref([
   {
@@ -134,6 +136,16 @@ const scroll = ref<number>(0);
 function handleScroll() {
   scroll.value = window.scrollY;
 }
+function togleMenuLogin() {
+  showFormLogin.value = false;
+}
+function handleClickOutside() {
+  if (showFormLogin.value) {
+    showFormLogin.value = false;
+  }
+  console.log('showFormLogin', showFormLogin.value);
+}
+
 onMounted(() => {
   if (elHeader.value) {
     document.documentElement.style.setProperty(
@@ -143,12 +155,15 @@ onMounted(() => {
   }
   handleScroll();
   window.addEventListener('scroll', handleScroll);
+  // document.addEventListener('click', handleClickOutside);
 });
 onBeforeUnmount(() => {
   window.removeEventListener('scroll', handleScroll);
+  // document.removeEventListener('click',handleClickOutside);
 });
 </script>
 <template>
+  <HeaderCatalogMenu v-if="showMenu" @close="showMenu = false" />
   <header
     class="header"
     :class="{
@@ -199,12 +214,20 @@ onBeforeUnmount(() => {
         </div>
       </div>
       <div class="header-tablet__auth">
-        <BaseButton
-          class="header-tablet__auth-login"
-          label="Войти"
-          size="sm"
-          color="gray"
-        />
+        <div style="position: relative">
+          <BaseButton
+            class="header-tablet__auth-login"
+            label="Войти"
+            size="sm"
+            color="gray"
+            @click="showFormLogin = true"
+          />
+          <LazyBaseFormLogin
+            v-if="showFormLogin"
+            @close="showFormLogin = false"
+          />
+        </div>
+
         <BaseButton
           class="header-tablet__auth-register"
           label="Регистрация"
@@ -250,6 +273,7 @@ onBeforeUnmount(() => {
           :name="HeroIcons.BURGER_MENU"
           size="30"
           class="header-mobile__burger"
+          @click="showMenu = true"
         />
       </div>
     </nav>
@@ -391,8 +415,8 @@ onBeforeUnmount(() => {
 
           &-helps {
             position: relative;
-            &::after{
-              content: "24/7";
+            &::after {
+              content: '24/7';
               position: absolute;
               display: block;
               color: $txt_white;

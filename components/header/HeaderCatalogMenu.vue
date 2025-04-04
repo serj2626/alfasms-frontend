@@ -8,7 +8,7 @@ const closeMenu = () => {
   isOpen.value = false;
   setTimeout(() => {
     emit("close");
-  }, 1000);
+  }, 500);
 };
 
 // onMounted(() => {
@@ -154,6 +154,8 @@ const platformItems = {
   &_close {
     animation: 0.5s ease-in-out close-menu;
   }
+  position: fixed;
+  inset: 0;
   width: 100%;
   height: 100vh;
   background-color: $txt_white;
@@ -188,11 +190,19 @@ const platformItems = {
         gap: 2px;
 
         &-img {
-          width: 60px;
+
+          width: 40px;
+          @include mediaMobile{
+            width: 60px;
+          }
           height: auto;
           filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
         }
         &-text {
+          font-size: 12px;
+          @include mediaMobile{
+            font-size: 15px;
+          }
           color: $txt;
           text-transform: uppercase;
         }

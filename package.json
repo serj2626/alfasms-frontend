@@ -17,6 +17,7 @@
     "@nuxt/image": "^1.10.0",
     "@pinia/nuxt": "^0.10.1",
     "eslint": "^9.22.0",
+    "maska": "^3.0.4",
     "nuxt": "^3.16.1",
     "nuxt-aos": "^1.2.5",
     "nuxt-icons": "^3.2.1",

@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-import { emailLinks } from "~/assets/data/email-links";
-import { usefulLinks } from "~/assets/data/useful-links";
-import { aboutLinks } from "~/assets/data/about-links";
-import { programmLinks } from "~/assets/data/programm-links";
-import { servicesLinks } from "~/assets/data/services-links";
-import { chatBotLinks } from "~/assets/data/chatbot-links";
+import { emailLinks } from '~/assets/data/email-links';
+import { usefulLinks } from '~/assets/data/useful-links';
+import { aboutLinks } from '~/assets/data/about-links';
+import { programmLinks } from '~/assets/data/programm-links';
+import { servicesLinks } from '~/assets/data/services-links';
+import { chatBotLinks } from '~/assets/data/chatbot-links';
 </script>
 <template>
   <div class="footer-component">
@@ -45,9 +45,15 @@ import { chatBotLinks } from "~/assets/data/chatbot-links";
       <div class="footer-component__content-social">
         <Icon size="30" name="social:appstore" />
         <Icon size="30" name="social:googleplay" />
+        <NuxtImg
+        style="margin-left: 50px;"
+          src="bs_new.png"
+          height="40"
+          alt="logo"
+          class="footer-info__logo"
+        />
       </div>
     </div>
-
 
     <FooterInfo />
   </div>
@@ -68,7 +74,7 @@ import { chatBotLinks } from "~/assets/data/chatbot-links";
       gap: 12px;
       align-items: center;
       margin-top: 20px;
-      @include mediaLaptop{
+      @include mediaLaptop {
         margin-top: -50px;
       }
     }
@@ -79,28 +85,28 @@ import { chatBotLinks } from "~/assets/data/chatbot-links";
       gap: 30px;
 
       grid-template-areas:
-        "email"
-        "chatbot"
-        "services"
-        "about"
-        "useful"
-        "programm";
+        'email'
+        'chatbot'
+        'services'
+        'about'
+        'useful'
+        'programm';
 
       @include mediaMobile {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
         grid-template-areas:
-          "email chatbot"
-          "services useful"
-          "about programm";
+          'email chatbot'
+          'services useful'
+          'about programm';
       }
 
       @include mediaLaptop {
         grid-template-columns: repeat(4, 1fr);
         gap: 30px;
         grid-template-areas:
-          "email chatbot services useful"
-          "email chatbot about programm";
+          'email chatbot services useful'
+          'email chatbot about programm';
       }
 
       &-email {
@@ -156,7 +162,6 @@ import { chatBotLinks } from "~/assets/data/chatbot-links";
           grid-row: 3/4;
         }
         @include mediaLaptop() {
-
         }
       }
       &-programm {
