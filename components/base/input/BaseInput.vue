@@ -52,11 +52,12 @@ defineProps<IInputProps>()
   }
 
   &__input {
-    background-color: transparent;
-    border-bottom: 1px solid #C5C8D4;
-    padding: 16px 20px;
+    // background-color: transparent;
+    // border-bottom: 1px solid #C5C8D4;
+    // padding: 16px 20px;
     font-size: 16px;
     font-weight: 300;
+    border-radius: 5px;
 
     &:focus {
       outline: none;

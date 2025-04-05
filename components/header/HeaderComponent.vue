@@ -3,6 +3,8 @@ import { HeroIcons } from '~/assets/icons/types/hero-icons';
 import HeaderCatalogMenu from './HeaderCatalogMenu.vue';
 import { headerLinks } from '~/assets/data/header-links';
 
+const modalsStore = useModalsStore();
+
 const showMenu = ref<boolean | null>(null);
 const showFormLogin = ref(false);
 
@@ -102,6 +104,7 @@ onBeforeUnmount(() => {
           label="Регистрация"
           size="sm"
           color="red"
+          @click="modalsStore.openModal('register')"
         />
       </div>
     </nav>

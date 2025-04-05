@@ -1,16 +1,17 @@
 <template>
   <transition name="fade-modal">
-    <!-- <div
+    <div
       v-if="isAnyModalOpen"
       class="modal-wrapper"
       role="dialog"
       @click.self="modalsStore.closeAllModals()"
     >
-      <LazyModalSuccess v-if="activeModals.has('success')" key="success" />
+    <LazyBaseFormRegister v-if="activeModals.has('register')" key="register" />
+      <!-- <LazyModalSuccess v-if="activeModals.has('success')" key="success" />
       <LazyReviewsForm v-if="activeModals.has('reviewForm')" key="reviewForm" />
       <LazyModalReviewDetail v-if="activeModals.has('reviewDetail')" key="reviewDetail" />
-      <LazyHeaderCatalogMenu v-show="activeModals.has('headerMenu')" key="catalogMenu" />
-    </div> -->
+      <LazyHeaderCatalogMenu v-show="activeModals.has('headerMenu')" key="catalogMenu" /> -->
+    </div>
   </transition>
 </template>
 
@@ -26,8 +27,8 @@ const { activeModals, isAnyModalOpen } = storeToRefs(modalsStore);
   right: 0;
   left: 0;
   top: 0;
-  z-index: 12;
-  background: rgba(0, 0, 0, 0.4);
+  z-index: 110;
+  background: rgba(0, 0, 0, 0.47);
 }
 
 .fade-modal-enter-active,

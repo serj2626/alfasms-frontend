@@ -1,4 +1,4 @@
-export type ModalItem = "register" | "headerMenu";
+export type ModalItem = "register" | "chat" | "login";
 
 export const useModalsStore = defineStore("modals-store", () => {
   const activeModals = ref<Map<ModalItem, any>>(new Map());
@@ -38,7 +38,7 @@ export const useModalsStore = defineStore("modals-store", () => {
     () => activeModals.value && !!activeModals.value.size
   );
 
-  const menuIsOpen = computed(() => activeModals.value.has("headerMenu"));
+  const menuIsOpen = computed(() => activeModals.value.has("register"));
 
   return {
     activeModals,

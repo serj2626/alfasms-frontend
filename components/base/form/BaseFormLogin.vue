@@ -148,19 +148,7 @@ onBeforeUnmount(() => {
 }
 
 .base-form-login__close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
-  transition: all $fast_ease;
-
-  &:active {
-    scale: 0.8;
-  }
+  @include btn_close_form;
 }
 
 @keyframes show-login {
