@@ -79,7 +79,19 @@
   }
 }
 
-@mixin txt_title_h1 {
+@mixin main_block_content() {
+  padding-top: 60px;
+  margin-bottom: 16px;
+
+  @include mediaTablet {
+    padding-top: 100px;
+  }
+  @include mediaLaptop {
+    padding-top: 140px;
+  }
+}
+
+@mixin txt_title_h1() {
   font-size: 32px;
   font-weight: 600;
   line-height: 1.1;
@@ -95,7 +107,7 @@
   }
 }
 
-@mixin txt_title_h2 {
+@mixin txt_title_h2() {
   font-size: 24px;
   font-weight: 600;
   line-height: 1.2;

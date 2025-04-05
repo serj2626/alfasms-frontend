@@ -1,8 +1,19 @@
 <script lang="ts" setup>
+const modalsStore = useModalsStore();
 import { HeroIcons } from "~/assets/icons/types/hero-icons";
+
+function closeChat(){
+  const chat = document.querySelector('#modal-live-chat');
+
+  setTimeout(() => {
+      chat?.classList.add('modal-live-chat_close')
+    modalsStore.closeModal('chat')
+  }, 400);
+}
+
 </script>
 <template>
-  <div class="modal-live-chat">
+  <div id="modal-live-chat" class="modal-live-chat">
     <div class="modal-live-chat__wraper">
       <div class="modal-live-chat__wraper-top">
         <p class="modal-live-chat__wraper-top-title">
@@ -14,21 +25,24 @@ import { HeroIcons } from "~/assets/icons/types/hero-icons";
           <label for="" class="modal-live-chat__wraper-form-department-label">
             Отдел
           </label>
-          <BaseInput
+          <input
+            class="modal-live-chat__wraper-form-input"
             placeholder="Техническая поддержка"
-            class="modal-live-chat__wraper-form-department-select"
+            type="text"
           />
         </div>
         <div class="modal-live-chat__wraper-form-name">
-          <BaseInput
+          <input
+            class="modal-live-chat__wraper-form-input"
             placeholder="Имя"
-            class="modal-live-chat__wraper-form-name-input"
+            type="text"
           />
         </div>
         <div class="modal-live-chat__wraper-form-email">
-          <BaseInput
-            placeholder="Поддержка"
-            class="modal-live-chat__wraper-form-email-input"
+          <input
+            class="modal-live-chat__wraper-form-input"
+            placeholder="Почта"
+            type="text"
           />
         </div>
       </form>
@@ -37,13 +51,14 @@ import { HeroIcons } from "~/assets/icons/types/hero-icons";
           size="22"
           :name="HeroIcons.CLOSE"
           class="modal-live-chat__wraper-close-icon"
+          @click="closeChat"
         />
       </button>
     </div>
   </div>
 </template>
 <style lang="scss" scoped>
-%border-bottom{
+%border-bottom {
   border-bottom: 1px solid #ffffff75;
 }
 .modal-live-chat {
@@ -57,8 +72,13 @@ import { HeroIcons } from "~/assets/icons/types/hero-icons";
   max-width: 500px;
   width: 100%;
   height: 600px;
+  box-shadow: 0 0 30px rgba(253, 253, 253, 0.416);
 
-  animation: transform-chat 0.5s ease-in-out;
+  animation: open-chat 0.5s ease-in-out;
+
+  &_close{
+    animation: close-chat $default_ease;
+  }
 
   &__wraper {
     position: relative;
@@ -75,6 +95,23 @@ import { HeroIcons } from "~/assets/icons/types/hero-icons";
     }
     &-form {
       padding: 20px 34px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      &-input{
+        width: 100%;
+        // padding: 10px 0;
+        color: $txt_white;
+        background-color: transparent;
+        border: none;
+        outline: none;
+
+        &:placeholder{
+          color: $txt_white !important;
+        }
+
+      }
 
       &-department {
         display: flex;
@@ -88,11 +125,11 @@ import { HeroIcons } from "~/assets/icons/types/hero-icons";
         &-select {
         }
       }
-      &-name{
+      &-name {
         @extend %border-bottom;
         margin-bottom: 20px;
       }
-      &-email{
+      &-email {
         @extend %border-bottom;
         margin-bottom: 20px;
       }
@@ -104,13 +141,22 @@ import { HeroIcons } from "~/assets/icons/types/hero-icons";
   }
 }
 
-@keyframes transform-chat {
+@keyframes open-chat {
   0% {
     transform: translateX(100%);
   }
   100% {
     transform: translateX(0);
   }
-  
 }
+
+@keyframes close-chat {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
 </style>

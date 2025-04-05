@@ -53,7 +53,7 @@ function hideAlert() {
     color: $teal;
   }
 
-  &__btn {
+  &:deep(.base-button){
     padding-inline: 60px;
   }
 }

@@ -49,7 +49,7 @@ import { HeroIcons } from "~/assets/icons/types/hero-icons";
           >
           <BaseInput
             class="base-form-register__wraper-form-block-input"
-            placeholder="Пароль"
+            placeholder="********"
           />
         </div>
         <BaseButton
@@ -59,7 +59,35 @@ import { HeroIcons } from "~/assets/icons/types/hero-icons";
           label="Регистрация"
         />
       </form>
-      <div class="base-form-register__wraper-bottom"></div>
+      <div class="base-form-register__wraper-bottom">
+        <p class="base-form-register__wraper-bottom-or">
+          <span class="base-form-register__wraper-bottom-or-text">или</span>
+        </p>
+        <div class="base-form-register__wraper-bottom-actions">
+          <BaseButton
+            class="base-form-register__wraper-bottom-actions-btn"
+            size="md"
+            color="blue"
+            label="Войти через Google"
+          />
+          <BaseButton
+            class="base-form-register__wraper-bottom-actions-btn"
+            size="md"
+            color="white"
+            label="Войти через Facebook"
+          />
+        </div>
+        <p class="base-form-register__wraper-bottom-info">
+          Используя AlfaSMS, вы принимаете наши
+          <NuxtLInk class="base-form-register__wraper-bottom-info-link"
+            >Условия предоставления услуг</NuxtLInk
+          >
+          и соглашаетесь с
+          <NuxtLInk class="base-form-register__wraper-bottom-info-link"
+            >Политикой конфиденциальности</NuxtLInk
+          >
+        </p>
+      </div>
       <button class="base-form-register__wraper-close">
         <Icon
           class="base-form-register__wraper-close-icon"
@@ -143,6 +171,47 @@ import { HeroIcons } from "~/assets/icons/types/hero-icons";
       &-btn {
         width: 100%;
         padding: 10px 16px;
+      }
+    }
+    &-bottom {
+      &-or {
+        margin-block: 25px;
+        position: relative;
+        width: 100%;
+        border-bottom: 1px solid #ddd;
+        line-height: 0;
+        color: #5c6a70;
+
+        &-text {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          font-size: 15px;
+          transform: translate(-50%, -50%);
+          background-color: $txt_white;
+          padding: 0 10px;
+        }
+      }
+      &-actions {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 20px;
+
+        &-btn {
+          width: 100%;
+        }
+      }
+      &-info {
+        color: #5c6a70;
+        font-size: 14px;
+        text-align: center;
+        padding-inline: 50px;
+
+        &-link {
+          color: $teal;
+        }
       }
     }
   }

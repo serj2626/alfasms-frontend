@@ -47,8 +47,8 @@ defineProps<IInputProps>()
   
   &-placeholder {
     position: absolute;
-    left: 20px;
-    top: 17px;
+    // left: 20px;
+    // top: 17px;
   }
 
   &__input {
@@ -56,12 +56,11 @@ defineProps<IInputProps>()
     // border-bottom: 1px solid #C5C8D4;
     // padding: 16px 20px;
     font-size: 16px;
-    font-weight: 300;
     border-radius: 5px;
 
     &:focus {
       outline: none;
-      border-bottom: 1px solid red;
+      // border-bottom: 1px solid red;
     }
 
     &_error {
