@@ -4,4 +4,5 @@
   <FooterComponent />
   <ModalComponent />
   <AlertCookie />
+  <BaseButtonLiveChat />
 </template>

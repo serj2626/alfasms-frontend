@@ -81,7 +81,7 @@ import { HeroIcons } from "~/assets/icons/types/hero-icons";
   max-width: 600px;
   width: 100%;
 
-  animation: show-register $default_cubic;
+  animation: show-register $default_ease;
 
   &__wraper {
     position: relative;

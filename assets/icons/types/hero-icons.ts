@@ -10,4 +10,5 @@ export const enum HeroIcons {
   DOWN = "i-heroicons-chevron-down",
   UP = "i-heroicons-chevron-up",
   PASSWORD = "i-heroicons-lock-closed",
+  CHAT  = "i-heroicons-chat-bubble-left-ellipsis",
 }

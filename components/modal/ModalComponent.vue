@@ -7,6 +7,7 @@
       @click.self="modalsStore.closeAllModals()"
     >
     <LazyBaseFormRegister v-if="activeModals.has('register')" key="register" />
+    <LazyModalLiveChat v-if="activeModals.has('chat')" key="chat" />
       <!-- <LazyModalSuccess v-if="activeModals.has('success')" key="success" />
       <LazyReviewsForm v-if="activeModals.has('reviewForm')" key="reviewForm" />
       <LazyModalReviewDetail v-if="activeModals.has('reviewDetail')" key="reviewDetail" />
