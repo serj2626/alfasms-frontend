@@ -2,15 +2,14 @@
 const modalsStore = useModalsStore();
 import { HeroIcons } from "~/assets/icons/types/hero-icons";
 
-function closeChat(){
-  const chat = document.querySelector('#modal-live-chat');
+function closeChat() {
+  const chat = document.querySelector("#modal-live-chat");
 
   setTimeout(() => {
-      chat?.classList.add('modal-live-chat_close')
-    modalsStore.closeModal('chat')
+    chat?.classList.add("modal-live-chat_close");
+    modalsStore.closeModal("chat");
   }, 400);
 }
-
 </script>
 <template>
   <div id="modal-live-chat" class="modal-live-chat">
@@ -25,24 +24,21 @@ function closeChat(){
           <label for="" class="modal-live-chat__wraper-form-department-label">
             Отдел
           </label>
-          <input
+          <BaseInput
             class="modal-live-chat__wraper-form-input"
             placeholder="Техническая поддержка"
-            type="text"
           />
         </div>
         <div class="modal-live-chat__wraper-form-name">
-          <input
+          <BaseInput
             class="modal-live-chat__wraper-form-input"
             placeholder="Имя"
-            type="text"
           />
         </div>
         <div class="modal-live-chat__wraper-form-email">
-          <input
+          <BaseInput
             class="modal-live-chat__wraper-form-input"
             placeholder="Почта"
-            type="text"
           />
         </div>
       </form>
@@ -76,7 +72,7 @@ function closeChat(){
 
   animation: open-chat 0.5s ease-in-out;
 
-  &_close{
+  &_close {
     animation: close-chat $default_ease;
   }
 
@@ -99,18 +95,17 @@ function closeChat(){
       flex-direction: column;
       gap: 20px;
 
-      &-input{
+      &:deep(.base-input) {
         width: 100%;
-        // padding: 10px 0;
         color: $txt_white;
-        background-color: transparent;
-        border: none;
-        outline: none;
-
-        &:placeholder{
-          color: $txt_white !important;
+        justify-content: center;
+        &:focus {
+          outline: 1px solid transparent;
         }
-
+      }
+      &:deep(.base-input__placeholder) {
+        width: 100%;
+        color: $txt_white;
       }
 
       &-department {
@@ -157,6 +152,10 @@ function closeChat(){
   100% {
     transform: translateX(100%);
   }
+}
+
+.modal-live-chat__wraper-form-input:focus{
+  outline: none;
 }
 
 </style>

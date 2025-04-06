@@ -3,7 +3,7 @@ import { HeroIcons } from "~/assets/icons/types/hero-icons";
 </script>
 <template>
   <ModalBlockItem>
-    <div class="base-search-component">
+    <div class="base-search-component" @click="$emit('close')">
       <button class="base-search-component__close">
         <Icon :name="HeroIcons.CLOSE" size="26" />
         <p class="base-search-component__title">Поиск</p>
@@ -20,6 +20,8 @@ import { HeroIcons } from "~/assets/icons/types/hero-icons";
 <style scoped lang="scss">
 .base-search-component {
   padding: 40px;
+  max-width: 400px;
+  width: 100%;
 
   &__close {
     position: absolute;

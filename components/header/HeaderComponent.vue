@@ -1,13 +1,13 @@
 <script lang="ts" setup>
-import { HeroIcons } from '~/assets/icons/types/hero-icons';
-import HeaderCatalogMenu from './HeaderCatalogMenu.vue';
-import { headerLinks } from '~/assets/data/header-links';
+import { HeroIcons } from "~/assets/icons/types/hero-icons";
+import HeaderCatalogMenu from "./HeaderCatalogMenu.vue";
+import { headerLinks } from "~/assets/data/header-links";
 
 const modalsStore = useModalsStore();
 
 const showMenu = ref<boolean | null>(null);
-const showFormLogin = ref(false);
-
+const showFormLogin = ref<boolean>(false);
+const showSearchForm = ref<boolean>(false);
 
 const elHeader = ref<HTMLElement>();
 const scroll = ref<number>(0);
@@ -22,15 +22,15 @@ function handleScroll() {
 onMounted(() => {
   if (elHeader.value) {
     document.documentElement.style.setProperty(
-      '--header-height',
-      elHeader.value.scrollHeight + 20 + 'px'
+      "--header-height",
+      elHeader.value.scrollHeight + 20 + "px"
     );
   }
   handleScroll();
-  window.addEventListener('scroll', handleScroll);
+  window.addEventListener("scroll", handleScroll);
 });
 onBeforeUnmount(() => {
-  window.removeEventListener('scroll', handleScroll);
+  window.removeEventListener("scroll", handleScroll);
 });
 </script>
 <template>
@@ -74,11 +74,18 @@ onBeforeUnmount(() => {
         </li>
       </ul>
       <div class="header-tablet__actions">
-        <Icon
-          class="header-tablet__actions-search"
-          :name="HeroIcons.SEARCH"
-          size="18"
-        />
+        <div class="header-tablet__actions-search" style="position: relative">
+          <Icon
+            :name="HeroIcons.SEARCH"
+            size="18"
+            @click="showSearchForm = true"
+          />
+          <LazyBaseSearchComponent
+            v-if="showSearchForm"
+            @close="showSearchForm = false"
+          />
+        </div>
+
         <div class="header-tablet__actions-lang">
           <Icon :name="HeroIcons.LANGUAGE" size="18" />
           <Icon :name="HeroIcons.DOWN" size="16" />
@@ -231,6 +238,9 @@ onBeforeUnmount(() => {
       &-search {
         cursor: pointer;
         @include header_link;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
       }
 
       &-lang {
@@ -288,7 +298,7 @@ onBeforeUnmount(() => {
           &-helps {
             position: relative;
             &::after {
-              content: '24/7';
+              content: "24/7";
               position: absolute;
               display: block;
               color: $txt_white;

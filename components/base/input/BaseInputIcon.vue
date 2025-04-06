@@ -1,29 +1,29 @@
 <script setup lang="ts">
-import type { MaskInputOptions } from 'maska';
+import type { MaskInputOptions } from "maska";
 
 type TInputTypes =
-  | 'button'
-  | 'checkbox'
-  | 'color'
-  | 'date'
-  | 'datetime-local'
-  | 'email'
-  | 'file'
-  | 'hidden'
-  | 'image'
-  | 'month'
-  | 'number'
-  | 'password'
-  | 'radio'
-  | 'range'
-  | 'reset'
-  | 'search'
-  | 'submit'
-  | 'tel'
-  | 'text'
-  | 'time'
-  | 'url'
-  | 'week';
+  | "button"
+  | "checkbox"
+  | "color"
+  | "date"
+  | "datetime-local"
+  | "email"
+  | "file"
+  | "hidden"
+  | "image"
+  | "month"
+  | "number"
+  | "password"
+  | "radio"
+  | "range"
+  | "reset"
+  | "search"
+  | "submit"
+  | "tel"
+  | "text"
+  | "time"
+  | "url"
+  | "week";
 
 interface IInputProps {
   placeholder?: string;
@@ -33,7 +33,7 @@ interface IInputProps {
   icon: string;
 }
 
-const inputValue = defineModel('inputValue');
+const inputValue = defineModel("inputValue");
 
 defineProps<IInputProps>();
 </script>
@@ -65,9 +65,13 @@ defineProps<IInputProps>();
     background-color: #fff;
 
     font-size: 15px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: #d6e3e3;
+    outline: 1px solid  #d6e3e3;
+    transition: all $default_ease;
+
+    &:focus {
+      outline-color: $btn_green;
+      border-radius: 5px
+    }
 
     &:placeholder {
       height: 100%;

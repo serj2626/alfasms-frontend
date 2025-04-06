@@ -26,27 +26,27 @@ const inputValue = defineModel('inputValue')
 defineProps<IInputProps>()
 </script>
 <template>
-  <label class="base-input-component">
+  <label class="base-input">
     <input
       v-model="inputValue"
       v-maska="maskOptions"
-      :class="{'base-input-component__input_error': error}"
+      :class="{'base-input__input_error': error}"
       :type="type"
-      class="base-input-component__input"
+      class="base-input__input"
     />
-    <span v-if="!inputValue" class="base-input-component-placeholder">{{ placeholder }}</span>
-    <small v-if="error" class="base-input-component__error">{{ error }}</small>
+    <span v-if="!inputValue" class="base-input__placeholder">{{ placeholder }}</span>
+    <small v-if="error" class="base-input__error">{{ error }}</small>
   </label>
 </template>
 <style lang="scss" scoped>
-.base-input-component {
+.base-input {
   position: relative;
   display: flex;
   flex-direction: column;
   gap: 5px;
   border-radius: 5px;
 
-  &-placeholder {
+  &__placeholder {
     position: absolute;
     color: #5c6a70;
     padding-left: 11px;
