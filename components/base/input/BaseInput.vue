@@ -44,23 +44,22 @@ defineProps<IInputProps>()
   display: flex;
   flex-direction: column;
   gap: 5px;
-  
+  border-radius: 5px;
+
   &-placeholder {
     position: absolute;
-    // left: 20px;
-    // top: 17px;
+    color: #5c6a70;
+    padding-left: 11px;
   }
 
   &__input {
-    // background-color: transparent;
-    // border-bottom: 1px solid #C5C8D4;
-    // padding: 16px 20px;
-    font-size: 16px;
+    padding: 9px 19px 9px 11px;
+    cursor: auto;
     border-radius: 5px;
+    transition: outline $desctop_wide;
 
     &:focus {
-      outline: none;
-      // border-bottom: 1px solid red;
+      outline: 1px solid $btn_green;
     }
 
     &_error {

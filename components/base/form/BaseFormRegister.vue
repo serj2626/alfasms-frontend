@@ -20,7 +20,7 @@ import { HeroIcons } from "~/assets/icons/types/hero-icons";
           >
           <BaseInput
             class="base-form-register__wraper-form-block-input"
-            placeholder="Имя"
+            placeholder="Иван Иванов"
           />
         </div>
         <div class="base-form-register__wraper-form-block">
@@ -29,7 +29,7 @@ import { HeroIcons } from "~/assets/icons/types/hero-icons";
           >
           <BaseInput
             class="base-form-register__wraper-form-block-input"
-            placeholder="Почта"
+            placeholder="example@ex.com"
           />
         </div>
         <div class="base-form-register__wraper-form-block">
@@ -38,7 +38,7 @@ import { HeroIcons } from "~/assets/icons/types/hero-icons";
           >
           <BaseInput
             class="base-form-register__wraper-form-block-input"
-            placeholder="Телефон"
+            placeholder="8-999-999-99-99"
           />
         </div>
         <div class="base-form-register__wraper-form-block">
@@ -49,7 +49,7 @@ import { HeroIcons } from "~/assets/icons/types/hero-icons";
           >
           <BaseInput
             class="base-form-register__wraper-form-block-input"
-            placeholder="********"
+            placeholder="Не менее 8 символов"
           />
         </div>
         <BaseButton
@@ -156,7 +156,6 @@ import { HeroIcons } from "~/assets/icons/types/hero-icons";
           display: flex;
           flex-direction: column;
           justify-content: center;
-          padding: 9px 19px 9px 11px;
           font-size: 15px;
           border: 1px solid #ced4da;
           line-height: 1.5;
