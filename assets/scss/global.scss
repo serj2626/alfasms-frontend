@@ -1,5 +1,6 @@
 @use "reset";
 
+
 body {
   font-family: $ff_main, $ff_second, sans-serif;
   font-size: 16px;
@@ -8,6 +9,7 @@ body {
   background-color: $bg_white;
   color: $txt;
   overflow-x: hidden;
+  box-sizing: border-box;
 }
 .container {
   padding: 0 15px;

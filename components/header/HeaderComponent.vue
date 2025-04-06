@@ -77,10 +77,10 @@ onBeforeUnmount(() => {
         <Icon
           class="header-tablet__actions-search"
           :name="HeroIcons.SEARCH"
-          size="20"
+          size="18"
         />
         <div class="header-tablet__actions-lang">
-          <Icon :name="HeroIcons.LANGUAGE" size="20" />
+          <Icon :name="HeroIcons.LANGUAGE" size="18" />
           <Icon :name="HeroIcons.DOWN" size="16" />
         </div>
       </div>
@@ -225,7 +225,7 @@ onBeforeUnmount(() => {
 
     &__actions {
       display: flex;
-      gap: 15px;
+      gap: 10px;
       align-items: center;
 
       &-search {
@@ -281,7 +281,7 @@ onBeforeUnmount(() => {
           align-items: center;
           gap: 3px;
           color: $txt_white;
-          padding: 30px 17px;
+          padding: 30px 15px;
           color: $txt_white;
           @include header_link;
 

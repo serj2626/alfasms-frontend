@@ -23,7 +23,6 @@ onMounted(() => {
 });
 onBeforeUnmount(() => {
   document.removeEventListener("keydown", handleKeydown);
-
 });
 </script>
 <template>
@@ -32,7 +31,10 @@ onBeforeUnmount(() => {
       <div class="base-form-login__wraper-top">
         <form class="base-form-login__wraper-top-form">
           <BaseInputIcon placeholder="Email" :icon="HeroIcons.MAIL" />
-          <BaseInputIcon placeholder="******" :icon="HeroIcons.PASSWORD" />
+          <BaseInputIcon
+            placeholder="Не менее 8 символов"
+            :icon="HeroIcons.PASSWORD"
+          />
           <BaseButton
             class="base-form-login__wraper-top-form-btn"
             size="md"

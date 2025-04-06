@@ -3,6 +3,6 @@
   <slot />
   <FooterComponent />
   <ModalComponent />
-  <!-- <AlertCookie /> -->
+  <AlertCookie />
   <BaseButtonLiveChat />
 </template>

@@ -79,12 +79,12 @@ import { HeroIcons } from "~/assets/icons/types/hero-icons";
         </div>
         <p class="base-form-register__wraper-bottom-info">
           Используя AlfaSMS, вы принимаете наши
-          <NuxtLInk class="base-form-register__wraper-bottom-info-link"
-            >Условия предоставления услуг</NuxtLInk
+          <NuxtLink class="base-form-register__wraper-bottom-info-link"
+            >Условия предоставления услуг</NuxtLink
           >
           и соглашаетесь с
-          <NuxtLInk class="base-form-register__wraper-bottom-info-link"
-            >Политикой конфиденциальности</NuxtLInk
+          <NuxtLink to="/policy" class="base-form-register__wraper-bottom-info-link"
+            >Политикой конфиденциальности</NuxtLink
           >
         </p>
       </div>
@@ -210,6 +210,7 @@ import { HeroIcons } from "~/assets/icons/types/hero-icons";
 
         &-link {
           color: $teal;
+          cursor: pointer;
         }
       }
     }
