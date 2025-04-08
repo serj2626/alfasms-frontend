@@ -1,42 +1,74 @@
 <script lang="ts" setup>
-import { HeroIcons } from "~/assets/icons/types/hero-icons";
+import { HeroIcons } from '~/assets/icons/types/hero-icons';
 </script>
 <template>
-  <ModalBlockItem>
-    <div class="base-search-component" @click="$emit('close')">
-      <button class="base-search-component__close">
-        <Icon :name="HeroIcons.CLOSE" size="26" />
-        <p class="base-search-component__title">Поиск</p>
-        <BaseInputIcon
-          class="base-search-component__search"
-          type="text"
-          placeholder="Поиск в AlfaSMS"
-          :icon="HeroIcons.SEARCH"
-        />
-      </button>
+  <div class="base-search-component">
+    <Icon
+      class="base-search-component__wraper-close"
+      :name="HeroIcons.CLOSE"
+      size="26"
+      @click="$emit('close')"
+    />
+    <div class="base-search-component__wraper">
+      <p class="base-search-component__wraper-title">Поиск</p>
+      <BaseInputIcon
+        class="base-search-component__wraper-search"
+        type="search"
+        placeholder="Поиск в AlfaSMS"
+        :icon="HeroIcons.SEARCH"
+      />
     </div>
-  </ModalBlockItem>
+  </div>
 </template>
 <style scoped lang="scss">
 .base-search-component {
-  padding: 40px;
-  max-width: 400px;
-  width: 100%;
+  position: absolute;
+  top: 82px;
+  width: 755px;
 
-  &__close {
+  left: 68%;
+  transform: translateX(-68%);
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.158);
+  background-color: $txt_white;
+  border-radius: 10px;
+
+  &::before {
     position: absolute;
-    top: 16px;
-    right: 16px;
+    content: '';
+    top: -2px;
+    left: 500px;
+    transform: rotate(45deg);
+    width: 20px;
+    height: 20px;
+    background-color: $txt_white;
+    box-shadow: 0 0 20px rgb(240, 241, 241);
   }
 
-  &__title {
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 10px;
-  }
-  &__search {
+  &__wraper {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 100%;
     width: 100%;
-    padding: 8px 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+
+    &-close {
+      @include btn_close_form;
+      z-index: 200;
+      color: $bg_footer;
+    }
+    &-title {
+      color: $txt;
+      font-size: 18px;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    &-search {
+      width: 100%;
+    }
   }
 }
 </style>

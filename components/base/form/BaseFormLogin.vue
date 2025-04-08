@@ -82,12 +82,6 @@ onBeforeUnmount(() => {
   min-width: 330px;
   background-color: $txt_white;
 
-  // animation: show-login $default_cubic;
-
-  // &_close {
-  //   animation: close-login 0.5s ease-in-out;
-  // }
-
   &__wraper {
     position: relative;
     display: flex;

@@ -11,4 +11,13 @@ export const enum HeroIcons {
   UP = "i-heroicons-chevron-up",
   PASSWORD = "i-heroicons-lock-closed",
   CHAT  = "i-heroicons-chat-bubble-left-ellipsis",
+  SEND = "i-heroicons-paper-airplane",
+  VIDEO = "i-heroicons-video-camera",
+  PAUSE = "i-heroicons-pause",
+  START = "i-heroicons-play",
+  PHOTO = "i-heroicons-photo",  
+  EYE = "i-heroicons-eye",
+  FILE = "i-heroicons-document",
+  USER = "i-heroicons-user",
+  PLUS = "i-heroicons-plus",
 }

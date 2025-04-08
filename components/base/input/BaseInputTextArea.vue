@@ -13,9 +13,9 @@ defineProps<IInputProps>();
     <textarea
       v-model="inputValue"
       :class="{ 'textarea-component__textarea--error': error }"
-      class="textarea-component__textarea"
+      class="textarea-component__input"
     />
-    <span v-if="!inputValue" class="textarea-component-placeholder">{{
+    <span v-if="!inputValue" class="textarea-component__placeholder">{{
       placeholder
     }}</span>
     <small v-if="error" class="textarea-component__error">{{ error }}</small>
@@ -23,25 +23,36 @@ defineProps<IInputProps>();
 </template>
 
 <style lang="scss" scoped>
+.textarea-component__input:focus {
+  .textarea-component__placeholder {
+    left: 20px;
+  }
+}
 .textarea-component {
   position: relative;
   display: flex;
   flex-direction: column;
   gap: 5px;
 
-  &-placeholder {
+  &__placeholder {
     position: absolute;
     left: 20px;
     top: 20px;
   }
 
-  &__textarea {
+  &__input {
+    resize: none;
     border: none;
     background-color: transparent;
-    border-bottom: 1px solid #c5c8d4;
     padding: 16px 20px;
-    font-size: 16px;
-    font-weight: 300;
+    height: 300px;
+    min-width: 100%;
+    box-shadow: 10px 14px 20px  rgba(252, 252, 252, 0.579);
+    border-radius: 5px;
+
+    &:focus {
+      outline: none;
+    }
 
     &--error {
       border-bottom: 1px solid $error;

@@ -4,7 +4,7 @@ interface IAction {
   icon: string;
   title: string;
 }
-const acions: IAction[] = [
+const actions: IAction[] = [
   {
     icon: HeroIcons.MAIL,
     title: "15 000 электронных писем",
@@ -48,14 +48,7 @@ const acions: IAction[] = [
           label="Попробовать бесплатно"
         />
         <ul class="main-info__content-desc-actions">
-          <li
-            class="main-info__content-desc-actions-item"
-            v-for="(action, index) in acions"
-            :key="index"
-          >
-            <Icon :name="action.icon" />
-            {{ action.title }}
-          </li>
+         <MainServiceTag :actions />
         </ul>
       </div>
       <img
@@ -124,13 +117,6 @@ const acions: IAction[] = [
         align-items: center;
         flex-wrap: wrap;
         gap: 15px;
-
-        &-item {
-          margin-bottom: 10px;
-          display: flex;
-          gap: 4px;
-          align-items: center;
-        }
       }
     }
 

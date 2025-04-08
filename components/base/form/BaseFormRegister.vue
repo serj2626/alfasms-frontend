@@ -1,6 +1,10 @@
 <script lang="ts" setup>
 const modalsStore = useModalsStore();
-import { HeroIcons } from "~/assets/icons/types/hero-icons";
+import { HeroIcons } from '~/assets/icons/types/hero-icons';
+const goToPolicy = () => {
+  modalsStore.closeModal('register');
+  navigateTo('/policy');
+};
 </script>
 <template>
   <div class="base-form-register">
@@ -83,7 +87,9 @@ import { HeroIcons } from "~/assets/icons/types/hero-icons";
             >Условия предоставления услуг</NuxtLink
           >
           и соглашаетесь с
-          <NuxtLink to="/policy" class="base-form-register__wraper-bottom-info-link"
+          <NuxtLink
+            @click='goToPolicy'
+            class="base-form-register__wraper-bottom-info-link"
             >Политикой конфиденциальности</NuxtLink
           >
         </p>

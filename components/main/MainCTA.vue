@@ -1,30 +1,30 @@
 <script lang="ts" setup>
-import { HeroIcons } from "~/assets/icons/types/hero-icons";
+import { HeroIcons } from '~/assets/icons/types/hero-icons';
 
-interface IAction {
+export interface IAction {
   icon: string;
   title: string;
 }
-const acions: IAction[] = [
+const actions: IAction[] = [
   {
     icon: HeroIcons.MAIL,
-    title: "15 000 электронных писем",
+    title: '15 000 электронных писем',
   },
   {
     icon: HeroIcons.MAIL,
-    title: "3 бесплатных чат-бота",
+    title: '3 бесплатных чат-бота',
   },
   {
     icon: HeroIcons.MAIL,
-    title: "Бесплатный конструктор лендингов",
+    title: 'Бесплатный конструктор лендингов',
   },
   {
     icon: HeroIcons.MAIL,
-    title: "CRM система",
+    title: 'CRM система',
   },
   {
     icon: HeroIcons.MAIL,
-    title: "Без банковской карты",
+    title: 'Без банковской карты',
   },
 ];
 </script>
@@ -34,7 +34,7 @@ const acions: IAction[] = [
       <div
         class="main-cta__content-desc"
         data-aos="fade-up"
-        data-duration="8000"
+        data-aos-duration="2000"
       >
         <BaseTypography
           class="main-cta__content-desc-title"
@@ -52,14 +52,7 @@ const acions: IAction[] = [
           label="Попробовать бесплатно"
         />
         <ul class="main-cta__content-desc-actions">
-          <NuxtLink
-            class="main-cta__content-desc-actions-item"
-            v-for="(action, index) in acions"
-            :key="index"
-          >
-            <Icon :name="action.icon" />
-            {{ action.title }}
-          </NuxtLink>
+          <MainServiceTag :actions="actions" />
         </ul>
       </div>
     </div>
@@ -89,7 +82,7 @@ const acions: IAction[] = [
       &-title {
         text-align: center;
         margin-bottom: 20px;
-        @include mediaDesktop{
+        @include mediaDesktop {
           width: 720px;
         }
       }
@@ -98,7 +91,7 @@ const acions: IAction[] = [
         font-size: 20px;
         line-height: 1.5;
         text-align: center;
-        @include mediaDesktop{
+        @include mediaDesktop {
           width: 720px;
         }
       }
@@ -106,11 +99,11 @@ const acions: IAction[] = [
         font-size: 14px;
         margin-bottom: 30px;
         width: 100%;
-        @include mediaMobile{
+        @include mediaMobile {
           width: auto;
           font-size: 16px;
         }
-        @include mediaLaptop{
+        @include mediaLaptop {
           font-size: 18px;
         }
       }
@@ -122,18 +115,6 @@ const acions: IAction[] = [
         gap: 8px;
         max-width: 555px;
         margin-inline: auto;
-
-        &-item {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          padding: 8px 12px;
-          color: $txt_white;
-          border-radius: 35px;
-          background-color: rgba(255, 255, 255, 0.1);
-          font-size: 14px;
-          line-height: 1.275;
-        }
       }
     }
   }

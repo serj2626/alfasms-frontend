@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { HeroIcons } from '~/assets/icons/types/hero-icons';
+
 interface IInputFileComponentProps {
   isMultiple?: boolean;
 }
@@ -17,7 +19,7 @@ const handleFileChange = () => {
       class="input-file__main"
       aria-label="Вставить изображение" 
     />
-    <NuxtIcon class="input-file__icon" name="file" filled/>
+    <Icon class="input-file__icon" :name="HeroIcons.PHOTO" size="26" />
     <div class="input-file__tooltip">
       <div class="input-file__tooltip-cursor" />
       Добавить фото или видео
@@ -36,24 +38,23 @@ const handleFileChange = () => {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color $fast_ease;
-  background-color: #ffffff;
 
   &__tooltip {
     position: absolute;
-    z-index: $z-index-after-content;
-    background-color: $adult_bgr;
+    z-index: 100;
+    color: $txt_white;
     transition: opacity $fast_ease;
     padding: 10px 8px;
     border-radius: 5px;
     font-size: 12px;
     opacity: 0;
-    top: -50px;
+    top: -20px;
     width: 147px;
     text-wrap: nowrap;
     
     &-cursor {
       position: absolute;
-      background-color: $adult_bgr;
+
       width: 11px;
       height: 11px;
       rotate: 45deg;
@@ -63,7 +64,7 @@ const handleFileChange = () => {
   }
 
   &:hover {
-    background-color: $adult_bgr;
+
 
     .input-file__tooltip  {
       opacity: 1;

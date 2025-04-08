@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import { HeroIcons } from "~/assets/icons/types/hero-icons";
-import HeaderCatalogMenu from "./HeaderCatalogMenu.vue";
-import { headerLinks } from "~/assets/data/header-links";
+import { HeroIcons } from '~/assets/icons/types/hero-icons';
+import HeaderCatalogMenu from './HeaderCatalogMenu.vue';
+import { headerLinks } from '~/assets/data/header-links';
 
 const modalsStore = useModalsStore();
 
@@ -12,9 +12,6 @@ const showSearchForm = ref<boolean>(false);
 const elHeader = ref<HTMLElement>();
 const scroll = ref<number>(0);
 
-const toggleShowFormLogin = () => {
-  showFormLogin.value = !showFormLogin.value;
-};
 
 function handleScroll() {
   scroll.value = window.scrollY;
@@ -22,15 +19,15 @@ function handleScroll() {
 onMounted(() => {
   if (elHeader.value) {
     document.documentElement.style.setProperty(
-      "--header-height",
-      elHeader.value.scrollHeight + 20 + "px"
+      '--header-height',
+      elHeader.value.scrollHeight + 20 + 'px'
     );
   }
   handleScroll();
-  window.addEventListener("scroll", handleScroll);
+  window.addEventListener('scroll', handleScroll);
 });
 onBeforeUnmount(() => {
-  window.removeEventListener("scroll", handleScroll);
+  window.removeEventListener('scroll', handleScroll);
 });
 </script>
 <template>
@@ -77,8 +74,8 @@ onBeforeUnmount(() => {
         <div class="header-tablet__actions-search" style="position: relative">
           <Icon
             :name="HeroIcons.SEARCH"
-            size="18"
-            @click="showSearchForm = true"
+            size="20"
+            @click="showSearchForm = (showSearchForm === false) ? true : false"
           />
           <LazyBaseSearchComponent
             v-if="showSearchForm"
@@ -98,7 +95,7 @@ onBeforeUnmount(() => {
             label="Войти"
             size="sm"
             color="gray"
-            @click="toggleShowFormLogin"
+            @click="showFormLogin = (showFormLogin === false ) ? true : false"
           />
           <LazyBaseFormLogin
             v-if="showFormLogin"
@@ -218,7 +215,7 @@ onBeforeUnmount(() => {
   &_active {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     background-color: $txt_white;
-    animation: show-scroll $default_cubic;
+    transition: background-color 0.3s ease-in;
   }
 
   &-tablet {
@@ -237,10 +234,13 @@ onBeforeUnmount(() => {
 
       &-search {
         cursor: pointer;
-        @include header_link;
         display: flex;
         flex-direction: column;
         justify-content: center;
+
+        &-icon {
+          @include header_link;
+        }
       }
 
       &-lang {
@@ -264,13 +264,20 @@ onBeforeUnmount(() => {
     &__logo {
       display: flex;
       flex-direction: column;
+      align-items: center;
       gap: 2px;
       padding: 15px 17px;
       cursor: pointer;
+      transition: all $default_ease;
+
+      &:active {
+        scale: 0.93;
+      }
 
       &-img {
         width: 60px;
         height: auto;
+        // transition: all $default_ease;
       }
       &-text {
         font-size: 15px;
@@ -298,7 +305,7 @@ onBeforeUnmount(() => {
           &-helps {
             position: relative;
             &::after {
-              content: "24/7";
+              content: '24/7';
               position: absolute;
               display: block;
               color: $txt_white;
@@ -388,18 +395,6 @@ onBeforeUnmount(() => {
     }
   }
 }
-
-@keyframes show-scroll {
-  0% {
-    opacity: 0;
-    transform: translateY(-100%);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 .header-tablet__list-item:hover {
   .header-tablet__list-children {
     display: grid;

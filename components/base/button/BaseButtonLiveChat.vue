@@ -24,7 +24,7 @@ import { HeroIcons } from "~/assets/icons/types/hero-icons";
   -ms-transform-origin: 100% 100%;
   -webkit-transform-origin: 100% 100%;
   transform-origin: 100% 100%;
-  z-index: 130;
+  z-index: 100;
 
   &__wraper {
     position: relative;

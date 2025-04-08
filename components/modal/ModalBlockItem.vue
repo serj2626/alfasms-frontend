@@ -1,4 +1,6 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+
+</script>
 <template>
   <div class="modal-block-item">
     <div class="modal-clock-item__wraper">

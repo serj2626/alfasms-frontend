@@ -73,6 +73,7 @@
   border: none;
   cursor: pointer;
   transition: all $fast_ease;
+  color: $bg_footer;
 
   &:active {
     scale: 0.8;

@@ -16,7 +16,6 @@
     </NuxtLink>
   </ul>
 </template>
-
 <script lang="ts" setup>
 type TView = 'opportunities' | 'resources' | 'partners';
 interface IChildren {
@@ -33,15 +32,17 @@ defineProps<{
 <style lang="scss" scoped>
 .header-tablet__list-children {
   position: absolute;
-  max-width: 400px;
-  top: 80px;
+  // max-width: 400px;
+  // top: 80px;
+  top: 82px;
   left: 50%;
   transform: translateX(-50%);
   background-color: $txt_white;
   padding: 30px;
   border-radius: 20px;
   display: none;
-  grid-template-columns: repeat(2, 1fr);
+  // grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   gap: 20px;
   box-shadow: 0 0 20px rgb(121, 134, 135);
 

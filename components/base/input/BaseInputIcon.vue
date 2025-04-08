@@ -39,8 +39,8 @@ defineProps<IInputProps>();
 </script>
 <template>
   <label class="base-input-icon">
-    <span class="base-input-icon__icon">
-      <Icon class="base-input-icon__icon-img" :name="icon" />
+    <span class="base-input-icon__icon" title="Найти">
+      <Icon class="base-input-icon__icon-img" :name="icon" size="18" />
     </span>
     <input
       v-model="inputValue"
@@ -61,35 +61,51 @@ defineProps<IInputProps>();
   background-color: #e9ecef;
 
   &__input {
+    flex: 1 1 auto;
+    width: 100%;
     padding: 8px 12px;
     background-color: #fff;
-
     font-size: 15px;
-    outline: 1px solid  #d6e3e3;
+    outline: 1px solid #d6e3e3;
+    color: $txt;
     transition: all $default_ease;
 
+
     &:focus {
-      outline-color: $btn_green;
-      border-radius: 5px
+      outline: 1px solid $btn_green;
+      border-radius: 5px;
     }
 
-    &:placeholder {
+    &::placeholder {
       height: 100%;
       display: flex;
       align-items: center;
     }
   }
+
   &__icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 6px 12px;
+    padding: 8px 12px;
+    outline: 1px solid #d6e3e3;
+    transition: scale $fast_ease;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+
+    &:active {
+      .base-input-icon__icon-img{
+        scale: 1.2;
+      }
+      
+    }
   }
 
   &__icon-img {
     color: #2125298c;
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
+    transition: scale $fast_ease;
   }
 }
 </style>
