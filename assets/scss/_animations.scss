@@ -8,3 +8,15 @@
   opacity: 0;
   transition: opacity .1s initial;
 }
+
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

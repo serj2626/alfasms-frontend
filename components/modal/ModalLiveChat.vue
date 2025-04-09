@@ -43,9 +43,7 @@ function closeChat() {
           />
         </div>
         <div class="modal-live-chat__wraper-form-textarea">
-          <BaseInputTextArea
-            placeholder="Введите ваш вопрос"
-          />
+          <BaseInputTextArea placeholder="Введите ваш вопрос" />
         </div>
       </form>
       <div class="modal-live-chat__wraper-bottom">
@@ -86,6 +84,7 @@ function closeChat() {
   max-width: 500px;
   width: 100%;
   box-shadow: 0 0 30px rgba(253, 253, 253, 0.416);
+  overflow: auto;
 
   animation: open-chat 0.5s ease-in-out;
 
@@ -100,17 +99,36 @@ function closeChat() {
     flex-direction: column;
 
     &-top {
-      padding-block: 20px;
+      padding-block: 10px;
+
+      @include mediaTablet {
+        padding-block: 20px;
+      }
+
       @extend %border-bottom;
       &-title {
-        padding-inline: 34px;
+        padding-inline: 15px;
+
+        @include mediaTablet {
+          padding-inline: 24px;
+        }
+        @include mediaLaptop {
+          padding-inline: 34px;
+        }
       }
     }
     &-form {
-      padding: 20px 34px;
+      padding: 10px 15px;
       display: flex;
       flex-direction: column;
       gap: 25px;
+
+      @include mediaTablet {
+        padding: 20px 24px;
+      }
+      @include mediaLaptop {
+        padding: 20px 34px;
+      }
 
       &:deep(.base-input) {
         width: 100%;
@@ -165,7 +183,7 @@ function closeChat() {
       justify-content: center;
       align-items: center;
 
-      &-file{
+      &-file {
         position: absolute;
         left: 20px;
         bottom: 20px;
@@ -179,11 +197,16 @@ function closeChat() {
         align-items: center;
         background-color: $teal;
         border-radius: 50%;
-        width: 100px;
-        height: 100px;
+        width: 90px;
+        height: 90px;
         // box-shadow: 0 0 50px rgba(255, 255, 255, 0.973);
         box-shadow: 5px 5px 20px #fff;
         transition: all $default_ease;
+
+        @include mediaLaptop {
+          width: 100px;
+          height: 100px;
+        }
 
         &:active {
           scale: 0.8;

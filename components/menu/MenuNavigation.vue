@@ -1,14 +1,28 @@
+<script lang="ts" setup>
+type TView = 'opportunities' | 'resources' | 'partners';
+interface IChildren {
+  label: string;
+  description: string;
+  icon?: string;
+  link?: string;
+}
+defineProps<{
+  childrens: IChildren[];
+  view: TView;
+}>();
+</script>
 <template>
   <ul v-if="childrens" class="header-tablet__list-children">
     <NuxtLink
       class="header-tablet__list-children-link"
       v-for="child in childrens"
       :key="child.label"
+      :to="child.link"
     >
       <Icon
         class="header-tablet__list-children-link-icon"
         :name="child.icon"
-        size="20"
+        size="12"
       />
       <span class="header-tablet__list-children-link-text">
         {{ child.label }}
@@ -16,19 +30,6 @@
     </NuxtLink>
   </ul>
 </template>
-<script lang="ts" setup>
-type TView = 'opportunities' | 'resources' | 'partners';
-interface IChildren {
-  label: string;
-  description: string;
-  icon?: string;
-}
-defineProps<{
-  childrens: IChildren[];
-  view: TView
-}>();
-</script>
-
 <style lang="scss" scoped>
 .header-tablet__list-children {
   position: absolute;
@@ -80,5 +81,4 @@ defineProps<{
     }
   }
 }
-
 </style>

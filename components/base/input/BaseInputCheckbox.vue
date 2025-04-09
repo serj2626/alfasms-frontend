@@ -2,10 +2,17 @@
 defineProps<{
   label: string;
 }>();
+
+const agreeValue = defineModel();
 </script>
 <template>
   <div class="base-input-checkbox">
-    <input type="checkbox" class="base-input-checkbox__element" id="check" />
+    <input
+      type="checkbox"
+      class="base-input-checkbox__element"
+      id="check"
+      v-model="agreeValue"
+    />
     <label for="check" class="base-input-checkbox__label">
       {{ label }}
     </label>

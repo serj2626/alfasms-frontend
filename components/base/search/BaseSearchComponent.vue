@@ -26,7 +26,7 @@ import { HeroIcons } from '~/assets/icons/types/hero-icons';
   top: 82px;
   width: 755px;
 
-  left: 68%;
+  left: -85px;
   transform: translateX(-68%);
   box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.158);
   background-color: $txt_white;
@@ -35,8 +35,8 @@ import { HeroIcons } from '~/assets/icons/types/hero-icons';
   &::before {
     position: absolute;
     content: '';
-    top: -2px;
-    left: 500px;
+    top: -8px;
+    left: 600px;
     transform: rotate(45deg);
     width: 20px;
     height: 20px;
@@ -68,6 +68,10 @@ import { HeroIcons } from '~/assets/icons/types/hero-icons';
     }
     &-search {
       width: 100%;
+    }
+    &:deep(.base-input-icon__icon){
+      order: 1;
+
     }
   }
 }

@@ -5,9 +5,17 @@ const goToPolicy = () => {
   modalsStore.closeModal('register');
   navigateTo('/policy');
 };
+
+function closeModal() {
+  const form = document.querySelector('#base-form-register');
+  setTimeout(() => {
+    form?.classList.add('base-form-register_close');
+    modalsStore.closeModal('register');
+  }, 200);
+}
 </script>
 <template>
-  <div class="base-form-register">
+  <div class="base-form-register" id="base-form-register">
     <div class="base-form-register__wraper">
       <div class="base-form-register__wraper-top">
         <h3 class="base-form-register__wraper-top-title">
@@ -88,7 +96,7 @@ const goToPolicy = () => {
           >
           и соглашаетесь с
           <NuxtLink
-            @click='goToPolicy'
+            @click="goToPolicy"
             class="base-form-register__wraper-bottom-info-link"
             >Политикой конфиденциальности</NuxtLink
           >
@@ -99,7 +107,7 @@ const goToPolicy = () => {
           class="base-form-register__wraper-close-icon"
           size="24"
           :name="HeroIcons.CLOSE"
-          @click="modalsStore.closeModal('register')"
+          @click="closeModal"
         />
       </button>
     </div>
@@ -116,6 +124,10 @@ const goToPolicy = () => {
   width: 100%;
 
   animation: show-register $default_ease;
+
+  &_close {
+    animation: close-register 0.3s ease-out;
+  }
 
   &__wraper {
     position: relative;
@@ -231,6 +243,17 @@ const goToPolicy = () => {
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes close-register {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0.5;
+    transform: translateY(-100%);
   }
 }
 </style>

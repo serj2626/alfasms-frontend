@@ -1,18 +1,18 @@
-export type ModalItem = "register" | "chat" | "login" | "review";
+export type ModalItem = 'register' | 'chat' | 'login' | 'review' | 'success';
 
-export const useModalsStore = defineStore("modals-store", () => {
+export const useModalsStore = defineStore('modals-store', () => {
   const activeModals = ref<Map<ModalItem, any>>(new Map());
 
   function checkKey(event: KeyboardEvent) {
-    if (event.key === "Escape") {
+    if (event.key === 'Escape') {
       closeAllModals();
     }
   }
 
   const openModal = (modal: ModalItem, props?: any) => {
     if (document) {
-      document.documentElement.style.overflowY = "hidden";
-      document.addEventListener("keydown", checkKey, { once: true });
+      document.documentElement.style.overflowY = 'hidden';
+      document.addEventListener('keydown', checkKey, { once: true });
     }
     activeModals.value.set(modal, props);
   };
@@ -20,17 +20,17 @@ export const useModalsStore = defineStore("modals-store", () => {
   const closeModal = (modal: ModalItem) => {
     activeModals.value.delete(modal);
     if (!activeModals.value.size && document) {
-      document.documentElement.style.overflowY = "auto";
+      document.documentElement.style.overflowY = 'auto';
     }
   };
 
   const closeAllModals = () => {
-    const headerCatalogMenu = document.getElementById("header-catalog-menu");
+    const headerCatalogMenu = document.getElementById('header-catalog-menu');
 
     if (menuIsOpen) {
-      headerCatalogMenu?.classList.add("header-catalog-menu_close");
+      headerCatalogMenu?.classList.add('header-catalog-menu_close');
       activeModals.value.clear();
-      document && (document.documentElement.style.overflowY = "auto");
+      document && (document.documentElement.style.overflowY = 'auto');
     }
   };
 
@@ -38,7 +38,7 @@ export const useModalsStore = defineStore("modals-store", () => {
     () => activeModals.value && !!activeModals.value.size
   );
 
-  const menuIsOpen = computed(() => activeModals.value.has("register"));
+  const menuIsOpen = computed(() => activeModals.value.has('register'));
 
   return {
     activeModals,

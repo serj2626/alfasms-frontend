@@ -19,8 +19,8 @@ import { HeroIcons } from "~/assets/icons/types/hero-icons";
 <style scoped lang="scss">
 .base-button-live-chat {
   position: fixed;
-  right: 20px;
-  bottom: 20px;
+  right: 10px;
+  bottom: 30px;
   -ms-transform-origin: 100% 100%;
   -webkit-transform-origin: 100% 100%;
   transform-origin: 100% 100%;

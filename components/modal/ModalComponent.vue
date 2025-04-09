@@ -6,12 +6,12 @@
       role="dialog"
       @click.self="modalsStore.closeAllModals()"
     >
-    <LazyBaseFormRegister v-if="activeModals.has('register')" key="register" />
-    <LazyModalLiveChat v-if="activeModals.has('chat')" key="chat" />
-      <!-- <LazyModalSuccess v-if="activeModals.has('success')" key="success" />
-      <LazyReviewsForm v-if="activeModals.has('reviewForm')" key="reviewForm" />
-      <LazyModalReviewDetail v-if="activeModals.has('reviewDetail')" key="reviewDetail" />
-      <LazyHeaderCatalogMenu v-show="activeModals.has('headerMenu')" key="catalogMenu" /> -->
+      <LazyBaseFormRegister
+        v-if="activeModals.has('register')"
+        key="register"
+      />
+      <LazyModalLiveChat v-if="activeModals.has('chat')" key="chat" />
+      <LazyModalSuccess  v-if="activeModals.has('success')" key="success" />
     </div>
   </transition>
 </template>
@@ -42,7 +42,6 @@ const { activeModals, isAnyModalOpen } = storeToRefs(modalsStore);
   opacity: 0;
   transition: opacity $default_cubic;
 }
-
 
 .review-detail-modal {
   position: absolute;

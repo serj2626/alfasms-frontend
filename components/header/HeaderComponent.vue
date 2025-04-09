@@ -215,7 +215,7 @@ onBeforeUnmount(() => {
   &_active {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     background-color: $txt_white;
-    transition: background-color 0.3s ease-in;
+    transition: background-color 0.2s ease-in-out;
   }
 
   &-tablet {

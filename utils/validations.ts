@@ -162,6 +162,9 @@ export const validateTextarea = (value: string) => {
 
     case (!String(value).match(pattern.condition)):
       return pattern.message
+    
+      case (String(value).trim() === ''):
+      return 'Поле не может быть пустым'
 
     default: return ''
   }

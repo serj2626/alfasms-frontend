@@ -30,8 +30,8 @@ onBeforeUnmount(() => {
     <div class="base-form-login__wraper">
       <div class="base-form-login__wraper-top">
         <form class="base-form-login__wraper-top-form">
-          <BaseInputIcon placeholder="Email" :icon="HeroIcons.MAIL" />
-          <BaseInputIcon
+          <BaseInputWithIcon placeholder="Email" :icon="HeroIcons.MAIL" />
+          <BaseInputWithIcon
             placeholder="Не менее 8 символов"
             :icon="HeroIcons.PASSWORD"
           />

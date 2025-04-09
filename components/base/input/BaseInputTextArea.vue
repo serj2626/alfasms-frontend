@@ -12,7 +12,7 @@ defineProps<IInputProps>();
   <label class="textarea-component">
     <textarea
       v-model="inputValue"
-      :class="{ 'textarea-component__textarea--error': error }"
+      :class="{ 'textarea-component__input--error': error }"
       class="textarea-component__input"
     />
     <span v-if="!inputValue" class="textarea-component__placeholder">{{
@@ -41,13 +41,14 @@ defineProps<IInputProps>();
   }
 
   &__input {
-    resize: none;
+    resize: vertical;
     border: none;
     background-color: transparent;
     padding: 16px 20px;
-    height: 300px;
+    max-height: 200px;
+    min-height: 100px;
     min-width: 100%;
-    box-shadow: 10px 14px 20px  rgba(252, 252, 252, 0.579);
+    box-shadow: 10px 14px 20px  rgba(252, 252, 252, 0.469);
     border-radius: 5px;
 
     &:focus {

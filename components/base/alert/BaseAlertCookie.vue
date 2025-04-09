@@ -1,10 +1,14 @@
 <script lang="ts" setup>
-const showAlert = ref(true);
+const cookieConsent = useCookie<boolean>('alfaCookie', {
+  default: () => false,
+  maxAge: 60 * 60
+})
+
+const showAlert = ref(!cookieConsent.value)
+
 function hideAlert() {
-  localStorage.setItem("cookieAccepted", "true");
-  if (localStorage.getItem("cookieAccepted") === "true") {
-    showAlert.value = false;
-  }
+  cookieConsent.value = true
+  showAlert.value = false
 }
 </script>
 <template>
@@ -29,12 +33,9 @@ function hideAlert() {
   position: fixed;
   bottom: 20px;
   left: 50%;
+  z-index: 120;
   transform: translateX(-50%);
   height: auto;
-
-  // top: 50%;
-  // left: 50%;
-  // transform: translate(-50%, -50%);
 
   display: flex;
   align-items: center;
