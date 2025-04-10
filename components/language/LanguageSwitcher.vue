@@ -1,5 +1,11 @@
 <script setup lang="ts">
 const { locale, locales } = useI18n();
+
+watch(locale, (newLocale) => {
+  document.documentElement.lang = newLocale;
+  const langCookie = useCookie('i18n_redirected');
+  langCookie.value = newLocale;
+});
 </script>
 
 <template>
