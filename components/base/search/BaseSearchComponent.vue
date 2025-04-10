@@ -11,7 +11,7 @@ import { HeroIcons } from '~/assets/icons/types/hero-icons';
     />
     <div class="base-search-component__wraper">
       <p class="base-search-component__wraper-title">Поиск</p>
-      <BaseInputIcon
+      <BaseInputWithIcon
         class="base-search-component__wraper-search"
         type="search"
         placeholder="Поиск в AlfaSMS"

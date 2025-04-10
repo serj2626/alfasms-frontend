@@ -63,7 +63,7 @@ onBeforeUnmount(() => {
             />
           </NuxtLink>
 
-          <MenuNavigation
+          <LazyMenuDropdown
             v-if="item.children"
             :childrens="item.children"
             view="resources"
@@ -73,6 +73,7 @@ onBeforeUnmount(() => {
       <div class="header-tablet__actions">
         <div class="header-tablet__actions-search" style="position: relative">
           <Icon
+            class="header-tablet__actions-search-icon"
             :name="HeroIcons.SEARCH"
             size="20"
             @click="showSearchForm = (showSearchForm === false) ? true : false"
@@ -84,8 +85,9 @@ onBeforeUnmount(() => {
         </div>
 
         <div class="header-tablet__actions-lang">
-          <Icon :name="HeroIcons.LANGUAGE" size="18" />
-          <Icon :name="HeroIcons.DOWN" size="16" />
+          <LanguageSwitcher />
+          <!-- <Icon :name="HeroIcons.LANGUAGE" size="18" />
+          <Icon :name="HeroIcons.DOWN" size="16" /> -->
         </div>
       </div>
       <div class="header-tablet__auth">
@@ -229,7 +231,7 @@ onBeforeUnmount(() => {
 
     &__actions {
       display: flex;
-      gap: 10px;
+      gap: 3px;
       align-items: center;
 
       &-search {
@@ -240,6 +242,11 @@ onBeforeUnmount(() => {
 
         &-icon {
           @include header_link;
+          transition: all $default_cubic;
+
+          &:hover{
+            scale: 1.1;
+          }
         }
       }
 
@@ -396,7 +403,7 @@ onBeforeUnmount(() => {
   }
 }
 .header-tablet__list-item:hover {
-  .header-tablet__list-children {
+  .menu-dropdown {
     display: grid;
     animation: show-menu $default_cubic;
   }

@@ -12,26 +12,22 @@ defineProps<{
 }>();
 </script>
 <template>
-  <ul v-if="childrens" class="header-tablet__list-children">
+  <ul v-if="childrens" class="menu-dropdown">
     <NuxtLink
-      class="header-tablet__list-children-link"
+      class="menu-dropdown__link"
       v-for="child in childrens"
       :key="child.label"
       :to="child.link"
     >
-      <Icon
-        class="header-tablet__list-children-link-icon"
-        :name="child.icon"
-        size="12"
-      />
-      <span class="header-tablet__list-children-link-text">
+      <Icon class="menu-dropdown__link-icon" :name="child.icon" size="12" />
+      <span class="menu-dropdown__link-text">
         {{ child.label }}
       </span>
     </NuxtLink>
   </ul>
 </template>
 <style lang="scss" scoped>
-.header-tablet__list-children {
+.menu-dropdown {
   position: absolute;
   // max-width: 400px;
   // top: 80px;
@@ -39,18 +35,25 @@ defineProps<{
   left: 50%;
   transform: translateX(-50%);
   background-color: $txt_white;
-  padding: 30px;
+  padding: 30px 55px;
   border-radius: 20px;
   display: none;
-  // grid-template-columns: repeat(2, 1fr);
-  grid-template-columns: 1fr;
-  gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
   box-shadow: 0 0 20px rgb(121, 134, 135);
+
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.9) 48%,
+    rgba(245, 245, 255, 0.85) 52%
+  );
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 
   &::before {
     content: '';
     position: absolute;
-    top: -2px;
+    top: -4px;
     left: 50%;
     transform: translateX(-50%) rotate(45deg);
     width: 20px;
@@ -59,7 +62,7 @@ defineProps<{
     box-shadow: 0 0 20px rgb(240, 241, 241);
   }
 
-  &-link {
+  &__link {
     display: flex;
     align-items: center;
     gap: 5px;

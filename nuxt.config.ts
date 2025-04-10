@@ -1,63 +1,86 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: "2024-11-01",
+  compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
-  css: ["@/assets/scss/global.scss"],
+  css: ['@/assets/scss/global.scss'],
   modules: [
-    "@nuxt/eslint",
-    "@nuxt/icon",
-    "@nuxt/image",
-    "@pinia/nuxt",
-    "nuxt-swiper",
-    "nuxt-aos",
-    'nuxt-icons'],
+    '@nuxt/eslint',
+    '@nuxt/icon',
+    '@nuxt/image',
+    '@pinia/nuxt',
+    'nuxt-swiper',
+    'nuxt-aos',
+    'nuxt-icons',
+    '@nuxtjs/i18n',
+  ],
+  i18n: {
+    locales: [
+      {
+        code: 'ru',
+        name: 'Русский',
+        file: 'ru.json',
+        flag: '🇷🇺'
+      },
+      {
+        code: 'en',
+        name: 'English',
+        file: 'en.json',
+        flag: '🇬🇧'
+      },
+    ],
+    lazy: true,
+    langDir: 'locales/',
+    defaultLocale: 'ru',
+    strategy: 'no_prefix',
+    vueI18n: './i18n.config.ts'
+  },
   pinia: {
-    storesDirs: ["./stores/**"],
+    storesDirs: ['./stores/**'],
   },
   icon: {
     customCollections: [
       {
-        prefix: "social",
-        dir: "./assets/icons/social",
+        prefix: 'social',
+        dir: './assets/icons/social',
       },
       {
-        prefix: "partners",
-        dir: "./assets/icons/partners",
+        prefix: 'partners',
+        dir: './assets/icons/partners',
       },
     ],
   },
   app: {
     head: {
-      title: "AlfaSMS",
-      htmlAttrs: {
-        lang: "ru",
-      },
+      title: 'AlfaSMS',
+      // htmlAttrs: {
+      //   lang: 'ru',
+      // },
       link: [
         {
-          rel: "icon",
-          type: "image/png",
-          href: "/fav/logo.png",
-          sizes: "96x96",
+          rel: 'icon',
+          type: 'image/png',
+          href: '/fav/logo.png',
+          sizes: '96x96',
         },
-        { rel: "icon", type: "image/svg+xml", href: "/public/fav/favicon.svg" },
-        { rel: "shortcut icon", href: "/public/fav/favicon.ico" },
+        { rel: 'icon', type: 'image/svg+xml', href: '/public/fav/favicon.svg' },
+        { rel: 'shortcut icon', href: '/public/fav/favicon.ico' },
         // { rel: 'apple-touch-icon', sizes: '180x180', href: '/public/fav/apple-touch-icon.png' },
         // { rel: 'manifest', href: '/public/fav/site.webmanifest' },
       ],
       meta: [
-        { name: "msapplication-TileColor", content: "#da532c" },
-        { name: "theme-color", content: "#ffffff" },
-        { charset: "UTF-8" },
-        { "http-equiv": "X-UA-Compatible", content: "IE=edge" },
-        { name: "format-detection", content: "telephone=no" },
+        { name: 'msapplication-TileColor', content: '#da532c' },
+        { name: 'theme-color', content: '#ffffff' },
+        { charset: 'UTF-8' },
+        { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge' },
+        { name: 'format-detection', content: 'telephone=no' },
         {
-          name: "viewport",
-          content: "width=device-width, initial-scale=1.0, maximum-scale=5",
+          name: 'viewport',
+          content: 'width=device-width, initial-scale=1.0, maximum-scale=5',
         },
-        { name: "apple-mobile-web-app-title", content: "pavelpola" },
+        { name: 'apple-mobile-web-app-title', content: 'pavelpola' },
       ],
     },
-    pageTransition: { name: "page", mode: "out-in" },
+    pageTransition: { name: 'page', mode: 'out-in' },
   },
   vite: {
     // server: {

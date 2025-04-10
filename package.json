@@ -15,6 +15,7 @@
     "@nuxt/eslint": "^1.2.0",
     "@nuxt/icon": "^1.11.0",
     "@nuxt/image": "^1.10.0",
+    "@nuxtjs/i18n": "npm:@nuxtjs/i18n-edge",
     "@pinia/nuxt": "^0.10.1",
     "eslint": "^9.22.0",
     "maska": "^3.0.4",
