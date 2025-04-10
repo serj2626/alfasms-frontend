@@ -1,8 +1,8 @@
 <script setup lang="ts">
-const clinicDirection = useClinicDirection()
+// const clinicDirection = useClinicDirection()
 </script>
 <template>
-  <button
+  <!-- <button
     :class="{'button-video-play-component--kids': !clinicDirection.isAdultClinic}"
     class="button-video-play-component"
     aria-label="Воспроизвести видео"
@@ -16,7 +16,7 @@ const clinicDirection = useClinicDirection()
         filled
       />
     </div>
-  </button>
+  </button> -->
 </template>
 <style lang="scss" scoped>
 .button-video-play-component {

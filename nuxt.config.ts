@@ -10,30 +10,7 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     'nuxt-swiper',
     'nuxt-aos',
-    'nuxt-icons',
-    '@nuxtjs/i18n',
   ],
-  i18n: {
-    locales: [
-      {
-        code: 'ru',
-        name: 'Русский',
-        file: 'ru.json',
-        flag: '🇷🇺'
-      },
-      {
-        code: 'en',
-        name: 'English',
-        file: 'en.json',
-        flag: '🇬🇧'
-      },
-    ],
-    lazy: true,
-    langDir: 'locales/',
-    defaultLocale: 'ru',
-    strategy: 'no_prefix',
-    vueI18n: './i18n.config.ts'
-  },
   pinia: {
     storesDirs: ['./stores/**'],
   },
@@ -52,9 +29,9 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: 'AlfaSMS',
-      // htmlAttrs: {
-      //   lang: 'ru',
-      // },
+      htmlAttrs: {
+        lang: 'ru',
+      },
       link: [
         {
           rel: 'icon',

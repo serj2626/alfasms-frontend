@@ -58,12 +58,12 @@ const closeHandler = () => {
       @click="toggleHandler"
     >
       <span>{{ formattedSelectedOption }}</span>
-      <NuxtIcon
+      <!-- <NuxtIcon
         :class="{ 'base-input-select__handler-svg_opened': opened }"
         class="base-input-select__handler-svg"
         name="arrowDown"
         filled
-      />
+      /> -->
     </button>
 
     <div
@@ -81,7 +81,7 @@ const closeHandler = () => {
         >
           <img
             v-if="option.image"
-            :src="getMedia(option.image.contentUrl)"
+            src="ads"
             class="base-input-select__option-img"
           />
           {{

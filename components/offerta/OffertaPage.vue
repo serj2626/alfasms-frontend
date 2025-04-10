@@ -67,7 +67,7 @@ const html = `<p>
     margin-inline: auto;
     margin-top: 50px;
     padding-bottom: 50px;
-    animation: fadeSlideIn 0.3s ease-in;
+    animation: showText 1s ease-in;
   }
 }
 </style>

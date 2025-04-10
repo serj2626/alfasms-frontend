@@ -382,7 +382,7 @@ const html = `<p>
         />
       </div>
     </div>
-    <div class="container">
+    <div class="container policy-page__container">
       <!-- <BaseBreadcrumbs
         class="policy-page__breadcrumbs"
         :current-page="'Политика конфиденциальности'"
@@ -413,7 +413,11 @@ const html = `<p>
     margin-inline: auto;
     margin-top: 50px;
     padding-bottom: 50px;
-    animation: fadeSlideIn 0.3s ease-in;
+    animation: opacityText 1s ease-in;
+  }
+
+  &__container{
+    overflow-y: hidden;
   }
 }
 </style>

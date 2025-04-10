@@ -178,15 +178,15 @@ onBeforeUnmount(() => {
     color: $txt;
     @include link;
   }
-  .header-tablet__actions-lang {
-    color: $txt;
-    @include link;
-    transition: all $default_ease;
+  // .header-tablet__actions-lang {
+  //   color: $txt;
+  //   @include link;
+  //   transition: all $default_ease;
 
-    &:hover {
-      border-color: $teal;
-    }
-  }
+  //   &:hover {
+  //     border-color: $teal;
+  //   }
+  // }
   .header-mobile__burger {
     color: $txt;
   }
@@ -255,7 +255,7 @@ onBeforeUnmount(() => {
         display: flex;
         gap: 3px;
         align-items: center;
-        @include header_link;
+        // @include header_link;
         border: 1px solid transparent;
         padding: 5px;
         border-radius: 10px;
