@@ -38,17 +38,24 @@ defineProps<{
   padding: 30px 55px;
   border-radius: 20px;
   display: none;
-  grid-template-columns: repeat(2, 1fr);
+  // grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
+  width: 500px;
   gap: 30px;
   box-shadow: 0 0 20px rgb(121, 134, 135);
 
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.9) 48%,
-    rgba(245, 245, 255, 0.85) 52%
-  );
-  backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-image: url("/bg/book.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  // background: linear-gradient(
+  //   90deg,
+  //   rgba(255, 255, 255, 0.9) 48%,
+  //   rgba(245, 245, 255, 0.85) 52%
+  // );
+  // backdrop-filter: blur(15px);
+  // border: 1px solid rgba(255, 255, 255, 0.3);
 
   &::before {
     content: '';

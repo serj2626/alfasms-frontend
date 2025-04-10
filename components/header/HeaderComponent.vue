@@ -157,7 +157,7 @@ onBeforeUnmount(() => {
     </nav>
   </header>
 </template>
-<style lang="scss" scoped>
+<style lang="scss" >
 .header_active {
   .header-tablet__logo-text {
     color: $txt;
@@ -170,13 +170,17 @@ onBeforeUnmount(() => {
     color: $txt;
     background-color: rgba(0, 0, 0, 0.06);
     transition: background-color $default_ease;
+    box-shadow: 0 0 20px rgb(169, 164, 164);
     &:hover {
-      background-color: rgba(0, 0, 0, 0.1);
+      background-color: rgba(0, 0, 0, 0.383);
     }
   }
   .header-tablet__actions-search {
     color: $txt;
     @include link;
+  }
+  .language-switcher__current-icon{
+    color: $txt;
   }
   // .header-tablet__actions-lang {
   //   color: $txt;

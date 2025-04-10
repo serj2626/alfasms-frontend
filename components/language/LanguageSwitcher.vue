@@ -1,13 +1,15 @@
 <script setup lang="ts">
-const locale = ref('ru');
+import { HeroIcons } from "~/assets/icons/types/hero-icons";
+
+const locale = ref("ru");
 
 const languages = [
-  { code: 'be', flag: '🇧🇾' },
-  { code: 'ru', flag: '🇷🇺' },
-  { code: 'en', flag: '🇬🇧' },
-  { code: 'kk', flag: '🇰🇿' },
-  { code: 'tt', flag: '🇹🇳' },
-  { code: 'uk', flag: '🇺🇦' },
+  { code: "be", flag: "🇧🇾" },
+  { code: "ru", flag: "🇷🇺" },
+  { code: "en", flag: "🇬🇧" },
+  { code: "kk", flag: "🇰🇿" },
+  { code: "tt", flag: "🇹🇳" },
+  { code: "uk", flag: "🇺🇦" },
 ];
 
 const isOpen = ref(false);
@@ -22,17 +24,29 @@ const currentCountry = computed(() => {
     return country.code === locale.value;
   });
 });
+
+const allLanguages = computed(() => {
+  return languages.filter((item) => item.code != locale.value);
+});
 </script>
 
 <template>
   <div class="language-switcher">
-    <span class="language-switcher__current" @click="isOpen = !isOpen">
-      {{ currentCountry?.flag }}
-    </span>
+    <p class="language-switcher__current" @click="isOpen = !isOpen">
+      <span class="language-switcher__current-flag">{{
+        currentCountry?.flag
+      }}</span>
+      <Icon
+        class="language-switcher__current-icon"
+        :class="{ 'language-switcher__current-icon_open': isOpen }"
+        :name="HeroIcons.DOWN"
+        size="16"
+      />
+    </p>
 
     <div class="language-switcher__options" v-if="isOpen">
       <div
-        v-for="lang in languages"
+        v-for="lang in allLanguages"
         :key="lang.code"
         class="language-switcher__options-item"
         @click="selectLang(lang.code)"
@@ -53,6 +67,24 @@ const currentCountry = computed(() => {
   &__current {
     font-size: 20px;
     padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.3s ease;
+
+    &-flag {
+      transition: all 0.3s ease;
+      &:active {
+        scale: 1.1;
+      }
+    }
+
+    &-icon {
+      &_open {
+        transition: all 0.3s ease;
+        transform: rotate(180deg);
+      }
+    }
   }
   &__options {
     position: absolute;
@@ -62,7 +94,6 @@ const currentCountry = computed(() => {
     left: 50%;
     box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.242);
     transform: translateX(-50%);
-
 
     &:hover {
       animation: none;
@@ -74,7 +105,7 @@ const currentCountry = computed(() => {
     z-index: 10;
 
     &-item {
-      font-size: 26px;
+      font-size: 24px;
       padding: 5px;
       cursor: pointer;
       transition: all 0.3s ease;
