@@ -14,24 +14,27 @@ defineProps<IButton>();
 <template>
   <div
     :class="[
-      'base-button',
-      `base-button__${color}`,
-      `base-button__${size}`,
-      { 'base-button-fill_disabled': disabled },
+      'base-button-with-icon',
+      `base-button-with-icon__${color}`,
+      { 'base-button-with-icon_disabled': disabled },
     ]"
   >
-    <Icon v-if="icon" :name="icon" />
-    <span class="base-button-fill__title">{{ label }}</span>
+    <span
+      class="base-button-with-icon__title"
+      :class="`base-button-with-icon__title_${size}`"
+      >{{ label }}</span
+    >
+    <Icon v-if="icon" size="30" :name="icon" />
   </div>
 </template>
 <style scoped lang="scss">
-.base-button {
+.base-button-with-icon {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 5px;
+  padding-inline: 10px;
 
-  user-select: none;
   border-radius: $btn_radius;
   border: 1px solid transparent;
   transition: all $fast_ease;
@@ -70,25 +73,22 @@ defineProps<IButton>();
     box-shadow: 0 5px 12px rgba(69, 80, 84, 0.317);
   }
 
-  &__xs {
-    padding: 6px 9px;
-  }
+  &__title {
+    &_xs {
+      padding-block: 6px;
+    }
 
-  &__sm {
-    padding: 6px 12px;
-  }
+    &_sm {
+      padding-block: 6px;
+    }
 
-  &__md {
-    padding: 8px 16px;
-  }
+    &_md {
+      padding-block: 8px;
+    }
 
-  &__lg {
-    padding: 16px 28px;
+    &_lg {
+      padding-block: 16px;
+    }
   }
-}
-
-.iconify {
-  width: 40px;
-  aspect-ratio: 1;
 }
 </style>

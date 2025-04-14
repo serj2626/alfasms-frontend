@@ -3,7 +3,7 @@ defineProps<{
   label: string;
 }>();
 
-const agreeValue = defineModel();
+const agreeValue = defineModel("agreeValue");
 </script>
 <template>
   <div class="base-input-checkbox">

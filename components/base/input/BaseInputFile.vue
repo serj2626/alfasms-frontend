@@ -22,7 +22,7 @@ const handleFileChange = () => {
     <Icon class="input-file__icon" :name="HeroIcons.PHOTO" size="26" />
     <div class="input-file__tooltip">
       <div class="input-file__tooltip-cursor" />
-      Добавить фото или видео
+      Добавить фото
     </div>
   </label>
 </template>

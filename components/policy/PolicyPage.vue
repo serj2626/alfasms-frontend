@@ -372,52 +372,5 @@ const html = `<p>
 </p></p>`;
 </script>
 <template>
-  <div class="policy-page">
-    <div class="policy-page__header">
-      <div class="policy-page__header-content container">
-        <BaseTypography
-          class="policy-page__header-content-title"
-          view="h1"
-          :title="title || 'Политика конфиденциальности'"
-        />
-      </div>
-    </div>
-    <div class="container policy-page__container">
-      <!-- <BaseBreadcrumbs
-        class="policy-page__breadcrumbs"
-        :current-page="'Политика конфиденциальности'"
-      /> -->
-      <BaseWysiwyg v-if="html" :html="html" class="policy-page__content" />
-    </div>
-  </div>
+  <PageBlockContent :html="html" :title="title" />
 </template>
-<style lang="scss" scoped>
-
-.policy-page {
-  &__header {
-    background: $bg_linear_second;
-
-    &-content {
-      padding: 140px 0 100px;
-
-      &-title {
-        color: $txt_white;
-        margin-bottom: 29px;
-        text-align: center;
-      }
-    }
-  }
-
-  &__content {
-    width: 90%;
-    margin-inline: auto;
-    margin-top: 50px;
-    padding-bottom: 50px;
-    animation: opacityText 1s ease-in;
-  }
-
-  &__container{
-    overflow-y: hidden;
-  }
-}
-</style>

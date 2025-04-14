@@ -27,47 +27,30 @@ defineProps<{
   </ul>
 </template>
 <style lang="scss" scoped>
+.header_active {
+  .menu-dropdown__link {
+    color: $txt;
+  }
+}
 .menu-dropdown {
   position: absolute;
-  // max-width: 400px;
-  // top: 80px;
-  top: 82px;
+  z-index: 130;
   left: 50%;
   transform: translateX(-50%);
   background-color: $txt_white;
-  padding: 30px 55px;
-  border-radius: 20px;
+  border-radius: 10px;
+  padding: 20px 25px;
   display: none;
-  // grid-template-columns: repeat(2, 1fr);
   grid-template-columns: 1fr;
-  width: 500px;
-  gap: 30px;
+  gap: 15px;
   box-shadow: 0 0 20px rgb(121, 134, 135);
 
-  background-image: url("/bg/book.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  // background: linear-gradient(
-  //   90deg,
-  //   rgba(255, 255, 255, 0.9) 48%,
-  //   rgba(245, 245, 255, 0.85) 52%
-  // );
-  // backdrop-filter: blur(15px);
+  // background: rgba(255, 255, 255, 0.15);
+  // backdrop-filter: blur(20px);
+  // -webkit-backdrop-filter: blur(20px);
   // border: 1px solid rgba(255, 255, 255, 0.3);
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: -4px;
-    left: 50%;
-    transform: translateX(-50%) rotate(45deg);
-    width: 20px;
-    height: 20px;
-    background-color: $txt_white;
-    box-shadow: 0 0 20px rgb(240, 241, 241);
-  }
+  // box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  @include modal_arrow(50%, 4px);
 
   &__link {
     display: flex;
@@ -82,12 +65,18 @@ defineProps<{
     }
 
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       bottom: -5px;
-      width: max-content;
-      height: 2px;
-      background-color: teal;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: $teal;
+      transition: width 0.3s ease;
+    }
+    
+    &:hover:before {
+      width: 100%;
     }
   }
 }

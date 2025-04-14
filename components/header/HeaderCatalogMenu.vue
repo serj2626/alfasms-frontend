@@ -1,74 +1,80 @@
 <script lang="ts" setup>
-import { HeroIcons } from "~/assets/icons/types/hero-icons";
+import { HeroIcons } from '~/assets/icons/types/hero-icons';
 
-const emit = defineEmits(["close"]);
+const modalStore = useModalsStore();
+const emit = defineEmits(['close']);
 const isOpen = ref(true);
 
 const closeMenu = () => {
   isOpen.value = false;
   setTimeout(() => {
-    emit("close");
+    emit('close');
   }, 500);
 };
 
-// onMounted(() => {
-//   document.body.style.overflowY = "hidden";
-// });
-// onUnmounted(() => {
-//   document.body.style.overflowY = "auto";
-// });
+const openRegisterForm = () => {
+  closeMenu();
+  modalStore.openModal('register');
+};
+
+onMounted(() => {
+  document.documentElement.style.overflowY = 'hidden';
+});
+onUnmounted(() => {
+  document.documentElement.style.overflowY = 'auto';
+});
 
 const sendItems = {
-  title: "Отправляйте",
+  title: 'Отправляйте',
   items: [
-    { title: "Email рассылки", link: "/" },
-    { title: "SMS рассылки", link: "/" },
-    { title: "Автоматизация", link: "/" },
-    { title: "Web push", link: "/" },
-    { title: "Транзакционные письма", link: "/" },
-    { title: "Viber рассылки", link: "/" },
+    { title: 'Email рассылки', link: '/' },
+    { title: 'SMS рассылки', link: '/' },
+    { title: 'Автоматизация', link: '/' },
+    { title: 'Web push', link: '/' },
+    { title: 'Транзакционные письма', link: '/' },
+    { title: 'Viber рассылки', link: '/' },
   ],
 };
 
 const communicateItems = {
-  title: "Общайтесь",
+  title: 'Общайтесь',
   items: [
-    { title: "Чат для сайта", link: "/" },
-    { title: "WhatsApp чат-боты", link: "/" },
-    { title: "Facebook чат-боты", link: "/" },
-    { title: "Telegram чат-боты", link: "/" },
-    { title: "Instagram чат-боты", link: "/" },
-    { title: "Viber чат-боты", link: "/" },
+    { title: 'Чат для сайта', link: '/' },
+    { title: 'WhatsApp чат-боты', link: '/' },
+    { title: 'Facebook чат-боты', link: '/' },
+    { title: 'Telegram чат-боты', link: '/' },
+    { title: 'Instagram чат-боты', link: '/' },
+    { title: 'Viber чат-боты', link: '/' },
   ],
 };
 
 const leadsItems = {
-  title: "Лиды",
+  title: 'Лиды',
   items: [
-    { title: "Лендинги", link: "/" },
-    { title: "Попап формы", link: "/" },
+    { title: 'Лендинги', link: '/' },
+    { title: 'Попап формы', link: '/' },
   ],
 };
 
 const courseItems = {
-  title: "Платформа для курсов",
+  title: 'Платформа для курсов',
   items: [
-    { title: "API", link: "/" },
-    { title: "Найти эксперта", link: "/" },
-    { title: "Интеграции", link: "/" },
-    { title: "Все возможности", link: "/" },
+    { title: 'API', link: '/' },
+    { title: 'Найти эксперта', link: '/' },
+    { title: 'Интеграции', link: '/' },
+    { title: 'Все возможности', link: '/' },
   ],
 };
 
 const platformItems = {
-  title: "Платформа",
+  title: 'Платформа',
   items: [
-    { title: "Блог", link: "/" },
-    { title: "Академия", link: "/" },
-    { title: "База знаний", link: "/" },
-    { title: "YouTube", link: "/" },
-    { title: "Обновления", link: "/" },
-    { title: "Marketing 101", link: "/" },
+    { title: 'Блог', link: '/' },
+    { title: 'Академия', link: '/' },
+    { title: 'База знаний', link: '/' },
+    { title: 'YouTube', link: '/' },
+    { title: 'Обновления', link: '/' },
+    { title: 'Marketing 101', link: '/' },
   ],
 };
 </script>
@@ -79,22 +85,23 @@ const platformItems = {
   >
     <div class="header-catalog-menu__top">
       <div class="header-catalog-menu__top-wrapper container">
-        <NuxtLink class="header-catalog-menu__top-wrapper-logo" to="/">
-          <img
-            class="header-catalog-menu__top-wrapper-logo-img"
-            src="/header-logo.png"
-            alt="Логотип"
+        <HeaderLogo class="header-catalog-menu__top-wrapper-logo" />
+        <div class="header-catalog-menu__top-wrapper-auth">
+          <BaseButton
+            class="header-catalog-menu__top-wrapper-auth-register"
+            label="Регистрация"
+            size="xs"
+            color="red"
+            @click="openRegisterForm"
           />
-          <span class="header-catalog-menu__top-wrapper-logo-text"
-            >ALFASMS</span
-          >
-        </NuxtLink>
+          <BaseButtonLogin />
+        </div>
         <button class="header-catalog-menu__top-wrapper-burger">
           <Icon
             class="header-catalog-menu__top-wrapper-burger-icon"
-            size="36"
             :name="HeroIcons.CLOSE"
             @click="closeMenu"
+            size="26"
           />
         </button>
       </div>
@@ -128,7 +135,13 @@ const platformItems = {
             >
           </li>
         </ul>
-        <Icon size="26" :name="HeroIcons.SEARCH" />
+        <button class="header-catalog-menu__main-nav-search">
+          <Icon
+            class="header-catalog-menu__main-nav-search-icon"
+            size="22"
+            :name="HeroIcons.SEARCH"
+          />
+        </button>
       </nav>
       <div class="header-catalog-menu__main-info">
         <HeaderMobileItem :title="sendItems.title" :links="sendItems.items" />
@@ -166,7 +179,6 @@ const platformItems = {
   @include mediaLaptop {
     display: none;
   }
-
   &__top {
     position: relative;
     padding-top: 15px;
@@ -176,35 +188,41 @@ const platformItems = {
     background-color: $txt_white;
 
     &-wrapper {
-      margin-inline: auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
       position: relative;
       padding-inline: 15px;
 
-      &-logo {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 2px;
-
-        &-img {
-
-          width: 40px;
-          @include mediaMobile{
-            width: 60px;
-          }
-          height: auto;
-          filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+      &:deep(.base-button-login__btn) {
+        font-size: 14px;
+        color: $txt;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        @include mediaMobile {
+          font-size: 16px;
         }
-        &-text {
-          font-size: 12px;
-          @include mediaMobile{
-            font-size: 15px;
+      }
+
+      &:deep(.base-form-login) {
+        position: fixed;
+        top: 2%;
+        left: 50%;
+        transform: translate(-50%, 2%);
+      }
+      &:deep(.base-form-login__wraper::before) {
+        display: none !important;
+        content: none !important;
+      }
+      &-auth {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        &-register {
+          font-size: 14px;
+          @include mediaMobile {
+            font-size: 16px;
           }
-          color: $txt;
-          text-transform: uppercase;
         }
       }
       &-burger {
@@ -222,7 +240,7 @@ const platformItems = {
   }
 
   &__main {
-    overflow-y: scroll;
+    overflow-y: auto;
 
     &-nav {
       display: flex;
@@ -234,18 +252,18 @@ const platformItems = {
       &-list {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: start;
         gap: 5px;
 
-        @include mediaTablet{
+        @include mediaMobile {
           flex-direction: row;
-          gap: 5px;
+          gap: 15px;
         }
 
         &-item {
           line-height: 1;
           font-size: 15px;
-          padding-block: 12px;
+          padding-block: 6px;
           transition: color $fast_ease;
           cursor: pointer;
 
@@ -254,14 +272,28 @@ const platformItems = {
           }
         }
       }
+      &-search {
+        cursor: pointer;
+      }
     }
-    &-info{
+    &-info {
       padding-top: 16px;
       display: flex;
       flex-direction: column;
       gap: 20px;
     }
   }
+  &:deep(.header-logo){
+    padding: 10px;
+  }
+  &:deep(.header-logo__text){
+    color: $txt;
+    font-size: 12px;
+  }
+}
+
+.iconify {
+  font-size: 10px;
 }
 
 @keyframes show-menu {

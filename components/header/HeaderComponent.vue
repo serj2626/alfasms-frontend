@@ -6,12 +6,9 @@ import { headerLinks } from '~/assets/data/header-links';
 const modalsStore = useModalsStore();
 
 const showMenu = ref<boolean | null>(null);
-const showFormLogin = ref<boolean>(false);
-const showSearchForm = ref<boolean>(false);
 
 const elHeader = ref<HTMLElement>();
 const scroll = ref<number>(0);
-
 
 function handleScroll() {
   scroll.value = window.scrollY;
@@ -39,17 +36,13 @@ onBeforeUnmount(() => {
     }"
   >
     <nav class="header-tablet container" ref="elHeader">
-      <div class="header-tablet__logo">
-        <NuxtLink to="/">
-          <img src="/header-logo.png" class="header-tablet__logo-img" alt="" />
-        </NuxtLink>
-        <p class="header-tablet__logo-text">ALFASMS</p>
-      </div>
+      <HeaderLogo />
       <ul class="header-tablet__list">
         <li
           class="header-tablet__list-item"
           v-for="item in headerLinks"
           :key="item.label"
+          :class="item?.class"
         >
           <NuxtLink class="header-tablet__list-item-link" :to="item.to">
             <span class="header-tablet__list-item-link-text">
@@ -71,19 +64,7 @@ onBeforeUnmount(() => {
         </li>
       </ul>
       <div class="header-tablet__actions">
-        <div class="header-tablet__actions-search" style="position: relative">
-          <Icon
-            class="header-tablet__actions-search-icon"
-            :name="HeroIcons.SEARCH"
-            size="20"
-            @click="showSearchForm = (showSearchForm === false) ? true : false"
-          />
-          <LazyBaseSearchComponent
-            v-if="showSearchForm"
-            @close="showSearchForm = false"
-          />
-        </div>
-
+        <HeaderSearch />
         <div class="header-tablet__actions-lang">
           <LanguageSwitcher />
           <!-- <Icon :name="HeroIcons.LANGUAGE" size="18" />
@@ -91,20 +72,7 @@ onBeforeUnmount(() => {
         </div>
       </div>
       <div class="header-tablet__auth">
-        <div style="position: relative">
-          <BaseButton
-            class="header-tablet__auth-login"
-            label="Войти"
-            size="sm"
-            color="gray"
-            @click="showFormLogin = (showFormLogin === false ) ? true : false"
-          />
-          <LazyBaseFormLogin
-            v-if="showFormLogin"
-            @close="showFormLogin = false"
-          />
-        </div>
-
+        <BaseButtonLogin />
         <BaseButton
           class="header-tablet__auth-register"
           label="Регистрация"
@@ -115,32 +83,7 @@ onBeforeUnmount(() => {
       </div>
     </nav>
     <nav class="header-mobile container">
-      <div class="header-mobile__logo-auth">
-        <div class="header-mobile__logo">
-          <NuxtLink to="/">
-            <img
-              src="/header-logo.png"
-              class="header-mobile__logo-img"
-              alt=""
-            />
-          </NuxtLink>
-          <p class="header-mobile__logo-text">ALFASMS</p>
-        </div>
-        <div class="header-mobile__auth">
-          <BaseButton
-            class="header-mobile__auth-register"
-            label="Регистрация"
-            size="xs"
-            color="red"
-          />
-          <BaseButton
-            class="header-mobile__auth-login"
-            label="Войти"
-            size="xs"
-            color="gray"
-          />
-        </div>
-      </div>
+      <HeaderLogo />
 
       <div class="header-mobile__lang-burger">
         <div class="header-mobile__lang">
@@ -157,29 +100,16 @@ onBeforeUnmount(() => {
     </nav>
   </header>
 </template>
-<style lang="scss" >
+<style lang="scss">
 .header_active {
-  .header-tablet__logo-text {
-    color: $txt;
+  .header-tablet__auth-register{
+    box-shadow: 0 0 10px rgba(106, 69, 69, 0.46);
   }
   .header-tablet__list-item-link {
     color: $txt;
     @include link;
   }
-  .header-tablet__auth-login {
-    color: $txt;
-    background-color: rgba(0, 0, 0, 0.06);
-    transition: background-color $default_ease;
-    box-shadow: 0 0 20px rgb(169, 164, 164);
-    &:hover {
-      background-color: rgba(0, 0, 0, 0.383);
-    }
-  }
-  .header-tablet__actions-search {
-    color: $txt;
-    @include link;
-  }
-  .language-switcher__current-icon{
+  .language-switcher__current-icon {
     color: $txt;
   }
   // .header-tablet__actions-lang {
@@ -208,6 +138,15 @@ onBeforeUnmount(() => {
   .header-mobile__logo-text {
     color: $txt;
   }
+  .header-tablet__list-item-link-helps::after {
+    @include link;
+    transition: all $default_ease;
+  }
+
+  .header-tablet__list-item-link-helps:hover::after {
+    color: $teal;
+    transition: all $default_ease;
+  }
 }
 
 .header {
@@ -217,6 +156,7 @@ onBeforeUnmount(() => {
   left: 0;
   width: 100%;
   z-index: 100;
+  will-change: transform;
 
   &_active {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
@@ -238,22 +178,6 @@ onBeforeUnmount(() => {
       gap: 3px;
       align-items: center;
 
-      &-search {
-        cursor: pointer;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-
-        &-icon {
-          @include header_link;
-          transition: all $default_cubic;
-
-          &:hover{
-            scale: 1.1;
-          }
-        }
-      }
-
       &-lang {
         cursor: pointer;
         display: flex;
@@ -261,7 +185,7 @@ onBeforeUnmount(() => {
         align-items: center;
         // @include header_link;
         border: 1px solid transparent;
-        padding: 5px;
+    
         border-radius: 10px;
       }
     }
@@ -270,30 +194,6 @@ onBeforeUnmount(() => {
       display: flex;
       align-items: center;
       gap: 10px;
-    }
-
-    &__logo {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2px;
-      padding: 15px 17px;
-      cursor: pointer;
-      transition: all $default_ease;
-
-      &:active {
-        scale: 0.93;
-      }
-
-      &-img {
-        width: 60px;
-        height: auto;
-        // transition: all $default_ease;
-      }
-      &-text {
-        font-size: 15px;
-        text-transform: uppercase;
-      }
     }
 
     &__list {
@@ -305,6 +205,7 @@ onBeforeUnmount(() => {
         cursor: pointer;
 
         &-link {
+          position: relative;
           display: flex;
           align-items: center;
           gap: 3px;
@@ -315,11 +216,15 @@ onBeforeUnmount(() => {
 
           &-helps {
             position: relative;
+
             &::after {
               content: '24/7';
+              font-size: 11px;
               position: absolute;
-              display: block;
+              top: 22px;
+              right: -6px;
               color: $txt_white;
+              opacity: 0.7;
             }
           }
         }
@@ -359,24 +264,6 @@ onBeforeUnmount(() => {
         font-size: 12px;
         color: $txt_white;
         text-transform: uppercase;
-      }
-    }
-    &__auth {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-
-      &-login {
-        font-size: 12px;
-        @include mediaMobile {
-          font-size: 14px;
-        }
-      }
-      &-register {
-        font-size: 12px;
-        @include mediaMobile {
-          font-size: 14px;
-        }
       }
     }
     &__lang-burger {

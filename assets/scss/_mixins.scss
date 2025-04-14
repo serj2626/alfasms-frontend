@@ -1,4 +1,4 @@
-@use "./_vars.scss" as *;
+@use './_vars.scss' as *;
 
 @mixin mediaMobile() {
   @media screen and (min-width: $mobile) {
@@ -34,8 +34,8 @@
   }
 }
 
-@mixin txt_property($size: 16px, $weight: 400, $height: 1.42857, $color: $txt) {
-  font-size: $size;
+@mixin txt_property($size: 16, $weight: 400, $height: 1.42857, $color: $txt) {
+  font-size: #{$size}px;
   font-weight: $weight;
   line-height: $height;
   color: $color;
@@ -144,4 +144,20 @@
   -webkit-line-clamp: $count;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+@mixin modal_arrow($left: 50%, $top: 0px) {
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: 100;
+    top: $top;
+    left: $left;
+    transform: rotate(45deg)
+      #{if($left == 50%, 'translateX(-50%) ', '')};
+    width: 20px;
+    height: 20px;
+    background-color: $txt_white;
+    box-shadow: 0 0 20px rgb(240, 241, 241);
+  }
 }

@@ -1,4 +1,11 @@
-export type ModalItem = 'register' | 'chat' | 'login' | 'review' | 'success';
+export type ModalItem =
+  | 'register'
+  | 'chat'
+  | 'login'
+  | 'review'
+  | 'success'
+  | 'resetPassword'
+  | 'changePassword';
 
 export const useModalsStore = defineStore('modals-store', () => {
   const activeModals = ref<Map<ModalItem, any>>(new Map());

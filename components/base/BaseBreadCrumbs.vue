@@ -2,9 +2,9 @@
 const {
   breadcrumbs = [],
   currentPage,
-  color = '#7e7e7e',
+  color = '#000',
 } = defineProps<{
-  breadcrumbs: { title: string; path: string }[];
+  breadcrumbs?: { title: string; path: string }[];
   currentPage?: string;
   color?: string;
 }>();
@@ -12,7 +12,7 @@ const {
 <template>
   <nav class="base-breadcrumbs">
     <ul class="base-breadcrumbs__list">
-      <li class="base-breadcrumbs__list__go-back">
+      <li class="base-breadcrumbs__list-back">
         <NuxtLink class="base-breadcrumbs__list-item-link" to="/">
           <span>Назад</span>
         </NuxtLink>
@@ -46,19 +46,20 @@ const {
 
 <style lang="scss" scoped>
 .base-breadcrumbs {
+  padding-bottom: 15px;
+  border-bottom: 1px solid #c2babaab;
   &__list {
     display: flex;
     align-items: center;
+    color: $txt;
 
-    @include inter(12px, v-bind(color), 130%, 400);
-
-    &__go-back {
+    &-back {
       display: flex;
       align-items: center;
       width: 74px;
       height: 17px;
 
-      @include mediaLaptop {
+      @include mediaMobile {
         display: none;
       }
     }
@@ -69,18 +70,19 @@ const {
       &-link {
         display: flex;
         gap: 5px;
+        color: $txt;
 
         &-icon {
           display: flex;
         }
       }
 
-      @include mediaLaptop {
+      @include mediaMobile {
         display: flex;
       }
 
       &_current {
-        color: v-bind(color);
+        opacity: 0.7;
       }
     }
 
@@ -89,7 +91,7 @@ const {
     }
 
     &-item:not(:last-child)::after {
-      content: '>';
+      content: '/';
       padding: 0 5px;
       color: v-bind(color);
     }

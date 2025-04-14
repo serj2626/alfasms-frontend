@@ -1,41 +1,71 @@
 <script setup lang="ts">
 import type { MaskInputOptions } from 'maska';
+import { HeroIcons } from '~/assets/icons/types/hero-icons';
 
 type TInputTypes =
-'button' | 'checkbox' |
-'color' | 'date' |
-'datetime-local' | 'email' |
-'file' | 'hidden' |
-'image' | 'month' |
-'number' | 'password' |
-'radio' | 'range' |
-'reset' | 'search' |
-'submit' | 'tel' |
-'text' | 'time' |
-'url' | 'week'
+  | 'button'
+  | 'checkbox'
+  | 'color'
+  | 'date'
+  | 'datetime-local'
+  | 'email'
+  | 'file'
+  | 'hidden'
+  | 'image'
+  | 'month'
+  | 'number'
+  | 'password'
+  | 'radio'
+  | 'range'
+  | 'reset'
+  | 'search'
+  | 'submit'
+  | 'tel'
+  | 'text'
+  | 'time'
+  | 'url'
+  | 'week';
 
 interface IInputProps {
   placeholder?: string;
   error?: string;
-  maskOptions?: MaskInputOptions
+  maskOptions?: MaskInputOptions;
   type?: TInputTypes;
 }
 
-const inputValue = defineModel('inputValue')
+const inputValue = defineModel('inputValue');
 
-defineProps<IInputProps>()
+const props = defineProps<IInputProps>();
+
+const showPassword = ref(false);
+
+const currentType = computed(() => {
+  if (props.type === 'password' && showPassword.value) {
+    return 'text';
+  }
+  return props.type;
+});
 </script>
 <template>
   <label class="base-input">
     <input
       v-model="inputValue"
       v-maska="maskOptions"
-      :class="{'base-input__input_error': error}"
-      :type="type"
+      :class="{ 'base-input__input_error': error }"
+      :type="currentType"
       class="base-input__input"
     />
-    <span v-if="!inputValue" class="base-input__placeholder">{{ placeholder }}</span>
+    <span v-if="!inputValue" class="base-input__placeholder">{{
+      placeholder
+    }}</span>
     <small v-if="error" class="base-input__error">{{ error }}</small>
+    <Icon
+      v-if="type === 'password'"
+      :name="showPassword ? HeroIcons.EYE_CLOSE: HeroIcons.EYE"
+      size="20"
+      class="base-input__icon"
+      @click="showPassword = !showPassword"
+    />
   </label>
 </template>
 <style lang="scss" scoped>
@@ -65,6 +95,15 @@ defineProps<IInputProps>()
     &_error {
       border-bottom: 1px solid $error;
     }
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background-color: $txt;
+    opacity: 0.7;
   }
 
   &__error {

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const title = ref('Договор публичной оферты');
+const title = ref('Услуги');
 const html = `<p>
     Информация на сайте не является публичной офертой
 </p>

@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+const { $socket } = useNuxtApp();
 const modalsStore = useModalsStore();
 import { HeroIcons } from '~/assets/icons/types/hero-icons';
 import BaseInputTextArea from '../base/input/BaseInputTextArea.vue';
@@ -11,13 +12,28 @@ function closeChat() {
     modalsStore.closeModal('chat');
   }, 400);
 }
+
+// function sendMessage() {
+//   $socket.emit('send_message', {
+//     room: 'chat_123',
+//     content: 'Привет!',
+//   });
+// }
+
+// onMounted(() => {
+//   $socket.emit('join_room', { room: 'chat_123' });
+
+//   $socket.on('receive_message', (data) => {
+//     console.log('Получено сообщение:', data);
+//   });
+// });
 </script>
 <template>
   <div id="modal-live-chat" class="modal-live-chat">
     <div class="modal-live-chat__wraper">
       <div class="modal-live-chat__wraper-top">
         <p class="modal-live-chat__wraper-top-title">
-          Мы готовы ответить на ваши вопросы
+          Ждем ваши вопросы
         </p>
       </div>
       <form action="" class="modal-live-chat__wraper-form">
@@ -99,11 +115,7 @@ function closeChat() {
     flex-direction: column;
 
     &-top {
-      padding-block: 10px;
-
-      @include mediaTablet {
-        padding-block: 20px;
-      }
+      padding-block: 20px;
 
       @extend %border-bottom;
       &-title {

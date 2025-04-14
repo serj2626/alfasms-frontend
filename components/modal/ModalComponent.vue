@@ -12,6 +12,8 @@
       />
       <LazyModalLiveChat v-if="activeModals.has('chat')" key="chat" />
       <LazyModalSuccess  v-if="activeModals.has('success')" key="success" />
+      <LazyModalChangePassword  v-if="activeModals.has('changePassword')" key="change" />
+      <LazyModalResetPassword v-if="activeModals.has('resetPassword')" key="reset" />
     </div>
   </transition>
 </template>

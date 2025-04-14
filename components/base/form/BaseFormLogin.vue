@@ -1,64 +1,148 @@
 <script lang="ts" setup>
-import { HeroIcons } from "~/assets/icons/types/hero-icons";
+import { HeroIcons } from '~/assets/icons/types/hero-icons';
 
-const emit = defineEmits(["close"]);
+const emit = defineEmits(['close']);
 
 function closeFormLogin() {
-  const form = document.querySelector(".base-form-login");
-  form?.classList.add("base-form-login_close");
+  const form = document.querySelector('.base-form-login');
+  form?.classList.add('base-form-login_close');
   setTimeout(() => {
-    emit("close");
+    emit('close');
   }, 100);
 }
 
 function handleKeydown(e: KeyboardEvent) {
-  if (e.key === "Escape") {
+  if (e.key === 'Escape') {
     closeFormLogin();
   }
 }
+
+interface FormField {
+  value: string | boolean;
+  error: string;
+  required: boolean;
+}
+
+interface IFormData {
+  [key: string]: FormField;
+}
+
+const formData = reactive<IFormData>({
+  email: {
+    value: '',
+    error: '',
+    required: true,
+  },
+  password: {
+    value: '',
+    error: '',
+    required: true,
+  },
+  remember: {
+    value: false,
+    error: '',
+    required: false,
+  },
+});
+
+const error = ref('');
+
+const login = async () => {
+  console.log('formData', formData);
+  // clearFormAuth(formData)
+  // try {
+  //   const { data, error: loginError } = await useFetch<{ token: string }>(
+  //     '/api/login',
+  //     {
+  //       method: 'POST',
+  //       body: {
+  //         email: formData?.email.value,
+  //         password: formData?.password.value,
+  //       },
+  //     }
+  //   );
+
+  //   if (loginError.value) {
+  //     error.value = loginError.value.message;
+  //     alert(error.value);
+  //     return;
+  //   }
+
+  //   const token = data.value?.token;
+  //   if (!token) return;
+
+  //   // Логика "Запомнить меня"
+  //   if (formData.remember.value) {
+  //     localStorage.setItem('auth_token', token); // сохраняем навсегда
+  //   } else {
+  //     sessionStorage.setItem('auth_token', token); // до закрытия вкладки
+  //   }
+
+  //   navigateTo('/');
+  // } catch (e) {
+  //   error.value = 'Ошибка входа';
+  // }
+};
+
 onMounted(() => {
-  const form = document.querySelector(".base-form-login");
-  form?.classList.add("base-form-login_open");
-  document.addEventListener("keydown", handleKeydown);
+  const form = document.querySelector('.base-form-login');
+  form?.classList.add('base-form-login_open');
+  document.addEventListener('keydown', handleKeydown);
 });
 onBeforeUnmount(() => {
-  document.removeEventListener("keydown", handleKeydown);
+  document.removeEventListener('keydown', handleKeydown);
 });
 </script>
 <template>
   <div class="base-form-login">
     <div class="base-form-login__wraper">
       <div class="base-form-login__wraper-top">
-        <form class="base-form-login__wraper-top-form">
-          <BaseInputWithIcon placeholder="Email" :icon="HeroIcons.MAIL" />
+        <form @submit.prevent.stop class="base-form-login__wraper-top-form">
           <BaseInputWithIcon
+            v-model:input-value="formData.email.value"
+            :error="formData.email.error"
+            type="email"
+            placeholder="Email"
+            :icon="HeroIcons.MAIL"
+          />
+          <BaseInputWithIcon
+            v-model:input-value="formData.password.value"
+            :error="formData.password.error"
+            type="password"
             placeholder="Не менее 8 символов"
             :icon="HeroIcons.PASSWORD"
           />
           <BaseButton
+            type="submit"
             class="base-form-login__wraper-top-form-btn"
             size="md"
             color="red"
             label="Войти"
+            @click="login"
           />
-          <BaseInputCheckbox label="Запомнить меня" />
+          <BaseInputCheckbox
+            v-model:agree-value="formData.remember.value"
+            label="Запомнить меня"
+          />
         </form>
       </div>
       <p class="base-form-login__wraper-or">
-        <span class="base-form-login__wraper-or-text">или</span>
+        <span class="base-form-login__wraper-or-text">или войти</span>
       </p>
       <div class="base-form-login__wraper-bottom">
-        <BaseButton
+        <BaseButtonWithIcon
           class="base-form-login__wraper-bottom-btn"
           size="md"
           color="blue"
-          label="Войти через Google"
+          label="С помощью ВКонтакте"
+          icon="social:vk"
         />
-        <BaseButton
+        <BaseButtonWithIcon
           class="base-form-login__wraper-bottom-btn"
           size="md"
           color="white"
-          label="Войти через Facebook"
+          label="С помощью Яндекс"
+          icon="social:yandex"
         />
       </div>
       <button class="base-form-login__close" @click="closeFormLogin">
@@ -74,7 +158,8 @@ onBeforeUnmount(() => {
 <style lang="scss" scoped>
 .base-form-login {
   position: absolute;
-  top: 80px;
+  z-index: 101;
+  top: 57px;
   left: 50%;
   transform: translateX(-50%);
   border-radius: 10px;
@@ -90,17 +175,7 @@ onBeforeUnmount(() => {
     padding: 50px 25px 25px;
     color: $txt;
 
-    &::before {
-      content: "";
-      position: absolute;
-      top: -2px;
-      left: 50%;
-      transform: translateX(-50%) rotate(45deg);
-      width: 20px;
-      height: 20px;
-      background-color: $txt_white;
-      box-shadow: 0 0 20px rgb(240, 241, 241);
-    }
+    @include modal_arrow(50%, 4px);
 
     &-top {
       &-form {

@@ -1,16 +1,16 @@
-import { io } from 'socket.io-client';
+// import { io } from 'socket.io-client';
 
-export default defineNuxtPlugin(() => {
-  const socket = io('http://localhost:8000', {
-    transports: ['websocket'],
-  });
+// export default defineNuxtPlugin(() => {
+//   const socket = io('http://localhost:8000', {
+//     transports: ['websocket'],
+//   });
 
-  return {
-    provide: {
-      socket,
-    },
-  };
-});
+//   return {
+//     provide: {
+//       socket,
+//     },
+//   };
+// });
 
 // const { $socket } = useNuxtApp();
 

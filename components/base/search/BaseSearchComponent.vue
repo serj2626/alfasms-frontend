@@ -23,26 +23,16 @@ import { HeroIcons } from '~/assets/icons/types/hero-icons';
 <style scoped lang="scss">
 .base-search-component {
   position: absolute;
-  top: 82px;
+  z-index: 120;
+  top: 50px;
   width: 755px;
-
   left: -85px;
   transform: translateX(-68%);
   box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.158);
   background-color: $txt_white;
   border-radius: 10px;
 
-  &::before {
-    position: absolute;
-    content: '';
-    top: -8px;
-    left: 600px;
-    transform: rotate(45deg);
-    width: 20px;
-    height: 20px;
-    background-color: $txt_white;
-    box-shadow: 0 0 20px rgb(240, 241, 241);
-  }
+  @include modal_arrow(600px, -3px);
 
   &__wraper {
     display: flex;

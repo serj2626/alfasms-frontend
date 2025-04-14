@@ -46,7 +46,7 @@ defineProps<IInputProps>();
     background-color: transparent;
     padding: 16px 20px;
     max-height: 200px;
-    min-height: 100px;
+    min-height: 200px;
     min-width: 100%;
     box-shadow: 10px 14px 20px  rgba(252, 252, 252, 0.469);
     border-radius: 5px;

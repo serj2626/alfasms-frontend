@@ -1,6 +1,42 @@
 <script lang="ts" setup>
 const modalsStore = useModalsStore();
 import { HeroIcons } from '~/assets/icons/types/hero-icons';
+
+interface FormField {
+  value: string | boolean;
+  error: string;
+  required: boolean;
+}
+
+interface IFormData {
+  [key: string]: FormField;
+}
+
+const formData = reactive<IFormData>({
+  name: {
+    value: '',
+    error: '',
+    required: true,
+  },
+  email: {
+    value: '',
+    error: '',
+    required: true,
+  },
+  phone: {
+    value: '',
+    error: '',
+    required: true,
+  },
+  password: {
+    value: '',
+    error: '',
+    required: true,
+  },
+});
+
+const error = ref('');
+
 const goToPolicy = () => {
   modalsStore.closeModal('register');
   navigateTo('/policy');
@@ -12,6 +48,10 @@ function closeModal() {
     form?.classList.add('base-form-register_close');
     modalsStore.closeModal('register');
   }, 200);
+}
+
+function submitRegisterForm() {
+  console.log('formdata', formData);
 }
 </script>
 <template>
@@ -25,12 +65,15 @@ function closeModal() {
           Создайте бесплатный аккаунт. Без банковской карты.
         </p>
       </div>
-      <form action="" class="base-form-register__wraper-form">
+      <form @submit.prevent.stop class="base-form-register__wraper-form">
         <div class="base-form-register__wraper-form-block">
           <label class="base-form-register__wraper-form-block-label" for="name"
             >Имя</label
           >
           <BaseInput
+            v-model:input-value="formData.name.value"
+            :error="formData.name.error"
+            type="text"
             class="base-form-register__wraper-form-block-input"
             placeholder="Иван Иванов"
           />
@@ -40,6 +83,9 @@ function closeModal() {
             >Почта</label
           >
           <BaseInput
+            v-model:input-value="formData.email.value"
+            :error="formData.email.error"
+            type="email"
             class="base-form-register__wraper-form-block-input"
             placeholder="example@ex.com"
           />
@@ -49,6 +95,9 @@ function closeModal() {
             >Телефон</label
           >
           <BaseInput
+            v-model:input-value="formData.phone.value"
+            :error="formData.phone.error"
+            type="text"
             class="base-form-register__wraper-form-block-input"
             placeholder="8-999-999-99-99"
           />
@@ -60,6 +109,9 @@ function closeModal() {
             >Пароль</label
           >
           <BaseInput
+            v-model:input-value="formData.password.value"
+            :error="formData.password.error"
+            type="password"
             class="base-form-register__wraper-form-block-input"
             placeholder="Не менее 8 символов"
           />
@@ -69,24 +121,29 @@ function closeModal() {
           size="lg"
           color="red"
           label="Регистрация"
+          @click="submitRegisterForm"
         />
       </form>
       <div class="base-form-register__wraper-bottom">
         <p class="base-form-register__wraper-bottom-or">
-          <span class="base-form-register__wraper-bottom-or-text">или</span>
+          <span class="base-form-register__wraper-bottom-or-text"
+            >или войти с помощью</span
+          >
         </p>
         <div class="base-form-register__wraper-bottom-actions">
-          <BaseButton
+          <BaseButtonWithIcon
             class="base-form-register__wraper-bottom-actions-btn"
             size="md"
             color="blue"
-            label="Войти через Google"
+            label="ВКонтакте"
+            icon="social:vk"
           />
-          <BaseButton
+          <BaseButtonWithIcon
             class="base-form-register__wraper-bottom-actions-btn"
             size="md"
             color="white"
-            label="Войти через Facebook"
+            label="Яндекс"
+            icon="social:yandex"
           />
         </div>
         <p class="base-form-register__wraper-bottom-info">

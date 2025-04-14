@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 const cookieConsent = useCookie<boolean>('alfaCookie', {
   default: () => false,
-  maxAge: 60 * 60
+  maxAge: 60 * 120
 })
 
 const showAlert = ref(!cookieConsent.value)

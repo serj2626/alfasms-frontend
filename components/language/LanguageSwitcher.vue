@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import { HeroIcons } from "~/assets/icons/types/hero-icons";
+import { HeroIcons } from '~/assets/icons/types/hero-icons';
 
-const locale = ref("ru");
+const locale = ref('ru');
 
 const languages = [
-  { code: "be", flag: "🇧🇾" },
-  { code: "ru", flag: "🇷🇺" },
-  { code: "en", flag: "🇬🇧" },
-  { code: "kk", flag: "🇰🇿" },
-  { code: "tt", flag: "🇹🇳" },
-  { code: "uk", flag: "🇺🇦" },
+  { code: 'be', flag: '🇧🇾' },
+  { code: 'ru', flag: '🇷🇺' },
+  { code: 'en', flag: '🇬🇧' },
+  { code: 'kk', flag: '🇰🇿' },
+  { code: 'tt', flag: '🇹🇳' },
+  { code: 'uk', flag: '🇺🇦' },
 ];
 
 const isOpen = ref(false);
@@ -76,6 +76,7 @@ const allLanguages = computed(() => {
       transition: all 0.3s ease;
       &:active {
         scale: 1.1;
+        transform: skewX( -100deg );
       }
     }
 
@@ -87,69 +88,43 @@ const allLanguages = computed(() => {
     }
   }
   &__options {
+    background-color: transparent !important;
     position: absolute;
     z-index: 120;
-    margin-top: 20px;
+    margin-top: 10px;
     top: 100%;
     left: 50%;
-    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.242);
+
     transform: translateX(-50%);
+
+    box-shadow: 0 0 20px rgb(121, 134, 135);
+
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    box-shadow: 0 0 10px 10px rgba(240, 240, 240, 0.236);
 
     &:hover {
       animation: none;
     }
     display: flex;
-    gap: 10px;
+    gap: 15px;
     background: white;
     border-radius: 6px;
     z-index: 10;
 
     &-item {
-      font-size: 24px;
+      font-size: 26px;
       padding: 5px;
       cursor: pointer;
       transition: all 0.3s ease;
 
       &:hover {
         filter: brightness(0.8);
+        scale: 1.2;
       }
     }
   }
 }
 </style>
-
-<!-- <script setup lang="ts">
-const locale = ref('ru');
-
-const languages = [
-  { code: 'ru', flag: '🇷🇺' },
-  { code: 'en', flag: '🇬🇧' },
-  { code: 'be', flag: '🇧🇾' },
-  { code: 'kk', flag: '🇰🇿' },
-  { code: 'tt', flag: '🇹🇳' },
-  { code: 'uk', flag: '🇺🇦' },
-  { code: 'uz', flag: '🇺🇿' },
-];
-</script>
-
-<template>
-  <select v-model="locale" class="lang-select">
-    <option v-for="lang in languages" :key="lang.code" :value="lang.code">
-      {{ lang.flag }}
-    </option>
-  </select>
-</template>
-
-<style scoped lang="scss">
-.lang-select {
-  font-size: 18px;
-  outline: none;
-  cursor: pointer;
-  padding: 6px;
-
-  option {
-    background: transparent;
-    color: inherit;
-  }
-}
-</style> -->

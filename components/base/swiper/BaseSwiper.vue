@@ -16,14 +16,14 @@ const {
   desctopBetween = 20,
 } = defineProps<{
   images: IContactsImage[];
-  mobileCount: number;
-  mobileBetween: number;
-  tabletCount: number;
-  tabletBetween: number;
-  laptopCount: number;
-  laptopBetween: number;
-  desctopCount: number;
-  desctopBetween: number;
+  mobileCount?: number;
+  mobileBetween?: number;
+  tabletCount?: number;
+  tabletBetween?: number;
+  laptopCount?: number;
+  laptopBetween?: number;
+  desctopCount?: number;
+  desctopBetween?: number;
 }>();
 
 const containerRef = ref(null);
