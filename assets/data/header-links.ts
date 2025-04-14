@@ -8,14 +8,11 @@ export const headerLinks = ref([
     children: [
       {
         label: 'Офферта',
-        description: 'Fully styled and customizable components for Nuxt.',
         icon: 'i-lucide-house',
         link: '/offerta',
       },
       {
         label: 'Политика',
-        description:
-          'Learn how to install and configure Nuxt UI in your application.',
         icon: 'i-lucide-cloud-download',
         link: '/policy',
       },
@@ -28,14 +25,11 @@ export const headerLinks = ref([
     children: [
       {
         label: 'Оферта',
-        description: 'Fully styled and customizable components for Nuxt.',
         icon: 'i-lucide-house',
         link: '/offerta',
       },
       {
         label: 'Политика',
-        description:
-          'Learn how to install and configure Nuxt UI in your application.',
         icon: 'i-lucide-cloud-download',
         link: '/policy',
       },
@@ -43,31 +37,30 @@ export const headerLinks = ref([
   },
   {
     label: 'Поддержка',
-    icon: HeroIcons.DOWN,
     to: '/',
     class: 'header-tablet__list-item-link-helps',
   },
   {
     label: 'Ресурсы',
-    icon: HeroIcons.DOWN,
     to: '/',
   },
   {
     label: 'О компании',
     icon: HeroIcons.DOWN,
-    disabled: true,
     children: [
       {
         label: 'О нас',
-        description: 'Fully styled and customizable components for Nuxt.',
         icon: 'i-lucide-house',
         link: '/about',
       },
       {
         label: 'Контакты',
-        description:
-          'Learn how to install and configure Nuxt UI in your application.',
-        icon: 'i-lucide-cloud-download',
+        icon: 'heroicons:map-pin',
+        link: '/contacts',
+      },
+      {
+        label: 'Отзывы',
+        icon: 'heroicons:star',
         link: '/contacts',
       },
     ],

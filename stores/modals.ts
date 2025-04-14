@@ -2,7 +2,8 @@ export type ModalItem =
   | 'register'
   | 'chat'
   | 'login'
-  | 'review'
+  | 'reviewDetail'
+  | 'reviewForm'
   | 'success'
   | 'resetPassword'
   | 'changePassword';

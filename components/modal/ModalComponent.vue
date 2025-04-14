@@ -14,11 +14,14 @@
       <LazyModalSuccess  v-if="activeModals.has('success')" key="success" />
       <LazyModalChangePassword  v-if="activeModals.has('changePassword')" key="change" />
       <LazyModalResetPassword v-if="activeModals.has('resetPassword')" key="reset" />
+      <LazyModalReviewDetail v-if="activeModals.has('reviewDetail')" key="reviewDetail" />
     </div>
   </transition>
 </template>
 
 <script setup>
+import { LazyModalReviewDetail } from '#components';
+
 const modalsStore = useModalsStore();
 const { activeModals, isAnyModalOpen } = storeToRefs(modalsStore);
 </script>

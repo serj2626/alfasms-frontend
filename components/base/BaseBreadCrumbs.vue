@@ -70,7 +70,7 @@ const {
       &-link {
         display: flex;
         gap: 5px;
-        color: $txt;
+        color: $teal;
 
         &-icon {
           display: flex;
@@ -94,6 +94,7 @@ const {
       content: '/';
       padding: 0 5px;
       color: v-bind(color);
+      opacity: 0.7;
     }
   }
 }

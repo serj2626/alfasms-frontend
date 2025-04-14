@@ -9,7 +9,7 @@ interface IPlatforma {
 
 const platforma: IPlatforma[] = [
   {
-    img: "platforma/cup.svg",
+    img: "platforma/money.svg",
     title: "Менеджерам по продажам",
     desc: "CRM – центр вашего бизнеса. Управляйте продажами и каналами связи, автоматизируйте прохождение контактов по воронке продаж, работайте с соглашениями и мгновенно получайте всю информацию о клиенте.",
     fade: "fade-up",

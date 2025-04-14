@@ -2,7 +2,6 @@
 type TView = 'opportunities' | 'resources' | 'partners';
 interface IChildren {
   label: string;
-  description: string;
   icon?: string;
   link?: string;
 }
@@ -19,7 +18,7 @@ defineProps<{
       :key="child.label"
       :to="child.link"
     >
-      <Icon class="menu-dropdown__link-icon" :name="child.icon" size="12" />
+      <Icon class="menu-dropdown__link-icon" :name="child.icon" size="14" />
       <span class="menu-dropdown__link-text">
         {{ child.label }}
       </span>
@@ -39,7 +38,7 @@ defineProps<{
   transform: translateX(-50%);
   background-color: $txt_white;
   border-radius: 10px;
-  padding: 20px 25px;
+  padding: 20px 35px;
   display: none;
   grid-template-columns: 1fr;
   gap: 15px;

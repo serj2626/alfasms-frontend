@@ -24,7 +24,7 @@ const showFormLogin = ref<boolean>(false);
     transition: background-color $default_ease;
     box-shadow: 0 0 20px rgb(169, 164, 164);
     &:hover {
-      background-color: rgba(0, 0, 0, 0.383);
+      background-color: rgba(0, 0, 0, 0.082);
     }
   }
 }

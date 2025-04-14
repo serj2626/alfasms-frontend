@@ -6,7 +6,7 @@ interface ILinks {
 const links: ILinks[] = [
   { link: '/', title: 'Правила использования' },
   { link: '/', title: 'Безопасность' },
-  { link: '/', title: 'Политика Cookies' },
+  { link: '/cookies', title: 'Политика Cookies' },
   { link: '/policy', title: 'Политика конфиденциальности' },
 ];
 </script>

@@ -35,7 +35,7 @@ defineProps<{
     background: $bg_linear_second;
 
     &-content {
-      padding: 140px 0 140px;
+      padding: 180px;
 
       &-title {
         color: $txt_white;

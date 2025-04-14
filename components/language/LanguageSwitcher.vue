@@ -4,12 +4,12 @@ import { HeroIcons } from '~/assets/icons/types/hero-icons';
 const locale = ref('ru');
 
 const languages = [
-  { code: 'be', flag: '🇧🇾' },
-  { code: 'ru', flag: '🇷🇺' },
-  { code: 'en', flag: '🇬🇧' },
-  { code: 'kk', flag: '🇰🇿' },
-  { code: 'tt', flag: '🇹🇳' },
-  { code: 'uk', flag: '🇺🇦' },
+  { code: 'be', flag: '🇧🇾', title: 'Белорусский' },
+  { code: 'ru', flag: '🇷🇺', title: 'Русский' },
+  { code: 'en', flag: '🇬🇧', title: 'Английский' },
+  { code: 'kk', flag: '🇰🇿', title: 'Казахстанский' },
+  { code: 'tt', flag: '🇹🇳', title: 'Татарский' },
+  { code: 'uk', flag: '🇺🇦', title: 'Украинский' },
 ];
 
 const isOpen = ref(false);
@@ -50,7 +50,7 @@ const allLanguages = computed(() => {
         :key="lang.code"
         class="language-switcher__options-item"
         @click="selectLang(lang.code)"
-        :title="lang.code"
+        :title="lang.title"
       >
         {{ lang.flag }}
       </div>
@@ -76,7 +76,6 @@ const allLanguages = computed(() => {
       transition: all 0.3s ease;
       &:active {
         scale: 1.1;
-        transform: skewX( -100deg );
       }
     }
 

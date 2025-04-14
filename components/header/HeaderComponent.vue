@@ -102,6 +102,7 @@ onBeforeUnmount(() => {
 </template>
 <style lang="scss">
 .header_active {
+  padding-top: 0px !important;
   .header-tablet__auth-register{
     box-shadow: 0 0 10px rgba(106, 69, 69, 0.46);
   }
@@ -150,18 +151,18 @@ onBeforeUnmount(() => {
 }
 
 .header {
+  padding-top: 20px;
   background-color: transparent;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 100;
-  will-change: transform;
 
   &_active {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     background-color: $txt_white;
-    transition: background-color 0.2s ease-in-out;
+    transition: all 0.4s ease-in-out;
   }
 
   &-tablet {

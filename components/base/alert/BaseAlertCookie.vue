@@ -17,7 +17,7 @@ function hideAlert() {
       AlfaSMS использует файлы cookie для улучшения взаимодействия с сайтом.
       Продолжая просмотр страниц сайта, вы соглашаетесь с использованием файлов
       cookie.
-      <NuxtLink to="/" class="alert-cookie__text-link">Подробнее</NuxtLink>
+      <NuxtLink to="/cookies" class="alert-cookie__text-link">Подробнее</NuxtLink>
     </p>
     <BaseButton
       class="alert-cookie__btn"
@@ -42,7 +42,7 @@ function hideAlert() {
   gap: 20px;
 
   padding: 15px;
-  border-radius: 4px;
+  border-radius: 10px;
   background-color: $txt_white;
   box-shadow: 0 16px 48px 0 rgba(0, 0, 0, 0.46);
 
