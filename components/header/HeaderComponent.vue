@@ -28,6 +28,8 @@ onBeforeUnmount(() => {
 });
 </script>
 <template>
+  <Transition name="fade" mode="out-in">
+    <div :key="$route.fullPath">
   <HeaderCatalogMenu v-if="showMenu" @close="showMenu = false" />
   <header
     class="header"
@@ -99,8 +101,20 @@ onBeforeUnmount(() => {
       </div>
     </nav>
   </header>
+</div>
+</Transition>
 </template>
 <style lang="scss">
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+
 .header_active {
   padding-top: 0px !important;
   .header-tablet__auth-register{
