@@ -151,16 +151,18 @@ onBeforeUnmount(() => {
 }
 
 .header {
-  padding-top: 20px;
   background-color: transparent;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 100;
+  @include mediaLaptop{
+    padding-top: 20px;
+  }
 
   &_active {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.314);
     background-color: $txt_white;
     transition: all 0.4s ease-in-out;
   }
@@ -211,9 +213,13 @@ onBeforeUnmount(() => {
           align-items: center;
           gap: 3px;
           color: $txt_white;
-          padding: 30px 15px;
+          padding: 30px 10px;
           color: $txt_white;
           @include header_link;
+
+          @include mediaDesktop{
+            padding: 30px 15px;
+          }
 
           &-helps {
             position: relative;
@@ -237,7 +243,6 @@ onBeforeUnmount(() => {
     align-items: center;
     justify-content: space-between;
     padding-block: 12px;
-
     @include mediaLaptop {
       display: none;
     }

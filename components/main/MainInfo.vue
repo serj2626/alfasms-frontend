@@ -62,12 +62,13 @@ const actions: IAction[] = [
 
 <style lang="scss" scoped>
 .main-info {
-  padding-top: 100px;
+  // padding-top: 100px;
+  padding-top: 140px;
   margin-bottom: 16px;
 
-  @include mediaTablet {
-    padding-top: 100px;
-  }
+  // @include mediaTablet {
+  //   padding-top: 100px;
+  // }
   @include mediaLaptop {
     padding-top: 140px;
   }

@@ -36,7 +36,7 @@ function closeChat() {
           Ждем ваши вопросы
         </p>
       </div>
-      <form action="" class="modal-live-chat__wraper-form">
+      <form class="modal-live-chat__wraper-form">
         <div class="modal-live-chat__wraper-form-department">
           <label for="" class="modal-live-chat__wraper-form-department-label">
             Отдел
@@ -189,20 +189,16 @@ function closeChat() {
     }
     &-bottom {
       position: relative;
-      padding: 40px 34px;
+      padding: 10px 34px 30px;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      gap: 10px;
 
-      &-file {
-        position: absolute;
-        left: 20px;
-        bottom: 20px;
-      }
 
       &-send {
         position: relative;
+        margin-top: 10px;
+        margin-inline: auto;
         display: flex;
         flex-direction: column;
         justify-content: center;

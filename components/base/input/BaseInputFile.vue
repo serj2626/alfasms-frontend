@@ -1,84 +1,91 @@
 <script setup lang="ts">
-import { HeroIcons } from '~/assets/icons/types/hero-icons';
+import { ref } from "vue";
 
-interface IInputFileComponentProps {
-  isMultiple?: boolean;
+const fileName = ref("");
+const fileInputRef = ref<HTMLInputElement | null>(null);
+
+function handleFileChange(event: Event) {
+  const target = event.target as HTMLInputElement;
+  if (target.files?.length) {
+    fileName.value = target.files[0].name;
+  }
 }
 
-defineProps<IInputFileComponentProps>()
-
-const handleFileChange = () => {
-  
+function clearFile() {
+  fileName.value = "";
+  if (fileInputRef.value) {
+    fileInputRef.value.value = ""; // сброс input
+  }
 }
 </script>
 <template>
-  <label class="input-file">
-    <input 
-      :multiple="isMultiple"
+  <div class="base-input-file">
+    <input
       type="file"
-      class="input-file__main"
-      aria-label="Вставить изображение" 
+      id="fileInput"
+      class="base-input-file__input"
+      ref="fileInputRef"
+      @change="handleFileChange"
     />
-    <Icon class="input-file__icon" :name="HeroIcons.PHOTO" size="26" />
-    <div class="input-file__tooltip">
-      <div class="input-file__tooltip-cursor" />
-      Добавить фото
+    <label for="fileInput" class="base-input-file__label">
+      📁 Выбери файл
+    </label>
+
+    <div v-if="fileName" class="base-input-file__info">
+      <p class="base-input-file__name">✅ {{ fileName }}</p>
+      <button class="base-input-file__remove" @click="clearFile">
+        Удалить ❌
+      </button>
     </div>
-  </label>
+  </div>
 </template>
-<style lang="scss" scoped>
-.input-file {
-  position: relative;
-  display: block;
-  width: 54px;
-  height: 54px;
-  padding: 12px 14px 12px 13px;
-  justify-content: center;
+<style scoped lang="scss">
+.base-input-file {
+  display: flex;
   align-items: center;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color $fast_ease;
+  justify-content: space-between;
 
-  &__tooltip {
-    position: absolute;
-    z-index: 100;
-    color: $txt_white;
-    transition: opacity $fast_ease;
-    padding: 10px 8px;
-    border-radius: 5px;
-    font-size: 12px;
-    opacity: 0;
-    top: -20px;
-    width: 147px;
-    text-wrap: nowrap;
-    
-    &-cursor {
-      position: absolute;
-
-      width: 11px;
-      height: 11px;
-      rotate: 45deg;
-      top: 30px;
-      border-radius: 2px;
-    }
-  }
-
-  &:hover {
-
-
-    .input-file__tooltip  {
-      opacity: 1;
-    }
-  }
-
-  &__main {
-    cursor: pointer;
+  &__input {
     display: none;
   }
 
-  &__icon {
-    width: 27px;
-    height: 30px;
+  &__label {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: transparent;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 0 10px white;
+    }
+  }
+
+  &__info {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  &__name {
+    font-size: 0.9rem;
+    color: #333;
+  }
+
+  &__remove {
+    background-color: transparent;
+    border: none;
+    color: #e11d48;
+    cursor: pointer;
+    font-weight: bold;
+    transition: color 0.2s;
+
+    &:hover {
+      color: #be123c;
+    }
   }
 }
 </style>
