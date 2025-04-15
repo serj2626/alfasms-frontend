@@ -38,6 +38,7 @@ function hideAlert() {
   height: auto;
 
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 20px;
 
@@ -46,8 +47,17 @@ function hideAlert() {
   background-color: $txt_white;
   box-shadow: 0 16px 48px 0 rgba(0, 0, 0, 0.46);
 
+  @include mediaTablet{
+    flex-direction: row;
+  }
+
   &__text {
     color: $txt;
+    font-size: 14px;
+
+    @include mediaTablet {
+      font-size: 16px;
+    }
   }
 
   &__text-link {
@@ -56,6 +66,17 @@ function hideAlert() {
 
   &:deep(.base-button){
     padding-inline: 60px;
+  }
+
+  &__btn {
+    width: 100%;
+    font-size: 14px;
+    @include mediaMobile {
+      width: auto;
+    }
+    @include mediaTablet {
+      font-size: 16px;
+    }
   }
 }
 </style>
