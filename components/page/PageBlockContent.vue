@@ -32,15 +32,20 @@ defineProps<{
 <style lang="scss" scoped>
 .page-block-content {
   &__header {
+    padding-block: 60px;
     background: $bg_linear_second;
 
     &-content {
+      position: relative;
       padding: 180px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
 
       &-title {
         color: $txt_white;
         margin-bottom: 29px;
-        text-align: center;
+
       }
     }
   }

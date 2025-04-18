@@ -59,7 +59,7 @@ function submitRegisterForm() {
     <div class="base-form-register__wraper">
       <div class="base-form-register__wraper-top">
         <h3 class="base-form-register__wraper-top-title">
-          Начните работу с AlfaSMS
+          Начните работу с АльфаСМС
         </h3>
         <p class="base-form-register__wraper-top-text">
           Создайте бесплатный аккаунт. Без банковской карты.
@@ -67,105 +67,48 @@ function submitRegisterForm() {
       </div>
       <form @submit.prevent.stop class="base-form-register__wraper-form">
         <div class="base-form-register__wraper-form-block">
-          <label class="base-form-register__wraper-form-block-label" for="name"
-            >Имя</label
-          >
-          <BaseInput
-            v-model:input-value="formData.name.value"
-            :error="formData.name.error"
-            type="text"
-            class="base-form-register__wraper-form-block-input"
-            placeholder="Иван Иванов"
-          />
+          <label class="base-form-register__wraper-form-block-label" for="name">Имя</label>
+          <BaseInput v-model:input-value="formData.name.value" :error="formData.name.error" type="text"
+            class="base-form-register__wraper-form-block-input" placeholder="Иван Иванов" />
         </div>
         <div class="base-form-register__wraper-form-block">
-          <label class="base-form-register__wraper-form-block-label" for="email"
-            >Почта</label
-          >
-          <BaseInput
-            v-model:input-value="formData.email.value"
-            :error="formData.email.error"
-            type="email"
-            class="base-form-register__wraper-form-block-input"
-            placeholder="example@ex.com"
-          />
+          <label class="base-form-register__wraper-form-block-label" for="email">Почта</label>
+          <BaseInput v-model:input-value="formData.email.value" :error="formData.email.error" type="email"
+            class="base-form-register__wraper-form-block-input" placeholder="example@ex.com" />
         </div>
         <div class="base-form-register__wraper-form-block">
-          <label class="base-form-register__wraper-form-block-label" for="phone"
-            >Телефон</label
-          >
-          <BaseInput
-            v-model:input-value="formData.phone.value"
-            :error="formData.phone.error"
-            type="text"
-            class="base-form-register__wraper-form-block-input"
-            placeholder="8-999-999-99-99"
-          />
+          <label class="base-form-register__wraper-form-block-label" for="phone">Телефон</label>
+          <BaseInput v-model:input-value="formData.phone.value" :error="formData.phone.error" type="text"
+            class="base-form-register__wraper-form-block-input" placeholder="8-999-999-99-99" />
         </div>
         <div class="base-form-register__wraper-form-block">
-          <label
-            class="base-form-register__wraper-form-block-label"
-            for="password"
-            >Пароль</label
-          >
-          <BaseInput
-            v-model:input-value="formData.password.value"
-            :error="formData.password.error"
-            type="password"
-            class="base-form-register__wraper-form-block-input"
-            placeholder="Не менее 8 символов"
-          />
+          <label class="base-form-register__wraper-form-block-label" for="password">Пароль</label>
+          <BaseInput v-model:input-value="formData.password.value" :error="formData.password.error" type="password"
+            class="base-form-register__wraper-form-block-input" placeholder="Не менее 8 символов" />
         </div>
-        <BaseButton
-          class="base-form-register__wraper-form-btn"
-          size="lg"
-          color="red"
-          label="Регистрация"
-          @click="submitRegisterForm"
-        />
+        <BaseButton class="base-form-register__wraper-form-btn" size="lg" color="red" label="Регистрация"
+          @click="submitRegisterForm" />
       </form>
       <div class="base-form-register__wraper-bottom">
         <p class="base-form-register__wraper-bottom-or">
-          <span class="base-form-register__wraper-bottom-or-text"
-            >или войти с помощью</span
-          >
+          <span class="base-form-register__wraper-bottom-or-text">или войти с помощью</span>
         </p>
         <div class="base-form-register__wraper-bottom-actions">
-          <BaseButtonWithIcon
-            class="base-form-register__wraper-bottom-actions-btn"
-            size="md"
-            color="blue"
-            label="ВКонтакте"
-            icon="social:vk"
-          />
-          <BaseButtonWithIcon
-            class="base-form-register__wraper-bottom-actions-btn"
-            size="md"
-            color="white"
-            label="Яндекс"
-            icon="social:yandex"
-          />
+          <BaseButtonWithIcon class="base-form-register__wraper-bottom-actions-btn" size="md" color="blue"
+            label="ВКонтакте" icon="social:vk" />
+          <BaseButtonWithIcon class="base-form-register__wraper-bottom-actions-btn" size="md" color="white"
+            label="Яндекс" icon="social:yandex" />
         </div>
         <p class="base-form-register__wraper-bottom-info">
           Используя AlfaSMS, вы принимаете наши
-          <NuxtLink class="base-form-register__wraper-bottom-info-link"
-            >Условия предоставления услуг</NuxtLink
-          >
+          <NuxtLink class="base-form-register__wraper-bottom-info-link">Условия предоставления услуг</NuxtLink>
           и соглашаетесь с
-          <NuxtLink
-            @click="goToPolicy"
-            class="base-form-register__wraper-bottom-info-link"
-            >Политикой конфиденциальности</NuxtLink
-          >
+          <NuxtLink @click="goToPolicy" class="base-form-register__wraper-bottom-info-link">Политикой конфиденциальности
+          </NuxtLink>
         </p>
       </div>
       <button class="base-form-register__wraper-close">
-        <Icon
-          class="base-form-register__wraper-close-icon"
-          size="24"
-          :name="HeroIcons.CLOSE"
-          @click="closeModal"
-        />
+        <Icon class="base-form-register__wraper-close-icon" size="24" :name="HeroIcons.CLOSE" @click="closeModal" />
       </button>
     </div>
   </div>
@@ -188,29 +131,59 @@ function submitRegisterForm() {
 
   &__wraper {
     position: relative;
-    padding: 50px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
+
+    @include mediaMobile {
+      padding: 40px;
+    }
+
+    @include mediaTablet {
+      padding: 50px;
+    }
 
     &-close {
       @include btn_close_form;
     }
 
     &-top {
+      padding-top: 20px;
       margin-bottom: 16px;
 
+      @include mediaMobile {
+        padding-top: 0;
+      }
+
       &-title {
-        font-size: 28px;
+        font-size: 18px;
         margin-bottom: 4px;
         font-weight: 700;
+        text-align: center;
+
+
+        @include mediaTablet {
+          font-size: 20px;
+          text-align: start;
+        }
+
+        @include mediaLaptop {
+          font-size: 28px;
+        }
       }
 
       &-text {
         font-size: 14px;
         line-height: 142%;
         color: #5c6a70;
+        text-align: center;
+
+        @include mediaTablet {
+          text-align: start;
+        }
       }
     }
+
     &-form {
       display: flex;
       flex-direction: column;
@@ -227,6 +200,7 @@ function submitRegisterForm() {
           line-height: 142%;
           color: $txt;
         }
+
         &-input {
           display: flex;
           flex-direction: column;
@@ -242,46 +216,74 @@ function submitRegisterForm() {
           }
         }
       }
+
       &-btn {
         width: 100%;
         padding: 10px 16px;
       }
     }
+
     &-bottom {
       &-or {
-        margin-block: 25px;
+        margin-block: 35px;
         position: relative;
         width: 100%;
         border-bottom: 1px solid #ddd;
         line-height: 0;
         color: #5c6a70;
 
+        @include mediaMobile {
+          margin-block: 25px;
+        }
+
         &-text {
           position: absolute;
           top: 50%;
           left: 50%;
-          font-size: 15px;
+          font-size: 12px;
           transform: translate(-50%, -50%);
           background-color: $txt_white;
-          padding: 0 10px;
+          padding: 0 5px;
+
+          @include mediaMobile {
+            font-size: 15px;
+            padding: 0 10px;
+
+          }
         }
       }
+
       &-actions {
         display: flex;
+        flex-direction: column;
         align-items: center;
-        justify-content: space-between;
+
         gap: 10px;
         margin-bottom: 20px;
+
+        @include mediaMobile {
+          flex-direction: row;
+          justify-content: space-between;
+        }
 
         &-btn {
           width: 100%;
         }
       }
+
       &-info {
         color: #5c6a70;
         font-size: 14px;
         text-align: center;
-        padding-inline: 50px;
+        padding-inline: 20px;
+
+        @include mediaMobile {
+          padding-inline: 40px;
+        }
+
+        @include mediaTablet {
+          padding-inline: 50px;
+        }
 
         &-link {
           color: $teal;
@@ -297,6 +299,7 @@ function submitRegisterForm() {
     opacity: 0.5;
     transform: translateY(-100%);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -308,6 +311,7 @@ function submitRegisterForm() {
     opacity: 1;
     transform: translateY(0);
   }
+
   100% {
     opacity: 0.5;
     transform: translateY(-100%);

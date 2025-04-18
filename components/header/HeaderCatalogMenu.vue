@@ -175,14 +175,15 @@ const platformItems = {
   z-index: 200;
 
   animation: 0.5s ease-in-out show-menu;
+  overflow-y: scroll;
 
   @include mediaLaptop {
     display: none;
   }
   &__top {
     position: relative;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    // padding-top: 15px;
+    // padding-bottom: 15px;
     z-index: 1;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     background-color: $txt_white;
@@ -240,7 +241,7 @@ const platformItems = {
   }
 
   &__main {
-    overflow-y: auto;
+    // overflow-y: auto;
 
     &-nav {
       display: flex;
@@ -277,10 +278,11 @@ const platformItems = {
       }
     }
     &-info {
-      padding-top: 16px;
+      padding-block: 16px 50px;
       display: flex;
       flex-direction: column;
       gap: 20px;
+      
     }
   }
   &:deep(.header-logo){

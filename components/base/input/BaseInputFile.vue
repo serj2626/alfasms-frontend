@@ -1,8 +1,17 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import { HeroIcons } from "~/assets/icons/types/hero-icons";
 
 const fileName = ref("");
 const fileInputRef = ref<HTMLInputElement | null>(null);
+
+const totalFileName = computed(()=>{
+  if (fileName.value.length > 6){
+    const ext = fileName.value.split('.')
+    return `${ext[0].slice(0, 6)}...${ext[1]}`
+  } return fileName.value
+})
+
 
 function handleFileChange(event: Event) {
   const target = event.target as HTMLInputElement;
@@ -32,9 +41,11 @@ function clearFile() {
     </label>
 
     <div v-if="fileName" class="base-input-file__info">
-      <p class="base-input-file__name">✅ {{ fileName }}</p>
+      <p class="base-input-file__name"><span class="base-input-file__name-check">
+        <Icon class="base-input-file__name-check-icon" :name="HeroIcons.CHECK" size="18" />
+      </span>{{ totalFileName }}</p>
       <button class="base-input-file__remove" @click="clearFile">
-        Удалить ❌
+        Удалить <Icon :name="HeroIcons.CLOSE" size="22" />
       </button>
     </div>
   </div>
@@ -57,6 +68,7 @@ function clearFile() {
     font-weight: bold;
     border-radius: 8px;
     cursor: pointer;
+    font-size: 14px;
     transition: box-shadow 0.3s ease;
 
     &:hover {
@@ -68,23 +80,44 @@ function clearFile() {
     display: flex;
     gap: 10px;
     align-items: center;
+    font-size: 14px;
   }
 
   &__name {
-    font-size: 0.9rem;
-    color: #333;
+    color: $txt;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    &-check {
+      display: flex;
+      align-items: center;
+      background-color: $btn_green;
+      color: $txt_white;
+    }
   }
 
   &__remove {
-    background-color: transparent;
-    border: none;
-    color: #e11d48;
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: $error;
+    font-size: 14px;
     cursor: pointer;
-    font-weight: bold;
     transition: color 0.2s;
+    &:before{
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: $error;
+    }
 
-    &:hover {
-      color: #be123c;
+    &:hover:before{
+      transition: width 0.2s ease;
+      width: 100%;
     }
   }
 }

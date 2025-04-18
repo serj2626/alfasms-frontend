@@ -13,7 +13,7 @@
           title="Наполнение тарифного плана растет вместе с вашим бизнесом"
         />
         <p class="main-try-free__content-info-descr">
-          Используйте инструменты SendPulse безвозмездно и без ограничений во
+          Используйте инструменты АльфаСМС безвозмездно и без ограничений во
           времени, а при необходимости перейдите на
           <NuxtLink class="main-try-free__content-info-descr-link"
             >платный тариф
@@ -54,6 +54,7 @@
 
     @include mediaLaptop {
       flex-direction: row;
+      align-items: center;
     }
 
     &-info {
@@ -68,7 +69,7 @@
       }
 
       &-descr {
-        font-size: 18px;
+        font-size: 16px;
         line-height: 1.5;
         text-align: center;
         @include mediaLaptop {

@@ -37,7 +37,10 @@ const links: ILinks[] = [
           <Icon size="30" name="social:instagram" />
         </NuxtLink>
         <NuxtLink class="footer-info__content-social-link" to="/">
-          <Icon size="30" name="social:openai" />
+          <Icon size="30" name="social:whatsapp" />
+        </NuxtLink>
+        <NuxtLink class="footer-info__content-social-link" to="/">
+          <Icon size="30" name="social:vk" />
         </NuxtLink>
       </div>
     </div>
@@ -107,8 +110,9 @@ const links: ILinks[] = [
       display: flex;
       gap: 10px;
 
-      &-link {
+      &-link * {
         transition: all $fast_ease;
+        border-radius: 50%;
 
         &:hover {
           transform: scale(1.2);

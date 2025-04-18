@@ -102,7 +102,7 @@ function closeChat() {
   box-shadow: 0 0 30px rgba(253, 253, 253, 0.416);
   overflow: auto;
 
-  animation: open-chat 0.5s ease-in-out;
+  animation: open-chat 0.4s ease-in-out;
 
   &_close {
     animation: close-chat $default_ease;
@@ -189,10 +189,14 @@ function closeChat() {
     }
     &-bottom {
       position: relative;
-      padding: 10px 34px 30px;
+      padding: 10px 14px 30px;
       display: flex;
       flex-direction: column;
       gap: 10px;
+
+      @include mediaTablet {
+        padding: 10px 34px 30px;
+      }
 
 
       &-send {

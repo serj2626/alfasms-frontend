@@ -256,7 +256,6 @@ onBeforeUnmount(() => {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-block: 12px;
     @include mediaLaptop {
       display: none;
     }
