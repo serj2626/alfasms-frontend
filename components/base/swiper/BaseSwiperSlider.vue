@@ -6,7 +6,7 @@ defineProps<{ images: IContactsImage[] }>();
 <template>
   <swiper-slide v-for="(image, idx) in images" :key="idx">
     <NuxtLink>
-      <Icon class="main-partners__image" :name="image.path" :alt="image.alt" />
+      <Icon size="22" class="main-partners__image" :name="image.path" :alt="image.alt" />
     </NuxtLink>
   </swiper-slide>
 </template>

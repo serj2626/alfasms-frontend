@@ -50,7 +50,7 @@
                 alt=""
               />
               <h4 class="main-helpers__content-services-item-title">
-                Академия AlfaSMS
+                Академия АльфаСМС
               </h4>
               <p class="main-helpers__content-services-item-text">
                 Курсы по настройке платформы и отдельных сервисов в соответствии
@@ -67,7 +67,7 @@
                 Вебинары
               </h4>
               <p class="main-helpers__content-services-item-text">
-                Практические советы по SendPulse для различных бизнесов и
+                Практические советы по AlfaSMS для различных бизнесов и
                 реальные кейсы.
               </p>
             </div>
@@ -80,7 +80,7 @@
             <BaseTypography
               class="main-helpers__content-data-title"
               view="h3"
-              title="Некогда разбираться в функционале SendPulse самостоятельно?"
+              title="Некогда разбираться в функционале АльфаСМС самостоятельно?"
             />
             <p class="main-helpers__content-data-desc">
               Запишитесь на бесплатное 20-минутное демо. Подскажем, как внедрить
@@ -147,6 +147,7 @@
         display: flex;
         flex-direction: column;
         cursor: pointer;
+        border-radius: 10px;
         transition: all $fast_ease;
         &:hover {
           @include card_shadow;
